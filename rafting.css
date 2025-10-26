@@ -1,0 +1,147 @@
+/* ===== Global ===== */
+:root{
+  --accent:#6a5acd;
+  --muted:#f4f4f8;
+  --text:#222;
+  --header-bg:#d9d3fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--text);
+  line-height:1.45;
+  background:#fff;
+}
+
+/* ===== Header (CSS Grid) =====
+   Grid creates two columns: logo (fixed) and nav (auto) */
+.site-header{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  align-items:center;
+  gap:1rem;
+  background:var(--header-bg);
+  padding:18px 28px;
+}
+
+/* logo */
+.logo-wrap{display:flex; align-items:center}
+.site-logo{width:120px; height:auto; display:block}
+
+/* ===== Nav (Flex inside nav) ===== */
+.main-nav ul{
+  display:flex;
+  justify-content:flex-end; /* nav items to right of header grid column */
+  gap:14px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.main-nav a{
+  display:inline-block;
+  text-decoration:none;
+  background:#fff;
+  color:var(--text);
+  padding:8px 14px;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:background-color .18s, color .18s, transform .08s;
+}
+
+.main-nav a:hover{ background:var(--accent); color:#fff; transform:translateY(-1px) }
+.main-nav a.active{ background:var(--accent); color:#fff }
+
+/* ===== Hero / Intro ===== */
+.hero{ padding:34px 18px; text-align:center }
+.hero-inner{ max-width:1100px; margin:0 auto }
+.hero-content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.hero-content img{ width:320px; max-width:45vw; border-radius:8px }
+.hero-text{ max-width:640px; text-align:left }
+
+/* ===== History Section: 3-column Grid (text - image - text) ===== */
+.history{ background:var(--muted); padding:28px 18px }
+.history h2{ margin-top:0; text-align:center }
+.history-grid{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: 1fr 320px 1fr;
+  gap:18px;
+  align-items:center;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+.history-grid .history-image img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  display:block;
+  background:var(--accent);
+  padding:8px; /* small frame effect */
+}
+
+/* ===== Projects: five figure items across (flex) ===== */
+.adventures{ padding:28px 18px; text-align:center }
+.adventure-gallery{
+  margin-top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.adventure-gallery figure{
+  margin:0;
+  text-align:center;
+  flex:1 1 18%; /* try to fit 5 items across; will wrap on small screens */
+  min-width:150px;
+}
+.adventure-gallery img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:6px;
+  display:block;
+}
+.adventure-gallery figcaption{ margin-top:8px; font-size:0.95rem }
+
+/* ===== Footer: right-aligned social icons ===== */
+.site-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  background:var(--header-bg);
+  padding:12px 22px;
+}
+.site-footer p{ margin:0; font-size:0.95rem }
+.socials{ display:flex; gap:10px; align-items:center }
+.socials img{ display:block; width:28px; height:28px }
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .site-header{ grid-template-columns:1fr; text-align:center; row-gap:12px }
+  .main-nav ul{ justify-content:center }
+  .history-grid{ grid-template-columns:1fr; text-align:center }
+  .adventure-gallery{ justify-content:center }
+  .adventure-gallery figure{ flex: 1 1 40%; max-width:220px }
+  .hero-text{ text-align:center }
+}
+
+@media (max-width:480px){
+  .adventure-gallery figure{ flex:1 1 100%; max-width:none }
+  .hero-content img{ width:90%; max-width:320px }
+}
+
