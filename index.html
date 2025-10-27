@@ -1,118 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moofar — Landscaping, Bush Clearing & Fencing</title>
-  <meta name="description" content="Moofar — Professional landscaping, bush clearing and fencing services across Botswana. Transforming outdoor spaces with quality workmanship." />
-  <link rel="stylesheet" href="rafting.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moofar Proprietary Limited | Landscaping & Garden Services Botswana</title>
+  <meta name="description" content="Moofar Proprietary Limited offers professional landscaping, gardening, and outdoor maintenance services across Botswana.">
+  <link rel="stylesheet" href="styles/moofar.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="logo-wrap">
-      <a href="index.html">
-        <img src="images/logo-landscape.png" alt="Moofar logo" class="site-logo">
-      </a>
-    </div>
-
-    <nav class="main-nav" role="navigation" aria-label="Primary">
+  <!-- ===== HEADER ===== -->
+  <header>
+    <img src="images/logo-landscape.jpeg" alt="Moofar Proprietary Limited logo" class="site-logo">
+    <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main-content" role="main">
-    <!-- Full-width hero with absolute-positioned overlay heading -->
-    <section class="hero" aria-labelledby="hero-heading" style="padding:0;">
-      <div style="position:relative;">
-        <img src="images/hero-landscape.jpg" alt="Landscape and garden" style="width:100%; height:auto; display:block; object-fit:cover;">
-        <div style="position:absolute; left:24px; bottom:24px; max-width:80%; background:rgba(0,0,0,0.45); color:#fff; padding:18px 22px; border-radius:8px;">
-          <h1 id="hero-heading" style="margin:0; font-size:1.8rem;">Transforming Outdoor Spaces Across Botswana</h1>
-          <p style="margin:.5rem 0 0;">Professional landscaping, bush clearing, and fencing — built to last.</p>
-        </div>
-      </div>
+  <!-- ===== HERO SECTION ===== -->
+  <div class="hero">
+    <img src="images/hero-landscape.jpg" alt="Beautiful green landscape designed by Moofar">
+    <h1>Transforming Spaces. Growing Beauty.</h1>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+    <section class="purpose-grid">
+      <article>
+        <img src="images/garden.jpg" alt="Beautifully landscaped garden">
+        <h2>Our Purpose</h2>
+        <p>At Moofar Proprietary Limited, we believe that every outdoor space has potential to inspire. We transform gardens, yards, and estates into lush, vibrant spaces through professional landscaping and sustainable maintenance solutions.</p>
+      </article>
+
+      <article>
+        <img src="images/fencing.jpg" alt="Decorative fencing project">
+        <h2>What We Offer</h2>
+        <p>Our services include full-scale landscaping, irrigation setup, lawn care, fencing, and outdoor design. Whether you’re looking to enhance your home or commercial property, our expert team can help you achieve your vision.</p>
+      </article>
     </section>
 
-    <!-- Newsletter + CTA strip -->
-    <section style="padding:28px 18px; background:var(--muted);">
-      <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1fr 320px; gap:20px; align-items:center;">
-        <div>
-          <h2>Join our newsletter</h2>
-          <p>Get tips, seasonal offers, and project highlights — direct to your inbox.</p>
-
-          <form action="#" method="post" style="display:flex; gap:10px; flex-wrap:wrap;">
-            <label for="nl-name" class="visually-hidden">Full name</label>
-            <input id="nl-name" name="name" type="text" placeholder="Your name" required style="flex:1 1 200px; padding:10px; border-radius:6px; border:1px solid #ccc;">
-            <label for="nl-email" class="visually-hidden">Email</label>
-            <input id="nl-email" name="email" type="email" placeholder="you@example.com" required style="flex:1 1 260px; padding:10px; border-radius:6px; border:1px solid #ccc;">
-            <button type="submit" class="submit-btn" style="flex:0 0 auto;">Sign up</button>
-          </form>
-        </div>
-
-        <div style="text-align:right;">
-          <p style="margin:0 0 10px;">Ready to start your project?</p>
-          <a href="services.html" style="display:inline-block; padding:12px 18px; background:var(--accent); color:#fff; border-radius:8px; text-decoration:none;">View Our Services</a>
-        </div>
-      </div>
+    <!-- ===== CALL TO ACTION ===== -->
+    <section class="cta">
+      <h2>Ready to Begin Your Next Project?</h2>
+      <p>Explore our range of professional landscaping services and start your transformation journey today.</p>
+      <a href="services.html" class="button">View Our Services</a>
     </section>
 
-    <!-- Grid: two images + content describing purpose & offerings (not single-column) -->
-    <section style="padding:28px 18px;">
-      <div style="max-width:1100px; margin:0 auto;">
-        <h2>What we offer</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:center; margin-top:12px;">
-          <div>
-            <img src="images/project-4.jpg" alt="Garden design and maintenance" style="width:100%; height:auto; border-radius:8px; display:block;">
-            <h3>Design & Maintenance</h3>
-            <p>From concept to maintenance, we create and care for beautiful gardens that suit your lifestyle and budget.</p>
-          </div>
-
-          <div>
-            <img src="images/project-3.jpg" alt="Fencing and perimeter installation" style="width:100%; height:auto; border-radius:8px; display:block;">
-            <h3>Fencing & Security</h3>
-            <p>Durable fencing solutions for homes and businesses, installed with safety and longevity in mind.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recent work preview -->
-    <section class="adventures" style="padding-bottom:48px;">
-      <h2>Recent Work</h2>
-      <div class="adventure-gallery" role="list">
-        <figure>
-          <img src="images/project-1.jpg" alt="Residential landscaping project">
-          <figcaption>Residential Landscaping</figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/project-2.jpg" alt="Bush clearing service">
-          <figcaption>Bush Clearing</figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/project-3.jpg" alt="Fencing installation">
-          <figcaption>Fencing Installation</figcaption>
-        </figure>
-      </div>
+    <!-- ===== NEWSLETTER SIGNUP ===== -->
+    <section class="newsletter">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with Moofar news, seasonal offers, and landscaping inspiration delivered straight to your inbox.</p>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-left">
-      <p>© 2025 Moofar Proprietary Limited — UIN: BW00009410484</p>
-    </div>
-    <div class="footer-right socials">
-      <a href="#" aria-label="Facebook"><img src="images/icon-facebook.png" alt="Facebook icon"></a>
-      <a href="#" aria-label="Twitter"><img src="images/icon-twitter.png" alt="Twitter icon"></a>
-      <a href="#" aria-label="Instagram"><img src="images/icon-instagram.png" alt="Instagram icon"></a>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Moofar Proprietary Limited | Website Design by Tinny Bothepha Mosimanyana</p>
+    <div class="socialmedia">
+      <a href="https://facebook.com"><img src="images/facebook.svg" alt="Facebook"></a>
+      <a href="https://linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://instagram.com"><img src="images/instagram.svg" alt="Instagram"></a>
     </div>
   </footer>
 </body>
