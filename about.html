@@ -1,71 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Mookfar Pty Ltd Services</title>
-  <meta name="description" content="Learn about Mookfar Pty Ltd Services, Botswana’s trusted landscaping, bush clearing, and fencing specialists. Based in Francistown, we deliver quality and reliability.">
-  <link rel="stylesheet" href="rafting.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Moofar Proprietary Limited</title>
+  <link rel="stylesheet" href="rafting.css">
 </head>
-
 <body>
-  <header>
-    <img src="images/logo.png" alt="Mookfar Pty Ltd Services Logo" class="logo">
-    <nav>
+  <!-- Header: grid used to place logo and nav side-by-side -->
+  <header class="site-header" role="banner">
+    <div class="logo-wrap">
+      <a href="index.html">
+        <img src="images/logo-landscape.png" alt="Moofar logo" class="site-logo">
+      </a>
+    </div>
+
+    <nav class="main-nav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="about-intro">
-      <h1>About Mookfar Pty Ltd Services</h1>
-      <p>We are a Botswana-based company dedicated to providing exceptional landscaping, bush clearing, and fencing services. With years of experience, our mission is to enhance outdoor spaces with professionalism and care.</p>
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Moofar Proprietary Limited</h1>
+        <div class="hero-content">
+          <div class="hero-text">
+            <p>We specialize in professional landscaping, bush clearing, and fencing services across Botswana. Our experienced team delivers quality workmanship that transforms outdoor spaces and enhances property value. From residential gardens to commercial properties, we bring expertise and dedication to every project.</p>
+          </div>
+
+          <img src="images/hero-landscape.jpg" alt="Beautiful landscaped garden">
+        </div>
+      </div>
     </section>
 
-    <section class="our-values">
-      <h2>Our Values</h2>
-      <ul>
-        <li><strong>Excellence:</strong> Delivering quality and precision in every project.</li>
-        <li><strong>Integrity:</strong> Upholding honesty and trust with every client.</li>
-        <li><strong>Sustainability:</strong> Caring for the environment in all our operations.</li>
-      </ul>
+    <!-- History section (3-column grid: text - image - text) -->
+    <section class="history">
+      <h2>Our Story</h2>
+      <div class="history-grid">
+        <div class="history-text">
+          <p>Officially incorporated in September 2025, Moofar Proprietary Limited was founded by Mooketsi Mapugwa with a vision to provide comprehensive landscaping solutions throughout Botswana. Under the management of Farai Madorobo, we've built a reputation for reliability and quality.</p>
+        </div>
+
+        <div class="history-image">
+          <img src="images/history-landscape.jpg" alt="Moofar team at work">
+        </div>
+
+        <div class="history-text">
+          <p>Our core services—landscaping, bush clearing, and fencing—are designed to meet the diverse needs of our clients. We combine traditional craftsmanship with modern techniques to deliver outstanding results that stand the test of time.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="our-team">
-      <h2>Meet the Team</h2>
-      <div class="employee-grid">
+    <!-- Projects gallery: five figures in a single row on wide screens -->
+    <section class="adventures">
+      <h2>Our Featured Projects</h2>
+      <div class="adventure-gallery" role="list">
         <figure>
-          <img src="images/mooketsi.jpg" alt="Director">
-          <figcaption>Mooketsi Mapugwa – Director</figcaption>
+          <img src="images/project-1.jpg" alt="Residential landscaping project">
+          <figcaption>Residential Landscaping</figcaption>
         </figure>
+
         <figure>
-          <img src="images/farai.jpg" alt="Manager">
-          <figcaption>Farai Madorobo – Manager</figcaption>
+          <img src="images/project-2.jpg" alt="Bush clearing service">
+          <figcaption>Bush Clearing Services</figcaption>
         </figure>
+
         <figure>
-          <img src="images/tinny.jpg" alt="Web Designer">
-          <figcaption>Tinny Mosimanyana – Web Designer</figcaption>
+          <img src="images/project-3.jpg" alt="Professional fencing installation">
+          <figcaption>Fencing Installation</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/project-4.jpg" alt="Garden design and maintenance">
+          <figcaption>Garden Design & Maintenance</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/project-5.jpg" alt="Commercial property landscaping">
+          <figcaption>Commercial Landscaping</figcaption>
         </figure>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Mookfar Pty Ltd Services | Landscaping • Bush Clearing • Fencing</p>
-    <div class="footer-contact">
-      <p>📍 Francistown, Botswana | 📞 +267 7777 23232 | ✉️ Mookfara@gmail.com</p>
+  <!-- Footer: text left, social icons aligned right -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <p>© 2025 Moofar Proprietary Limited — UIN: BW00009410484</p>
     </div>
-    <div class="social-icons">
-      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+    <div class="footer-right socials">
+      <a href="#" aria-label="Facebook"><img src="images/icon-facebook.png" alt="Facebook icon"></a>
+      <a href="#" aria-label="Twitter"><img src="images/icon-twitter.png" alt="Twitter icon"></a>
+      <a href="#" aria-label="Instagram"><img src="images/icon-instagram.png" alt="Instagram icon"></a>
     </div>
   </footer>
 </body>
 </html>
-

@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Moofar Landscape Services</title>
-  <meta name="description" content="Contact Moofar Landscape Services for professional landscaping, garden design, and maintenance solutions in Botswana.">
+  <title>Contact Us | Moofar Proprietary Limited</title>
+  <meta name="description" content="Contact Moofar for professional landscaping, bush clearing, and fencing services in Botswana.">
   <link rel="stylesheet" href="rafting.css" />
 </head>
 
 <body>
-  <header>
-    <img src="images/logo.png" alt="Moofar Landscape Services Logo" class="logo">
-    <nav>
+  <header class="site-header">
+    <div class="logo-wrap">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Moofar Logo" class="site-logo">
+      </a>
+    </div>
+    <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
@@ -24,18 +29,21 @@
   <main>
     <!-- Company Info -->
     <section class="contact-info">
-      <h1>Contact Moofar Landscape Services</h1>
-      <p>Let’s bring your outdoor vision to life! Reach out to us for quotes, design consultations, or general inquiries.</p>
+      <h1>Contact Moofar</h1>
+      <p>Let's bring your outdoor vision to life! Reach out to us for quotes, design consultations, or general inquiries.</p>
 
       <div class="company-details">
-        <p><strong>Address:</strong> Plot 101, Francistown, Botswana</p>
-        <p><strong>Phone:</strong> +267 72 555 000</p>
-        <p><strong>Email:</strong> info@moofar.land</p>
+        <p><strong>Company:</strong> Moofar Proprietary Limited</p>
+        <p><strong>Director:</strong> Mooketsi Mapugwa</p>
+        <p><strong>Manager:</strong> Farai Madorobo</p>
+        <p><strong>Phone:</strong> +267 777 23232 / +267 770 85655</p>
+        <p><strong>Email:</strong> Mookfara@gmail.com</p>
+        <p><strong>Services:</strong> Landscaping, Bush Clearing, Fencing</p>
       </div>
 
       <div class="map-container">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14363.166248627504!2d27.48689919143626!3d-21.17093874358194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebe7b8cb8b6c70b%3A0x374c9a83b040ef2!2sFrancistown%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1698252222608"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.120519382306!2d25.9123!3d-24.6541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebb5b5e62bdb6df%3A0xbfaec7ec65b229c!2sGaborone!5e0!3m2!1sen!2sbw!4v1234567890"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
@@ -43,21 +51,21 @@
       </div>
     </section>
 
-    <!-- Employees -->
+    <!-- Team -->
     <section class="employees">
       <h2>Meet Our Team</h2>
       <div class="employee-grid">
         <figure>
-          <img src="images/employee1.jpg" alt="Landscape Designer">
-          <figcaption>Lesego M. – Lead Landscape Designer</figcaption>
+          <img src="images/employee1.jpg" alt="Director">
+          <figcaption>Mooketsi Mapugwa – Director</figcaption>
         </figure>
         <figure>
-          <img src="images/employee2.jpg" alt="Operations Manager">
-          <figcaption>Thabo K. – Operations Manager</figcaption>
+          <img src="images/employee2.jpg" alt="Manager">
+          <figcaption>Farai Madorobo – Manager</figcaption>
         </figure>
         <figure>
-          <img src="images/employee3.jpg" alt="Customer Care Specialist">
-          <figcaption>Tinny B. – Customer Care Specialist</figcaption>
+          <img src="images/employee3.jpg" alt="Team Member">
+          <figcaption>Our Professional Team</figcaption>
         </figure>
       </div>
     </section>
@@ -76,20 +84,26 @@
           <input type="email" id="email" name="email" placeholder="you@example.com" required>
         </div>
 
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+267">
+        </div>
+
         <fieldset class="form-group">
-          <legend>Purpose of Message</legend>
-          <label><input type="radio" name="purpose" value="general" required> General Inquiry</label>
-          <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label>
-          <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
+          <legend>Service Interest</legend>
+          <label><input type="radio" name="service" value="landscaping" required> Landscaping</label>
+          <label><input type="radio" name="service" value="bush-clearing"> Bush Clearing</label>
+          <label><input type="radio" name="service" value="fencing"> Fencing</label>
+          <label><input type="radio" name="service" value="general"> General Inquiry</label>
         </fieldset>
 
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
         </div>
 
         <div class="form-group checkbox">
-          <label><input type="checkbox" name="subscribe"> Please subscribe me to the monthly newsletter</label>
+          <label><input type="checkbox" name="subscribe"> Please subscribe me to updates and newsletters</label>
         </div>
 
         <div class="form-group">
@@ -99,12 +113,14 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Moofar Landscape Services | All rights reserved</p>
-    <div class="social-icons">
-      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p>© 2025 Moofar Proprietary Limited | UIN: BW00009410484</p>
+    </div>
+    <div class="footer-right socials">
+      <a href="#" aria-label="Facebook"><img src="images/icon-facebook.png" alt="Facebook"></a>
+      <a href="#" aria-label="Instagram"><img src="images/icon-instagram.png" alt="Instagram"></a>
+      <a href="#" aria-label="Twitter"><img src="images/icon-twitter.png" alt="Twitter"></a>
     </div>
   </footer>
 </body>
