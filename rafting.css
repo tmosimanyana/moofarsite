@@ -1,417 +1,118 @@
-/* ===== Global ===== */
-:root{
-  --accent:#6a5acd;
-  --muted:#f4f4f8;
-  --text:#222;
-  --header-bg:#d9d3fb;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  color:var(--text);
-  line-height:1.45;
-  background:#fff;
-}
+/* ================================
+   CONTACT PAGE STYLES
+=================================== */
 
-/* ===== Header (CSS Grid) =====
-   Grid creates two columns: logo (fixed) and nav (auto) */
-.site-header{
-  display:grid;
-  grid-template-columns:140px 1fr;
-  align-items:center;
-  gap:1rem;
-  background:var(--header-bg);
-  padding:18px 28px;
-}
-
-/* logo */
-.logo-wrap{display:flex; align-items:center}
-.site-logo{width:120px; height:auto; display:block}
-
-/* ===== Nav (Flex inside nav) ===== */
-.main-nav ul{
-  display:flex;
-  justify-content:flex-end; /* nav items to right of header grid column */
-  gap:14px;
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-.main-nav a{
-  display:inline-block;
-  text-decoration:none;
-  background:#fff;
-  color:var(--text);
-  padding:8px 14px;
-  border-radius:6px;
-  border:1px solid rgba(0,0,0,0.06);
-  transition:background-color .18s, color .18s, transform .08s;
-}
-
-.main-nav a:hover{ background:var(--accent); color:#fff; transform:translateY(-1px) }
-.main-nav a.active{ background:var(--accent); color:#fff }
-
-/* ===== Hero / Intro ===== */
-.hero{ padding:34px 18px; text-align:center }
-.hero-inner{ max-width:1100px; margin:0 auto }
-.hero-content{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-.hero-content img{ width:320px; max-width:45vw; border-radius:8px }
-.hero-text{ max-width:640px; text-align:left }
-
-/* ===== History Section: 3-column Grid (text - image - text) ===== */
-.history{ background:var(--muted); padding:28px 18px }
-.history h2{ margin-top:0; text-align:center }
-.history-grid{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns: 1fr 320px 1fr;
-  gap:18px;
-  align-items:center;
-  padding-top:12px;
-  padding-bottom:12px;
-}
-.history-grid .history-image img{
-  width:100%;
-  height:auto;
-  border-radius:8px;
-  display:block;
-  background:var(--accent);
-  padding:8px; /* small frame effect */
-}
-
-/* ===== Projects: five figure items across (flex) ===== */
-.adventures{ padding:28px 18px; text-align:center }
-.adventure-gallery{
-  margin-top:16px;
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:flex-start;
-  max-width:1200px;
-  margin-left:auto;
-  margin-right:auto;
-}
-.adventure-gallery figure{
-  margin:0;
-  text-align:center;
-  flex:1 1 18%; /* try to fit 5 items across; will wrap on small screens */
-  min-width:150px;
-}
-.adventure-gallery img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  border-radius:6px;
-  display:block;
-}
-.adventure-gallery figcaption{ margin-top:8px; font-size:0.95rem }
-
-/* ===== Footer: right-aligned social icons ===== */
-.site-footer{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  background:var(--header-bg);
-  padding:12px 22px;
-}
-.site-footer p{ margin:0; font-size:0.95rem }
-.socials{ display:flex; gap:10px; align-items:center }
-.socials img{ display:block; width:28px; height:28px }
-
-/* ===== Responsive ===== */
-@media (max-width:900px){
-  .site-header{ grid-template-columns:1fr; text-align:center; row-gap:12px }
-  .main-nav ul{ justify-content:center }
-  .history-grid{ grid-template-columns:1fr; text-align:center }
-  .adventure-gallery{ justify-content:center }
-  .adventure-gallery figure{ flex: 1 1 40%; max-width:220px }
-  .hero-text{ text-align:center }
-}
-
-@media (max-width:480px){
-  .adventure-gallery figure{ flex:1 1 100%; max-width:none }
-  .hero-content img{ width:90%; max-width:320px }
-}
-/* Header Layout using Grid and Flex */
-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  background-color: #c5b7f2;
-  padding: 1rem 2rem;
-}
-
-header .logo {
-  max-height: 70px;
-}
-
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  background: white;
-  padding: 8px 16px;
-  border-radius: 5px;
-}
-nav a:hover, nav .active {
-  background: #8469d3;
-  color: white;
-}
-
-/* Contact Info */
 .contact-info {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  background: #f5f5f5;
 }
 
-.company-details {
-  margin-bottom: 1.5rem;
+.map-section {
+  text-align: center;
+  margin: 2rem auto;
 }
 
 .map-container iframe {
   width: 100%;
-  height: 300px;
+  max-width: 800px;
+  height: 400px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Employee Grid */
-.employees {
-  padding: 2rem;
+.team-section {
+  background-color: #eef2ef;
   text-align: center;
-  background-color: #f4f4f4;
+  padding: 2rem 1rem;
 }
 
-.employee-grid {
+.team-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin-top: 1rem;
 }
-.employee-grid figure {
-  width: 200px;
+
+.team-grid figure {
+  width: 220px;
+  text-align: center;
 }
-.employee-grid img {
+
+.team-grid img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
 }
-.employee-grid figcaption {
+
+.team-grid figcaption {
   margin-top: 0.5rem;
-  font-weight: 600;
-}
-
-/* Contact Form */
-.contact-form-section {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-.form-group label {
   font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-fieldset {
-  border: 1px solid #ccc;
-  padding: 1rem;
-}
-fieldset legend {
-  font-weight: bold;
-}
-.checkbox label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.submit-btn {
-  background-color: #8469d3;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.submit-btn:hover {
-  background-color: #6a52b5;
-}
-
-/* Footer */
-footer {
-  background-color: #c5b7f2;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-footer .social-icons img {
-  width: 24px;
-  margin: 0 8px;
-}
-
-/* Header Layout */
-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  background-color: #c5b7f2;
-  padding: 1rem 2rem;
-}
-header .logo {
-  max-height: 70px;
-}
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  list-style: none;
-}
-nav a {
-  text-decoration: none;
   color: #333;
-  background: white;
-  padding: 8px 16px;
-  border-radius: 5px;
-}
-nav a:hover,
-nav .active {
-  background: #8469d3;
-  color: white;
 }
 
-/* Contact Info Section */
-.contact-info {
-  text-align: center;
+.contact-form-section {
+  max-width: 700px;
+  margin: 3rem auto;
   padding: 2rem;
-}
-.company-details {
-  margin-bottom: 1rem;
-}
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
+  background: #fafafa;
   border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Employees Section */
-.employees {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4;
-}
-.employee-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-.employee-grid figure {
-  width: 200px;
-}
-.employee-grid img {
-  width: 100%;
-  border-radius: 10px;
-}
-.employee-grid figcaption {
-  margin-top: 0.5rem;
+.contact-form label {
+  display: block;
+  margin-top: 1rem;
   font-weight: 600;
 }
 
-/* Contact Form Section */
-.contact-form-section {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-fieldset {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem;
   border: 1px solid #ccc;
-  padding: 1rem;
-}
-legend {
-  font-weight: bold;
-}
-.checkbox label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.submit-btn {
-  background-color: #8469d3;
-  color: white;
-  border: none;
-  padding: 10px 16px;
   border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.submit-btn:hover {
-  background-color: #6a52b5;
+  margin-top: 0.3rem;
 }
 
-/* Footer */
-footer {
-  background-color: #c5b7f2;
-  padding: 1rem;
+.contact-form input[type="radio"] {
+  margin-right: 0.4rem;
+}
+
+.contact-form .subscribe {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-footer .social-icons img {
-  width: 24px;
-  margin: 0 8px;
+  margin-top: 1rem;
 }
 
-/* Responsive Design */
+.contact-form button {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: #3a6b35;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2e522a;
+}
+
+/* Responsive layout */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .employee-grid {
+  .team-grid {
     flex-direction: column;
     align-items: center;
+  }
+
+  .map-container iframe {
+    height: 300px;
   }
 }
 
