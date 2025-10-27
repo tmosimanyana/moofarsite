@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moofar Proprietary Limited - Professional Landscaping Services in Botswana</title>
-  <meta name="description" content="Moofar offers expert landscaping, bush clearing, and fencing services across Botswana. Transform your outdoor spaces with our professional team.">
+  <title>Moofar — Landscaping, Bush Clearing & Fencing</title>
+  <meta name="description" content="Moofar — Professional landscaping, bush clearing and fencing services across Botswana. Transforming outdoor spaces with quality workmanship." />
   <link rel="stylesheet" href="rafting.css">
 </head>
 <body>
-  <!-- Header with navigation -->
   <header class="site-header" role="banner">
     <div class="logo-wrap">
       <a href="index.html">
@@ -27,77 +26,83 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Hero Section with positioned heading -->
-    <section class="hero-banner">
-      <img src="images/hero-main.jpg" alt="Beautiful landscaped garden with lush greenery" class="hero-image">
-      <div class="hero-message">
-        <h1>Transform Your Outdoor Space</h1>
-        <p>Professional Landscaping, Bush Clearing & Fencing Services</p>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Explore our comprehensive range of landscaping services and discover how we can bring your outdoor vision to life.</p>
-        <a href="services.html" class="cta-button">View Our Services</a>
-      </div>
-    </section>
-
-    <!-- Grid Layout with Services Overview -->
-    <section class="services-grid">
-      <div class="grid-item">
-        <img src="images/landscaping-service.jpg" alt="Professional landscaping work">
-        <div class="grid-content">
-          <h3>Expert Landscaping</h3>
-          <p>From garden design to installation and ongoing maintenance, our landscaping services enhance the beauty and functionality of your property. We work with native plants and sustainable practices to create outdoor spaces that thrive in Botswana's climate.</p>
-        </div>
-      </div>
-
-      <div class="grid-item">
-        <img src="images/bush-clearing.jpg" alt="Bush clearing service">
-        <div class="grid-content">
-          <h3>Bush Clearing</h3>
-          <p>Professional land clearing services to prepare your property for development or maintenance. Our experienced team safely removes unwanted vegetation while preserving the integrity of your land and protecting desirable features.</p>
-        </div>
-      </div>
-
-      <div class="grid-item">
-        <img src="images/fencing-service.jpg" alt="Quality fencing installation">
-        <div class="grid-content">
-          <h3>Quality Fencing</h3>
-          <p>Secure your property with our durable fencing solutions. We install a variety of fencing types to meet your security, privacy, and aesthetic needs. From residential to commercial applications, we deliver quality workmanship.</p>
-        </div>
-      </div>
-
-      <div class="grid-item">
-        <img src="images/maintenance.jpg" alt="Garden maintenance services">
-        <div class="grid-content">
-          <h3>Ongoing Maintenance</h3>
-          <p>Keep your landscape looking its best year-round with our maintenance services. We provide regular care including pruning, weeding, fertilization, and irrigation management to ensure your outdoor spaces remain healthy and attractive.</p>
+  <main role="main">
+    <!-- Full-width hero: parent positioned relative, heading absolutely positioned on image -->
+    <section class="hero" aria-labelledby="hero-heading" style="padding:0;">
+      <div style="position:relative;">
+        <img src="images/hero-landscape.jpg" alt="Landscape and garden" style="width:100%; height:auto; display:block; object-fit:cover;">
+        <div style="position:absolute; left:24px; bottom:24px; max-width:80%; background:rgba(0,0,0,0.45); color:#fff; padding:18px 22px; border-radius:8px;">
+          <h1 id="hero-heading" style="margin:0; font-size:1.8rem;">Transforming Outdoor Spaces Across Botswana</h1>
+          <p style="margin:.5rem 0 0;">Professional landscaping, bush clearing, and fencing — built to last.</p>
         </div>
       </div>
     </section>
 
-    <!-- Newsletter Signup -->
-    <section class="newsletter-section">
-      <div class="newsletter-container">
-        <h2>Stay Updated with Moofar</h2>
-        <p>Subscribe to our newsletter for landscaping tips, seasonal offers, and project updates.</p>
-        <form class="newsletter-form" action="#" method="post">
-          <div class="form-row">
-            <input type="text" id="subscriber-name" name="name" placeholder="Your Name" required>
-            <input type="email" id="subscriber-email" name="email" placeholder="Your Email" required>
-            <button type="submit" class="subscribe-btn">Subscribe</button>
+    <!-- Newsletter + CTA strip -->
+    <section style="padding:28px 18px; background:var(--muted);">
+      <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1fr 320px; gap:20px; align-items:center;">
+        <div>
+          <h2>Join our newsletter</h2>
+          <p>Get tips, seasonal offers, and project highlights — direct to your inbox.</p>
+
+          <form action="#" method="post" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <label for="nl-name" class="visually-hidden">Full name</label>
+            <input id="nl-name" name="name" type="text" placeholder="Your name" required style="flex:1 1 200px; padding:10px; border-radius:6px; border:1px solid #ccc;">
+            <label for="nl-email" class="visually-hidden">Email</label>
+            <input id="nl-email" name="email" type="email" placeholder="you@example.com" required style="flex:1 1 260px; padding:10px; border-radius:6px; border:1px solid #ccc;">
+            <button type="submit" class="submit-btn" style="flex:0 0 auto;">Sign up</button>
+          </form>
+        </div>
+
+        <div style="text-align:right;">
+          <p style="margin:0 0 10px;">Ready to start your project?</p>
+          <a href="services.html" style="display:inline-block; padding:12px 18px; background:var(--accent); color:#fff; border-radius:8px; text-decoration:none;">View Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid: two images + content describing purpose & offerings (not single-column) -->
+    <section style="padding:28px 18px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <h2>What we offer</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:center; margin-top:12px;">
+          <div>
+            <img src="images/project-4.jpg" alt="Garden design and maintenance" style="width:100%; height:auto; border-radius:8px; display:block;">
+            <h3>Design & Maintenance</h3>
+            <p>From concept to maintenance, we create and care for beautiful gardens that suit your lifestyle and budget.</p>
           </div>
-        </form>
+
+          <div>
+            <img src="images/project-3.jpg" alt="Fencing and perimeter installation" style="width:100%; height:auto; border-radius:8px; display:block;">
+            <h3>Fencing & Security</h3>
+            <p>Durable fencing solutions for homes and businesses, installed with safety and longevity in mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Small projects preview (uses .adventure-gallery from rafting.css) -->
+    <section class="adventures" style="padding-bottom:48px;">
+      <h2>Recent Work</h2>
+      <div class="adventure-gallery" role="list">
+        <figure>
+          <img src="images/project-1.jpg" alt="Residential landscaping project">
+          <figcaption>Residential Landscaping</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/project-2.jpg" alt="Bush clearing service">
+          <figcaption>Bush Clearing</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/project-3.jpg" alt="Fencing installation">
+          <figcaption>Fencing Installation</figcaption>
+        </figure>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-left">
       <p>© 2025 Moofar Proprietary Limited — UIN: BW00009410484</p>
@@ -110,3 +115,4 @@
   </footer>
 </body>
 </html>
+
