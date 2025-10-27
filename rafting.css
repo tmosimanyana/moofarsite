@@ -144,5 +144,275 @@ body{
   .adventure-gallery figure{ flex:1 1 100%; max-width:none }
   .hero-content img{ width:90%; max-width:320px }
 }
+/* Header Layout using Grid and Flex */
+header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  background-color: #c5b7f2;
+  padding: 1rem 2rem;
+}
+
+header .logo {
+  max-height: 70px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+nav a:hover, nav .active {
+  background: #8469d3;
+  color: white;
+}
+
+/* Contact Info */
+.contact-info {
+  text-align: center;
+  padding: 2rem;
+}
+
+.company-details {
+  margin-bottom: 1.5rem;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Employee Grid */
+.employees {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.employee-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.employee-grid figure {
+  width: 200px;
+}
+.employee-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+.employee-grid figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Contact Form */
+.contact-form-section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+fieldset legend {
+  font-weight: bold;
+}
+.checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.submit-btn {
+  background-color: #8469d3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.submit-btn:hover {
+  background-color: #6a52b5;
+}
+
+/* Footer */
+footer {
+  background-color: #c5b7f2;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .social-icons img {
+  width: 24px;
+  margin: 0 8px;
+}
+
+/* Header Layout */
+header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  background-color: #c5b7f2;
+  padding: 1rem 2rem;
+}
+header .logo {
+  max-height: 70px;
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+nav a:hover,
+nav .active {
+  background: #8469d3;
+  color: white;
+}
+
+/* Contact Info Section */
+.contact-info {
+  text-align: center;
+  padding: 2rem;
+}
+.company-details {
+  margin-bottom: 1rem;
+}
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Employees Section */
+.employees {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+.employee-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.employee-grid figure {
+  width: 200px;
+}
+.employee-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+.employee-grid figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+legend {
+  font-weight: bold;
+}
+.checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.submit-btn {
+  background-color: #8469d3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.submit-btn:hover {
+  background-color: #6a52b5;
+}
+
+/* Footer */
+footer {
+  background-color: #c5b7f2;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .social-icons img {
+  width: 24px;
+  margin: 0 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .employee-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 
