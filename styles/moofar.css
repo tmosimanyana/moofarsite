@@ -37,15 +37,13 @@ body{
 /* ===== Header (CSS Grid) ===== */
 .site-header{
   display:grid;
-  grid-template-columns:140px 1fr;
+  grid-template-columns:auto 1fr;
   align-items:center;
   gap:1rem;
   background:var(--header-bg);
-  padding:18px 28px;
-}
-
-.header-content{
-  display:contents;
+  padding:1rem;
+  max-width:840px;
+  margin:0 auto;
 }
 
 .logo-wrap{
@@ -63,23 +61,32 @@ body{
 }
 
 /* ===== Nav (Flex inside nav) ===== */
+.main-nav{
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+}
+
 .main-nav ul{
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-evenly;
+  align-items:center;
   gap:14px;
   margin:0;
   padding:0;
   list-style:none;
+  width:100%;
 }
 
 .main-nav a{
-  display:inline-block;
+  display:block;
   text-decoration:none;
   background:#fff;
   color:var(--text);
-  padding:8px 14px;
+  padding:0.5rem 1rem;
   border-radius:6px;
   border:1px solid rgba(0,0,0,0.06);
+  font-weight:600;
   transition:background-color .18s, color .18s, transform .08s;
 }
 
