@@ -224,4 +224,123 @@ footer p {
 .skip-link:focus {
   top: 0;
 }
+/* =======================================
+   CONTACT PAGE STYLES
+   ======================================= */
+
+/* Contact Info Section */
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+  align-items: start;
+}
+
+.contact-info h2 {
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.contact-info ul {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.contact-info li {
+  margin-bottom: 8px;
+}
+
+.contact-info a {
+  color: var(--accent1-color);
+  text-decoration: underline;
+}
+
+.contact-info a:hover {
+  color: var(--primary-color);
+}
+
+.map iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Contact Form */
+.contact-form {
+  margin: 40px 0;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--body-font);
+}
+
+.contact-form fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.contact-form legend {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.contact-form label.checkbox {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--accent2-color);
+  color: #fff;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .map iframe {
+    height: 300px;
+  }
+}
 
