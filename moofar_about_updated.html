@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Moofar Proprietary Limited | Landscaping Services Botswana</title>
+  <meta name="description" content="Learn about Moofar Proprietary Limited - Founded by Mooketsi Mapugwa, managed by Farai Madorobo. Professional landscaping, gardening, fencing, and maintenance services across Botswana since 2025.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --moofar-green: #2d5016;
+      --moofar-light-green: #7cb342;
+      --moofar-brown: #5d4037;
+      --moofar-terracotta: #a0522d;
+      --moofar-white: #ffffff;
+      --moofar-gray: #f5f5f5;
+      --moofar-dark-gray: #333333;
+      --moofar-medium-gray: #666666;
+      --heading-font: 'Montserrat', 'Poppins', 'Arial Black', sans-serif;
+      --body-font: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 24px;
+      --spacing-lg: 32px;
+      --spacing-xl: 48px;
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--moofar-dark-gray);
+      line-height: 1.6;
+      font-size: 18px;
+      background-color: var(--moofar-white);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+      color: var(--moofar-green);
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 2.5rem; font-weight: 700; }
+    h2 { font-size: 2rem; font-weight: 600; margin-bottom: var(--spacing-md); }
+    h3 { font-size: 1.5rem; font-weight: 600; }
+
+    /* ===== HEADER - CSS GRID LAYOUT ===== */
+    header {
+      background-color: var(--moofar-green);
+      padding: var(--spacing-md) var(--spacing-lg);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
+    .site-logo {
+      height: 80px;
+      width: auto;
+      border-radius: var(--border-radius);
+      transition: transform var(--transition-speed);
+    }
+
+    .site-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== NAVIGATION - CSS FLEXBOX ===== */
+    nav {
+      justify-self: end;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--spacing-xs);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--moofar-white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius);
+      transition: all var(--transition-speed);
+      display: block;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background-color: var(--moofar-light-green);
+      transform: translateY(-2px);
+    }
+
+    nav a:focus {
+      outline: 3px solid var(--moofar-white);
+      outline-offset: 2px;
+    }
+
+    nav a.active {
+      background-color: var(--moofar-brown);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero-about {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .hero-about img.hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 400px;
+      object-fit: cover;
+    }
+
+    .hero-about h1 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      padding: 16px;
+      text-align: center;
+      background-color: rgba(124, 179, 66, 0.85);
+      color: var(--moofar-white);
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 900px;
+      width: 90%;
+      background-color: rgba(45, 80, 22, 0.9);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--moofar-white);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 0;
+    }
+
+    /* ===== MAIN CONTENT CONTAINER ===== */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin: var(--spacing-xl) var(--spacing-sm);
+      padding: var(--spacing-lg);
+    }
+
+    /* ===== COMPANY INTRODUCTION (2 COLUMN GRID) ===== */
+    .company-intro {
+      background-color: var(--moofar-white);
+    }
+
+    .intro-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: center;
+    }
+
+    .intro-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed);
+    }
+
+    .intro-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== HISTORY SECTION - GRID LAYOUT AS PER WIREFRAME ===== */
+    .history {
+      background-color: var(--moofar-gray);
+      border-radius: var(--border-radius-lg);
+    }
+
+    .history h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .history-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+
+    .history-text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .history-text p {
+      margin: 0;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .history-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed);
+    }
+
+    .history-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== ADVENTURES/GALLERY SECTION - 5 IMAGES HORIZONTAL ===== */
+    .adventures {
+      background-color: var(--moofar-white);
+    }
+
+    .adventures h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .adventures-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .adventures figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed);
+      background-color: var(--moofar-gray);
+    }
+
+    .adventures figure:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .adventures figure img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-speed);
+    }
+
+    .adventures figure:hover img {
+      transform: scale(1.1);
+    }
+
+    .adventures figcaption {
+      padding: var(--spacing-sm);
+      text-align: center;
+      font-weight: 600;
+      color: var(--moofar-green);
+      background-color: var(--moofar-white);
+      font-size: 0.9rem;
+    }
+
+    /* ===== MISSION & VISION (2 COLUMN CARDS) ===== */
+    .mission-vision {
+      background-color: var(--moofar-white);
+    }
+
+    .mission-vision h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .mission-vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .mission-card, .vision-card {
+      background-color: var(--moofar-light-green);
+      color: var(--moofar-white);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed);
+    }
+
+    .mission-card:hover, .vision-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .mission-card h3, .vision-card h3 {
+      color: var(--moofar-white);
+      margin-bottom: var(--spacing-md);
+      font-size: 1.75rem;
+    }
+
+    .mission-card p, .vision-card p {
+      color: var(--moofar-white);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* ===== LEADERSHIP (2 COLUMN WITH PHOTOS) ===== */
+    .leadership {
+      background-color: var(--moofar-gray);
+      border-radius: var(--border-radius-lg);
+    }
+
+    .leadership h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+    }
+
+    .leader-card {
+      background-color: var(--moofar-white);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed);
+    }
+
+    .leader-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .leader-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto var(--spacing-md);
+      border: 5px solid var(--moofar-light-green);
+      display: block;
+      transition: border-color var(--transition-speed);
+    }
+
+    .leader-card:hover .leader-photo {
+      border-color: var(--moofar-green);
+    }
+
+    .leader-card h3 {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .leader-title {
+      color: var(--moofar-brown);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .leader-bio {
+      color: var(--moofar-medium-gray);
+      line-height: 1.7;
+    }
+
+    /* ===== CORE VALUES (3 COLUMN GRID) ===== */
+    .core-values {
+      background-color: var(--moofar-white);
+    }
+
+    .core-values h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .value-card {
+      background-color: var(--moofar-gray);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      border-left: 5px solid var(--moofar-light-green);
+      transition: transform var(--transition-speed), border-color var(--transition-speed);
+    }
+
+    .value-card:hover {
+      transform: translateX(5px);
+      border-color: var(--moofar-green);
+    }
+
+    .value-card i {
+      font-size: 2.5rem;
+      color: var(--moofar-light-green);
+      margin-bottom: var(--spacing-sm);
+      display: block;
+    }
+
+    .value-card h3 {
+      color: var(--moofar-green);
+      margin-bottom: var(--spacing-sm);
+      font-size: 1.25rem;
+    }
+
+    .value-card p {
+      color: var(--moofar-dark-gray);
+      font-size: 0.95rem;
+    }
+
+    /* ===== CALL TO ACTION ===== */
+    .cta-about {
+      background: linear-gradient(135deg, var(--moofar-green) 0%, var(--moofar-light-green) 100%);
+      color: var(--moofar-white);
+      text-align: center;
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      margin: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .cta-about h2 {
+      color: var(--moofar-white);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .cta-about p {
+      color: var(--moofar-white);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: var(--spacing-md) var(--spacing-xl);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all var(--transition-speed);
+    }
+
+    .btn-primary {
+      background-color: var(--moofar-brown);
+      color: var(--moofar-white);
+      border: 2px solid var(--moofar-brown);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--moofar-terracotta);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: var(--moofar-white);
+      color: var(--moofar-green);
+      border: 2px solid var(--moofar-white);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--moofar-gray);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--moofar-green);
+      color: var(--moofar-white);
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+      margin-top: var(--spacing-xl);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .footer-info h3, .footer-contact h4, .footer-hours h4, .footer-nav h4 {
+      color: var(--moofar-white);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-info p, .footer-contact p, .footer-hours p {
+      color: var(--moofar-gray);
+      margin-bottom: var(--spacing-xs);
+      font-size: 0.95rem;
+    }
+
+    .footer-contact a, .footer-nav a {
+      color: var(--moofar-white);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    .footer-contact a:hover, .footer-nav a:hover {
+      color: var(--moofar-light-green);
+    }
+
+    .footer-nav ul {
+      list-style: none;
+    }
+
+    .footer-nav li {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid var(--moofar-brown);
+      padding-top: var(--spacing-md);
+      text-align: center;
+    }
+
+    .copyright {
+      color: var(--moofar-gray);
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1024px) {
+      .adventures-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: var(--spacing-md);
+      }
+
+      nav {
+        justify-self: center;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .intro-content, .history-content, .mission-vision-grid, .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .adventures-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-about h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav a {
+        text-align: center;
+      }
+
+      .values-grid, .adventures-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-about h1 {
+        font-size: 1.5rem;
+        top: 10px;
+      }
+
+      .hero-content {
+        bottom: 20px;
+        padding: var(--spacing-md);
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .leader-photo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ===== HEADER WITH CSS GRID ===== -->
+  <header>
+    <div class="header-container">
+      <img src="https://via.placeholder.com/200x80/2d5016/ffffff?text=MOOFAR+LOGO" alt="Moofar Proprietary Limited logo" class="site-logo">
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+    
+    <!-- HERO SECTION -->
+    <section class="hero-about">
+      <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&h=500&fit=crop" alt="Beautiful landscaped garden" class="hero-image">
+      <h1>About Moofar Proprietary Limited</h1>
+      <div class="hero-content">
+        <p class="tagline">Transforming Botswana's outdoor spaces with excellence and expertise</p>
+      </div>
+    </section>
+    
+    <!-- COMPANY INTRODUCTION (2 COLUMNS: IMAGE LEFT, TEXT RIGHT) -->
+    <section class="company-intro">
+      <div class="intro-content">
+        <img src="https://images.unsplash.com/photo-1597633425046-08f5110420b5?w=600&h=400&fit=crop" alt="Moofar team working on landscaping" class="intro-image">
+        <div class="intro-text">
+          <h2>Who We Are</h2>
+          <p>Moofar Proprietary Limited (UIN: BW00009410484) is a professional landscaping and horticultural services company operating throughout Botswana. We specialize in comprehensive outdoor property solutions for both residential and commercial clients, delivering quality workmanship and reliable service on every project.</p>
+          <p>From landscape design to ongoing maintenance, from bush clearing to nursery services, we are your complete outdoor property partner across Botswana.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- HISTORY SECTION (GRID LAYOUT: TEXT 2/3, IMAGE 1/3) -->
+    <section class="history">
+      <h2>Our History</h2>
+      <div class="history-content">
+        <div class="history-text">
+          <p>Founded in September 2025, Moofar Proprietary Limited began with a clear vision: to bring professional, reliable landscaping services to every corner of Botswana. Under the leadership of founder and director Mooketsi Mapugwa, the company quickly established itself as a trusted name in the industry.</p>
+          <p>What started as a commitment to quality has grown into a comprehensive service offering that covers everything from initial land preparation to ongoing garden maintenance. Our approach combines traditional craftsmanship with modern techniques, ensuring every project meets the highest standards.</p>
+          <p>Today, we serve clients across all regions of Botswana, from Gaborone to Maun, bringing the same dedication and expertise to every project, regardless of size or scope. Our team of skilled professionals takes pride in creating outdoor spaces that enhance property value and bring joy to our clients.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600&h=600&fit=crop" alt="Company growth and development" class="history-image">
+      </div>
+    </section>
+    
+    <!-- ADVENTURES/PROJECT GALLERY (5 IMAGES HORIZONTAL) -->
+    <section class="adventures">
+      <h2>Our Signature Projects</h2>
+      <div class="adventures-grid">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop" alt="Bush clearing project">
+          <figcaption>Bush Clearing Excellence</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&h=300&fit=crop" alt="Garden maintenance work">
+          <figcaption>Garden Maintenance</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" alt="Residential landscaping">
+          <figcaption>Residential Design</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1587502537147-2ba64a117c9e?w=400&h=300&fit=crop" alt="Commercial fencing installation">
+          <figcaption>Fencing Solutions</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&h=300&fit=crop" alt="Nursery services">
+          <figcaption>Nursery Services</figcaption>
+        </figure>
+      </div>
+    </section>
+    
+    <!-- MISSION & VISION (2 COLUMN CARDS) -->
+    <section class="mission-vision">
+      <h2>Our Mission & Vision</h2>
+      <div class="mission-vision-grid">
+        <article class="mission-card">
+          <h3>Our Mission</h3>
+          <p>To provide comprehensive, reliable landscaping solutions throughout Botswana that transform outdoor spaces, enhance property value, and create beautiful, functional environments for our clients.</p>
+        </article>
+        <article class="vision-card">
+          <h3>Our Vision</h3>
+          <p>To be Botswana's leading landscaping and horticultural services provider, recognized for quality workmanship, innovation, and exceptional customer satisfaction.</p>
+        </article>
+      </div>
+    </section>
+    
+    <!-- LEADERSHIP TEAM (2 COLUMNS WITH PHOTOS) -->
+    <section class="leadership">
+      <h2>Meet Our Leadership</h2>
+      <div class="leadership-grid">
+        <article class="leader-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="Mooketsi Mapugwa, Director" class="leader-photo">
+          <h3>Mooketsi Mapugwa</h3>
+          <p class="leader-title">Director & Founder</p>
+          <p class="leader-bio">Mooketsi founded Moofar with a passion for transforming outdoor spaces and a commitment to excellence. His vision and leadership have established Moofar as a trusted name in Botswana's landscaping industry.</p>
+        </article>
+        <article class="leader-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Farai Madorobo, Manager" class="leader-photo">
+          <h3>Farai Madorobo</h3>
+          <p class="leader-title">Manager</p>
+          <p class="leader-bio">Farai brings extensive experience in horticultural management and project coordination. Under his management, Moofar's operations run smoothly and efficiently, ensuring every client receives exceptional service.</p>
+        </article>
+      </div>
+    </section>
+    
+    <!-- CORE VALUES (3 COLUMN GRID) -->
+    <section class="core-values">
+      <h2>What Sets Us Apart</h2>
+      <div class="values-grid">
+        <article class="value-card">
+          <i class="fas fa-award"></i>
+          <h3>Quality Workmanship</h3>
+          <p>We take pride in every project, ensuring the highest standards of craftsmanship in all our services.</p>
+        </article>
+        <article class="value-card">
+          <i class="fas fa-clock"></i>
+          <h3>Reliability</h3>
+          <p>Our clients trust us to deliver on time, on budget, and with consistent quality.</p>
+        </article>
+        <article class="value-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Expertise</h3>
+          <p>Combining traditional knowledge with modern techniques for superior results.</p>
+        </article>
+        <article class="value-card">
+          <i class="fas fa-users"></i>
+          <h3>Customer Focus</h3>
+          <p>Your satisfaction is our priority. We listen, advise, and deliver solutions tailored to your needs.</p>
+        </article>
+        <article class="value-card">
+          <i class="fas fa-tools"></i>
+          <h3>Comprehensive Service</h3>
+          <p>From design to maintenance, we're your one-stop shop for all outdoor property needs.</p>
+        </article>
+        <article class="value-card">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Botswana-Wide Coverage</h3>
+          <p>Professional landscaping services available across all regions of Botswana.</p>
+        </article>
+      </div
