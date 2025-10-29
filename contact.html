@@ -1,95 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact Us – Moofar Proprietary Limited | Landscaping Services Botswana</title>
-  <meta name="description" content="Get in touch with Moofar Proprietary Limited for professional landscaping, gardening, and maintenance services in Botswana. Contact us via phone, email, or our inquiry form.">
+<!-- contact.html (form snippet) -->
+<form id="contactForm" novalidate>
+  <label for="name">Full name *</label>
+  <input id="name" name="name" type="text" required />
 
-  <link rel="stylesheet" href="styles/moofar.css">
-</head>
+  <label for="email">Email *</label>
+  <input id="email" name="email" type="email" required />
 
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <label for="phone">Phone</label>
+  <input id="phone" name="phone" type="tel" />
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img src="images/logo-landscape.jpeg" alt="Moofar Proprietary Limited logo" class="site-logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <label for="message">Message *</label>
+  <textarea id="message" name="message" rows="6" required></textarea>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
-    <h1>Contact Us</h1>
+  <!-- Honeypot: bots will fill this; humans won't see it -->
+  <div style="display:none;">
+    <label>Leave this field empty</label>
+    <input name="website" id="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
 
-    <!-- COMPANY INFO + MAP -->
-    <section class="contact-info">
-      <div class="info-text">
-        <h2>We’d Love to Hear From You</h2>
-        <p>Thank you for your interest in Moofar Proprietary Limited. Whether you need professional landscaping, maintenance, or fencing services, our team is ready to assist. Please reach out through the details below or submit the form to send us a direct message.</p>
+  <!-- Optional: reCAPTCHA token will be added here if you use reCAPTCHA -->
+  <input type="hidden" name="recaptchaToken" id="recaptchaToken" />
 
-        <ul>
-          <li><strong>Address:</strong> Plot 45, Gaborone, Botswana</li>
-          <li><strong>Phone:</strong> +267 7123 4567 / +267 7654 3210</li>
-          <li><strong>Email:</strong> <a href="mailto:info@moofar.co.bw">info@moofar.co.bw</a></li>
-        </ul>
-      </div>
+  <button type="submit">Send message</button>
 
-      <div class="map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3599.791684491739!2d25.911!3d-24.654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebb5af78b2e69ef%3A0x8c5a2f8f5a258c57!2sGaborone!5e0!3m2!1sen!2sbw!4v0000000000000"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
+  <div id="formMessage" role="alert" aria-live="polite"></div>
+</form>
 
-    <!-- CONTACT FORM -->
-    <section class="contact-form">
-      <h2>Send Us a Message</h2>
-      <form action="#" method="post">
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required>
+<script>
+(function () {
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formMessage');
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = '';
 
-        <fieldset>
-          <legend>Purpose of Message:</legend>
-          <label><input type="radio" name="purpose" value="inquiry" required> General Inquiry</label>
-          <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label>
-          <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
-        </fieldset>
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      message: form.message.value.trim(),
+      website: form.website.value.trim(), // honeypot
+      // recaptchaToken: document.getElementById('recaptchaToken').value // optional
+    };
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
+    // Simple client-side validation
+    if (!data.name || !data.email || !data.message) {
+      status.textContent = 'Please complete name, email and message.';
+      return;
+    }
 
-        <label class="checkbox">
-          <input type="checkbox" name="subscribe"> Please subscribe me to the monthly newsletter
-        </label>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Moofar Proprietary Limited | Website Design by Tinny Bothepha Mosimanyana</p>
-    <div class="socialmedia">
-      <a href="https://facebook.com"><img src="images/facebook.svg" alt="Facebook Icon"></a>
-      <a href="https://linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn Icon"></a>
-      <a href="https://instagram.com"><img src="images/instagram.svg" alt="Instagram Icon"></a>
-    </div>
-  </footer>
-</body>
-</html>
+    try {
+      const resp = await fetch('/.netlify/functions/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await resp.json();
+      if (resp.ok && json.ok) {
+        status.textContent = 'Thanks! Your message was sent successfully.';
+        form.reset();
+      } else {
+        const err = json && json.error ? json.error : 'Server error';
+        status.textContent = 'Error: ' + err;
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again later.';
+      console.error(err);
+    }
+  });
+})();
+</script>
 
