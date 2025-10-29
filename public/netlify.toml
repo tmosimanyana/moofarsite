@@ -1,0 +1,8 @@
+[build]
+  publish = "public" # change if your site publishes at root or another folder
+  functions = "netlify/functions"
+
+[dev]
+  command = "npm start"
+  port = 8888
+
