@@ -1,78 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moofar Proprietary Limited | Landscaping & Garden Services Botswana</title>
-  <meta name="description" content="Moofar Proprietary Limited offers professional landscaping, gardening, and outdoor maintenance services across Botswana.">
-  <link rel="stylesheet" href="styles/moofar.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moofar Proprietary Limited</title>
+  <meta name="description" content="Moofar - landscaping & garden services" />
+  <link rel="stylesheet" href="styles/moofar.min.css">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img src="images/logo-landscape.jpeg" alt="Moofar Proprietary Limited logo" class="site-logo">
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Moofar home">
+        <img src="images/logo.svg" alt="Moofar logo" class="logo" />
+        <span class="brand-name">Moofar</span>
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open navigation">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="2" rx="1"></rect>
+          <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+          <rect x="3" y="16" width="18" height="2" rx="1"></rect>
+        </svg>
+      </button>
+
+      <nav id="primaryNav" class="primary-nav" role="navigation">
+        <ul class="nav-list">
+          <li><a href="#" class="active" aria-current="page">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <div class="hero">
-    <img src="images/hero-landscape.jpg" alt="Beautiful green landscape designed by Moofar">
-    <h1>Transforming Spaces. Growing Beauty.</h1>
-  </div>
-
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
-    <section class="purpose-grid">
-      <article>
-        <img src="images/garden.jpg" alt="Beautifully landscaped garden">
-        <h2>Our Purpose</h2>
-        <p>At Moofar Proprietary Limited, we believe that every outdoor space has potential to inspire. We transform gardens, yards, and estates into lush, vibrant spaces through professional landscaping and sustainable maintenance solutions.</p>
-      </article>
-
-      <article>
-        <img src="images/fencing.jpg" alt="Decorative fencing project">
-        <h2>What We Offer</h2>
-        <p>Our services include full-scale landscaping, irrigation setup, lawn care, fencing, and outdoor design. Whether you’re looking to enhance your home or commercial property, our expert team can help you achieve your vision.</p>
-      </article>
+  <main id="main" class="site-main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-media">
+          <img src="images/hero-landscape.webp" alt="Garden landscape" class="hero-image" loading="eager">
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">Beautiful gardens. Built to last.</h1>
+          <p class="hero-sub">Moofar creates sustainable, low-maintenance landscapes tailored to your site.</p>
+          <p><a class="btn-primary button" href="#services">Our Services</a></p>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== CALL TO ACTION ===== -->
-    <section class="cta">
-      <h2>Ready to Begin Your Next Project?</h2>
-      <p>Explore our range of professional landscaping services and start your transformation journey today.</p>
-      <a href="services.html" class="button">View Our Services</a>
+    <section id="services" class="services container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <article class="service">
+          <img src="images/garden.webp" alt="Garden maintenance" loading="lazy">
+          <h3>Garden Maintenance</h3>
+          <p>Routine care, pruning, and seasonal planting to keep your garden thriving.</p>
+        </article>
+
+        <article class="service">
+          <img src="images/fencing.webp" alt="Fencing and edging" loading="lazy">
+          <h3>Fencing & Edging</h3>
+          <p>Quality fencing and clean edging to define and protect outdoor spaces.</p>
+        </article>
+
+        <article class="service">
+          <img src="images/garden.webp" alt="Landscape design" loading="lazy">
+          <h3>Landscape Design</h3>
+          <p>Site-sensitive designs that blend aesthetics with sustainability.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- ===== NEWSLETTER SIGNUP ===== -->
-    <section class="newsletter">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with Moofar news, seasonal offers, and landscaping inspiration delivered straight to your inbox.</p>
-      <form action="#" method="post">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <button type="submit">Subscribe</button>
+    <section class="newsletter container" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Get seasonal tips & offers</h2>
+      <p>Subscribe to our newsletter for gardening tips and exclusive offers.</p>
+      <form class="newsletter-form" action="#" method="post" novalidate>
+        <label for="email" class="sr-only">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true">
+        <button class="btn-primary" type="submit">Subscribe</button>
       </form>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Moofar Proprietary Limited | Website Design by Tinny M</p>
-    <div class="socialmedia">
-      <a href="https://facebook.com"><img src="images/facebook.svg" alt="Facebook"></a>
-      <a href="https://linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn"></a>
-      <a href="https://instagram.com"><img src="images/instagram.svg" alt="Instagram"></a>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo.svg" alt="Moofar logo" class="logo--small">
+        <p class="muted">© Moofar Proprietary Limited <span class="year"></span></p>
+      </div>
+
+      <div class="footer-links">
+        <nav aria-label="Footer">
+          <ul class="footer-nav">
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </nav>
+
+        <div class="socials" aria-hidden="false">
+          <a href="#" aria-label="Facebook"><img src="images/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="images/instagram.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="images/linkedin.svg" alt=""></a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script>
+    // Small inline helpers
+    document.querySelector('.year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
