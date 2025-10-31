@@ -97,31 +97,40 @@ body{
 }
 
 
-
-
-
-/* === Floating Dark Mode Toggle === */
+/* === Dark Mode Toggle === */
 .theme-toggle {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background: #007b55; /* Moofar green */
-  border: none;
-  border-radius: 50%;
-  color: white;
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, transform 0.3s;
-  z-index: 999;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: var(--text-color, #333);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .theme-toggle:hover {
-  background: #0a9b61;
-  transform: scale(1.1);
+  transform: rotate(20deg);
+  color: var(--accent-color, #007b55);
+}
+
+body.dark-mode .theme-toggle {
+  color: #f2f2f2;
+}
+
+/* === Color Variables === */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #007b55;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f2f2f2;
+  --accent-color: #4ade80;
 }

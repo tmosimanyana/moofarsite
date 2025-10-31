@@ -1,0 +1,20 @@
+{
+  "name": "moofar-website",
+  "version": "1.0.0",
+  "description": "Moofar Proprietary Limited - Professional Landscaping Services Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000 --open=/index.html",
+    "dev": "npx live-server --port=3000"
+  },
+  "keywords": [
+    "landscaping",
+    "botswana",
+    "moofar"
+  ],
+  "author": "Moofar Proprietary Limited",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
