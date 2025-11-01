@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us | Moofar Proprietary Limited</title>
     <link rel="stylesheet" href="moofar_css.css" />
+    <style>
+      /* Responsive Google Map */
+      .map-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* default 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+      }
+
+      .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Taller map for larger screens */
+      @media screen and (min-width: 1024px) {
+        .map-container {
+          padding-bottom: 40%; /* taller map on desktop */
+        }
+      }
+
+      /* Extra tall for ultra-wide screens */
+      @media screen and (min-width: 1600px) {
+        .map-container {
+          padding-bottom: 30%;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -62,7 +95,7 @@
         <h2>Other Ways to Reach Us</h2>
         <p>
           <strong>Phone:</strong>
-          <a href="tel:+267 77 723 232">+267 77 723 232 </a>
+          <a href="tel:+26777723232">+267 77 723 232</a>
         </p>
         <p>
           <strong>Email:</strong>
@@ -73,15 +106,15 @@
           Plot 15, Francistown, Botswana
         </p>
 
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!..."
-          width="100%"
-          height="300"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <!-- Responsive Google Maps iframe -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.6874567224517!2d27.50684271565534!3d-21.165856482748773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x196bfcc9812dc2b9%3A0xb4e89a06d6f2cd80!2sPlot%2015%2C%20Francistown%2C%20Botswana!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </section>
     </main>
 
