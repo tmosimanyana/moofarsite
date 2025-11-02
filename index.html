@@ -186,21 +186,28 @@
     }
 
     .hero-image {
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
       border-radius: 24px;
       height: 400px;
+      position: relative;
+      overflow: hidden;
+      background: #e8f5e9;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image.placeholder {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-image::before {
-      content: '🌿';
-      font-size: 8rem;
-      opacity: 0.3;
-      animation: float 3s ease-in-out infinite;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      color: #666;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 2rem;
     }
 
     @keyframes float {
@@ -260,6 +267,7 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
       animation: fadeInUp 0.8s ease backwards;
+      overflow: hidden;
     }
 
     .service-card:nth-child(1) { animation-delay: 0.1s; }
@@ -270,6 +278,33 @@
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .service-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.1);
+    }
+
+    .service-image.placeholder {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
     }
 
     .service-icon {
@@ -296,19 +331,43 @@
       border-radius: 24px;
       margin: 4rem 0;
       animation: fadeInUp 0.8s ease;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    .about h2 {
+    .about-content h2 {
       color: var(--primary);
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .about p {
+    .about-content p {
       color: #666;
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    .about-image {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 350px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image.placeholder {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
     }
 
     /* Contact Section */
@@ -458,6 +517,15 @@
         grid-template-columns: 1fr;
       }
 
+      .about {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+
+      .about-image {
+        order: -1;
+      }
+
       .contact {
         grid-template-columns: 1fr;
       }
@@ -511,7 +579,11 @@
             <a href="#services" class="btn btn-ghost">View Services</a>
           </div>
         </div>
-        <div class="hero-image"></div>
+        <div class="hero-image placeholder">
+          <!-- Replace this with your hero image -->
+          <img src="assets/hero-image.jpg" alt="Moofar landscaping projects" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+          <div>Your Hero Image Here<br><small>(1200x800px recommended)</small></div>
+        </div>
       </div>
 
       <div class="stats">
@@ -534,21 +606,37 @@
       <h2 class="section-title">Our Services</h2>
       <div class="services-grid">
         <div class="service-card">
+          <div class="service-image placeholder">
+            <img src="assets/landscaping.jpg" alt="Landscaping services" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+            <span>Landscaping Image</span>
+          </div>
           <span class="service-icon">🌿</span>
           <h3>Landscaping</h3>
           <p>Design, planting, and maintenance for homes and businesses.</p>
         </div>
         <div class="service-card">
+          <div class="service-image placeholder">
+            <img src="assets/bush-clearing.jpg" alt="Bush clearing services" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+            <span>Bush Clearing Image</span>
+          </div>
           <span class="service-icon">🌲</span>
           <h3>Bush Clearing</h3>
           <p>Safe, efficient clearing and site preparation.</p>
         </div>
         <div class="service-card">
+          <div class="service-image placeholder">
+            <img src="assets/fencing.jpg" alt="Fencing services" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+            <span>Fencing Image</span>
+          </div>
           <span class="service-icon">🏗️</span>
           <h3>Fencing</h3>
           <p>Custom fencing solutions for security and privacy.</p>
         </div>
         <div class="service-card">
+          <div class="service-image placeholder">
+            <img src="assets/hardscaping.jpg" alt="Hardscaping services" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+            <span>Hardscaping Image</span>
+          </div>
           <span class="service-icon">🪨</span>
           <h3>Hardscaping</h3>
           <p>Patios, walkways, and decorative features.</p>
@@ -558,9 +646,15 @@
 
     <section id="about" class="container">
       <div class="about">
-        <h2>About Moofar Pty Ltd</h2>
-        <p>We provide professional landscaping, bush clearing, fencing, and hardscaping services in Botswana for over 15 years. Our mission is to transform outdoor spaces into beautiful, functional environments.</p>
-        <p>Our team is dedicated to delivering high-quality services with attention to detail, safety, and sustainability.</p>
+        <div class="about-content">
+          <h2>About Moofar Pty Ltd</h2>
+          <p>We provide professional landscaping, bush clearing, fencing, and hardscaping services in Botswana for over 15 years. Our mission is to transform outdoor spaces into beautiful, functional environments.</p>
+          <p>Our team is dedicated to delivering high-quality services with attention to detail, safety, and sustainability.</p>
+        </div>
+        <div class="about-image placeholder">
+          <img src="assets/about-team.jpg" alt="Moofar team at work" style="display: none;" onload="this.style.display='block'; this.parentElement.classList.remove('placeholder')">
+          <div>About Us Image<br><small>(800x600px recommended)</small></div>
+        </div>
       </div>
     </section>
 
