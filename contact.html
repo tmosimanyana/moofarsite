@@ -1,12 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Moofar Pty Ltd</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Moofar Pty Ltd</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- contact.html content already prepared above -->
+<header class="site-header">
+  <div class="brand">
+    <img src="assets/logo.svg" alt="Moofar logo" />
+    <div><h1>Moofar Pty Ltd</h1></div>
+  </div>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+<main class="container">
+  <h1>Contact Us</h1>
+  <p class="muted">Get in touch with Moofar Pty Ltd for all your landscaping, bush clearing, and fencing needs.</p>
+  
+  <div class="contact-section">
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>📞 Phone</h3>
+        <p><a href="tel:+267777723232">+267 777 723 232</a></p>
+      </div>
+      
+      <div class="info-card">
+        <h3>✉️ Email</h3>
+        <p><a href="mailto:info@moofar.co.bw">info@moofar.co.bw</a></p>
+      </div>
+      
+      <div class="info-card">
+        <h3>📍 Location</h3>
+        <p>Gaborone, Botswana</p>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <h2>Send us a message</h2>
+      <div class="contact-form">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="landscaping">Landscaping</option>
+            <option value="bush-clearing">Bush Clearing</option>
+            <option value="fencing">Fencing</option>
+            <option value="hardscaping">Hardscaping & Planters</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container footer-grid">
+    <div><strong>Moofar Pty Ltd</strong></div>
+    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
+    <div style="text-align:right">
+      <div><b>Phone</b>: +267 777 723 232</div>
+      <div><b>Email</b>: info@moofar.co.bw</div>
+    </div>
+  </div>
+</footer>
+<script src="scripts/script.js"></script>
 </body>
 </html>
