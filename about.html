@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Moofar Pty Ltd</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About — Moofar Pty Ltd</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 <header class="site-header">
   <div class="brand">
-    <img src="assets/logo.svg" alt="Moofar logo" />
-    <div><h1>Moofar Pty Ltd</h1></div>
+    <img src="assets/logo.svg" alt="Moofar logo">
+    <h1>Moofar Pty Ltd</h1>
   </div>
   <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
@@ -20,11 +20,13 @@
   </nav>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
-<main class="container">
+
+<main class="container fade-in">
   <h1>About Moofar Pty Ltd</h1>
-  <p class="muted">Moofar Pty Ltd (trading as Mookfar / Moofar) is a locally incorporated company providing professional landscaping, bush clearing, and fencing services in Botswana.</p>
-  <p class="muted">Our mission is to transform outdoor spaces into beautiful, functional areas while maintaining safety and sustainability.</p>
+  <p>We provide professional landscaping, bush clearing, fencing, and hardscaping services in Botswana for over 15 years. Our mission is to transform outdoor spaces into beautiful, functional environments.</p>
+  <p>Our team is dedicated to delivering high-quality services with attention to detail, safety, and sustainability.</p>
 </main>
+
 <footer>
   <div class="container footer-grid">
     <div><strong>Moofar Pty Ltd</strong></div>
@@ -35,9 +37,8 @@
     </div>
   </div>
 </footer>
-<script>
-function toggleMenu(){document.querySelector('nav').classList.toggle('open');}
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+
+<script src="scripts/script.js"></script>
 </body>
 </html>
+
