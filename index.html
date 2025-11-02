@@ -1,85 +1,687 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moofar Pty Ltd — Landscaping & Services</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moofar Pty Ltd — Professional Landscaping Services in Botswana</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2d5016;
+      --secondary: #5a8c2e;
+      --accent: #8bc34a;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 4rem 2rem;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--primary);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-ghost:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-radius: 24px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image::before {
+      content: '🌿';
+      font-size: 8rem;
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background: white;
+      border-radius: 24px;
+      margin-top: -3rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      animation: fadeInUp 1s ease 0.3s backwards;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Services Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin: 4rem 0 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease backwards;
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+    .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      background: white;
+      padding: 4rem 2rem;
+      border-radius: 24px;
+      margin: 4rem 0;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .about h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 2.5rem;
+      border-radius: 20px;
+      color: white;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .info-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .footer-content > div:nth-child(2) {
+      text-align: center;
+    }
+
+    .footer-content > div:nth-child(3) {
+      text-align: right;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-content > div:nth-child(3) {
+        text-align: center;
+      }
+    }
+
+    .success-message {
+      background: #4caf50;
+      color: white;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 1rem;
+      animation: fadeInUp 0.5s ease;
+    }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="brand">
-    <img src="assets/logo.svg" alt="Moofar logo" />
-    <h1>Moofar Pty Ltd</h1>
-  </div>
-  <nav aria-label="Main navigation">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
+  <header>
+    <div class="header-content">
+      <div class="brand">
+        <div class="logo">🌿</div>
+        <span>Moofar</span>
+      </div>
+      <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
 
-<main class="container">
-  <section class="hero fade-in">
-    <h1>Professional Landscaping & Services in Botswana</h1>
-    <p class="muted">Transform your outdoor space with Moofar Pty Ltd</p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number" data-target="500">0</span>
-        <span class="stat-label">Projects Completed</span>
+  <main>
+    <section id="home" class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Professional Landscaping & Services in Botswana</h1>
+          <p>Transform your outdoor space with over 15 years of expertise</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            <a href="#services" class="btn btn-ghost">View Services</a>
+          </div>
+        </div>
+        <div class="hero-image"></div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number" data-target="15">0</span>
-        <span class="stat-label">Years Experience</span>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="15">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span>
+          <span class="stat-label">% Satisfaction</span>
+        </div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number" data-target="98">0</span>
-        <span class="stat-label">% Satisfaction</span>
+    </section>
+
+    <section id="services" class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🌿</span>
+          <h3>Landscaping</h3>
+          <p>Design, planting, and maintenance for homes and businesses.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌲</span>
+          <h3>Bush Clearing</h3>
+          <p>Safe, efficient clearing and site preparation.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+          <h3>Fencing</h3>
+          <p>Custom fencing solutions for security and privacy.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🪨</span>
+          <h3>Hardscaping</h3>
+          <p>Patios, walkways, and decorative features.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="about">
+        <h2>About Moofar Pty Ltd</h2>
+        <p>We provide professional landscaping, bush clearing, fencing, and hardscaping services in Botswana for over 15 years. Our mission is to transform outdoor spaces into beautiful, functional environments.</p>
+        <p>Our team is dedicated to delivering high-quality services with attention to detail, safety, and sustainability.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact">
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div id="successMsg" style="display: none;"></div>
+          </form>
+        </div>
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <span>+267 777 723 232</span>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">✉️</span>
+            <span>info@moofar.co.bw</span>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <span>Gaborone, Botswana</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div><strong>Moofar Pty Ltd</strong></div>
+      <div>© <span id="year"></span> Moofar Pty Ltd</div>
+      <div>
+        <div><strong>Phone:</strong> +267 777 723 232</div>
+        <div><strong>Email:</strong> info@moofar.co.bw</div>
       </div>
     </div>
-  </section>
-  
-  <section class="services-preview fade-in">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <article class="card">
-        <div class="card-icon">🌿</div>
-        <h4>Landscaping</h4>
-        <p class="muted">Design, planting, and maintenance for homes and businesses.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">🌲</div>
-        <h4>Bush Clearing</h4>
-        <p class="muted">Safe, efficient clearing and site preparation.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">🏗️</div>
-        <h4>Fencing</h4>
-        <p class="muted">Custom fencing solutions for security and privacy.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">🪨</div>
-        <h4>Hardscaping</h4>
-        <p class="muted">Patios, walkways, and decorative features.</p>
-      </article>
-    </div>
-  </section>
-</main>
+  </footer>
 
-<footer>
-  <div class="container footer-grid">
-    <div><strong>Moofar Pty Ltd</strong></div>
-    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
-    <div style="text-align:right">
-      <div><b>Phone</b>: +267 777 723 232</div>
-      <div><b>Email</b>: info@moofar.co.bw</div>
-    </div>
-  </div>
-</footer>
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<script src="scripts/script.js"></script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('open');
+    }
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('nav').classList.remove('open');
+        }
+      });
+    });
+
+    // Animate statistics
+    function animateValue(element, start, end, duration) {
+      let current = start;
+      const range = end - start;
+      const increment = end > start ? 1 : -1;
+      const stepTime = Math.abs(Math.floor(duration / range));
+      const timer = setInterval(() => {
+        current += increment;
+        element.textContent = current;
+        if (current === end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+
+    // Intersection Observer for stats
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.getAttribute('data-target'));
+          animateValue(entry.target, 0, target, 2000);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach(stat => {
+      statsObserver.observe(stat);
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const successMsg = document.getElementById('successMsg');
+      
+      successMsg.innerHTML = `<div class="success-message">Thank you, ${name}! We'll contact you at ${email} soon.</div>`;
+      successMsg.style.display = 'block';
+      
+      this.reset();
+      
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
-
