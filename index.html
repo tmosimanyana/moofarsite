@@ -7,6 +7,53 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<!-- index.html content already prepared above -->
+<header class="site-header">
+  <div class="brand">
+    <img src="assets/logo.svg" alt="Moofar logo" />
+    <div><h1>Moofar Pty Ltd</h1></div>
+  </div>
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>Professional Landscaping & Services in Botswana</h1>
+    <p class="muted">Transform your outdoor space with Moofar Pty Ltd</p>
+  </section>
+  
+  <section class="services-preview">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <article class="card">
+        <h4>Landscaping</h4>
+        <p class="muted">Design, planting, and maintenance for homes and businesses.</p>
+      </article>
+      <article class="card">
+        <h4>Bush Clearing</h4>
+        <p class="muted">Safe, efficient clearing and site preparation.</p>
+      </article>
+      <article class="card">
+        <h4>Fencing</h4>
+        <p class="muted">Custom fencing solutions for security and privacy.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-grid">
+    <div><strong>Moofar Pty Ltd</strong></div>
+    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
+    <div style="text-align:right">
+      <div><b>Phone</b>: +267 777 723 232</div>
+      <div><b>Email</b>: info@moofar.co.bw</div>
+    </div>
+  </div>
+</footer>
+<script src="scripts/script.js"></script>
 </body>
 </html>
