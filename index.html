@@ -20,30 +20,125 @@
   </nav>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
+
 <main class="container">
   <section class="hero">
-    <h1>Professional Landscaping & Services in Botswana</h1>
-    <p class="muted">Transform your outdoor space with Moofar Pty Ltd</p>
+    <div class="hero-content fade-in">
+      <h1>Professional Landscaping & Services in Botswana</h1>
+      <p class="muted">Transform your outdoor space with Moofar Pty Ltd</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="15">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span>
+          <span class="stat-label">% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-generator fade-in">
+    <h2>Get Your Free AI-Powered Project Quote</h2>
+    <p class="muted">Tell us about your project and receive instant recommendations</p>
+    
+    <div class="quote-form" id="quoteForm">
+      <div class="form-step active" data-step="1">
+        <h3>What service are you interested in?</h3>
+        <div class="service-options">
+          <button class="service-option" data-service="landscaping">
+            <span class="icon">🌿</span>
+            <span>Landscaping</span>
+          </button>
+          <button class="service-option" data-service="bush-clearing">
+            <span class="icon">🌲</span>
+            <span>Bush Clearing</span>
+          </button>
+          <button class="service-option" data-service="fencing">
+            <span class="icon">🏗️</span>
+            <span>Fencing</span>
+          </button>
+          <button class="service-option" data-service="hardscaping">
+            <span class="icon">🪨</span>
+            <span>Hardscaping</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-step" data-step="2">
+        <h3>Describe your project</h3>
+        <textarea id="projectDescription" rows="4" placeholder="Tell us about your space, what you'd like to achieve, and any specific requirements..."></textarea>
+        <div class="button-group">
+          <button class="btn-secondary" onclick="previousStep()">Back</button>
+          <button class="btn-primary" onclick="generateQuote()">Generate Quote</button>
+        </div>
+      </div>
+
+      <div class="form-step" data-step="3">
+        <div id="quoteResult" class="quote-result"></div>
+        <div class="button-group">
+          <button class="btn-secondary" onclick="resetQuote()">Start Over</button>
+          <a href="contact.html" class="btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </div>
   </section>
   
-  <section class="services-preview">
+  <section class="services-preview fade-in">
     <h2>Our Services</h2>
     <div class="cards">
       <article class="card">
+        <div class="card-icon">🌿</div>
         <h4>Landscaping</h4>
         <p class="muted">Design, planting, and maintenance for homes and businesses.</p>
       </article>
       <article class="card">
+        <div class="card-icon">🌲</div>
         <h4>Bush Clearing</h4>
         <p class="muted">Safe, efficient clearing and site preparation.</p>
       </article>
       <article class="card">
+        <div class="card-icon">🏗️</div>
         <h4>Fencing</h4>
         <p class="muted">Custom fencing solutions for security and privacy.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🪨</div>
+        <h4>Hardscaping</h4>
+        <p class="muted">Patios, walkways, and decorative features.</p>
       </article>
     </div>
   </section>
 </main>
+
+<!-- AI Chat Assistant -->
+<div class="chat-widget" id="chatWidget">
+  <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+    <span class="chat-icon">💬</span>
+    <span class="chat-close">✕</span>
+  </button>
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+      <h4>Chat with Moofar Assistant</h4>
+      <p>Ask us anything about our services!</p>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot-message">
+        <p>Hello! I'm here to help you with any questions about landscaping, bush clearing, fencing, or our other services. How can I assist you today?</p>
+      </div>
+    </div>
+    <div class="chat-input-container">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()" id="sendBtn">Send</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container footer-grid">
     <div><strong>Moofar Pty Ltd</strong></div>
