@@ -1,44 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About — Moofar Pty Ltd</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>About Us | Moofar Pty Ltd — Landscaping Services in Botswana</title>
+  <meta name="description" content="Learn more about Moofar Pty Ltd, Botswana’s trusted landscaping company offering professional landscaping, bush clearing, fencing, and hardscaping services.">
+  <meta name="keywords" content="Moofar, Landscaping Botswana, Bush Clearing, Fencing, Hardscaping, Garden Design, Outdoor Services, Gaborone Landscaping">
+  <meta name="author" content="Mbothata Mokwena">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+  <link rel="alternate icon" type="image/png" href="../assets/gallery5.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.moofar.co.bw/about.html">
+  <meta property="og:title" content="About Moofar Pty Ltd — Landscaping Services in Botswana">
+  <meta property="og:description" content="Professional landscaping, bush clearing, fencing, and hardscaping services across Botswana. Discover our history, mission, and expert team.">
+  <meta property="og:image" content="https://www.moofar.co.bw/assets/gallery5.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Moofar Pty Ltd — Landscaping Services in Botswana">
+  <meta name="twitter:description" content="Discover Moofar Pty Ltd’s passion for transforming outdoor spaces across Botswana with professional landscaping and hardscaping services.">
+  <meta name="twitter:image" content="https://www.moofar.co.bw/assets/gallery5.png">
+
+  <!-- Linked Stylesheet -->
+  <link rel="stylesheet" href="styles/rafting.css">
 </head>
+
 <body>
-<header class="site-header">
-  <div class="brand">
-    <img src="assets/logo.svg" alt="Moofar logo">
-    <h1>Moofar Pty Ltd</h1>
-  </div>
-  <nav aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html" aria-current="page">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
-
-<main class="container fade-in">
-  <h1>About Moofar Pty Ltd</h1>
-  <p>We provide professional landscaping, bush clearing, fencing, and hardscaping services in Botswana for over 15 years. Our mission is to transform outdoor spaces into beautiful, functional environments.</p>
-  <p>Our team is dedicated to delivering high-quality services with attention to detail, safety, and sustainability.</p>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div><strong>Moofar Pty Ltd</strong></div>
-    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
-    <div style="text-align:right">
-      <div><b>Phone</b>: +267 777 723 232</div>
-      <div><b>Email</b>: info@moofar.co.bw</div>
+  <header>
+    <div class="logo">
+      <img src="../assets/logo.svg" alt="Moofar Pty Ltd logo">
+      <span class="brand-name">Moofar Pty Ltd</span>
     </div>
-  </div>
-</footer>
 
-<script src="scripts/script.js"></script>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <img src="../assets/gallery5.png" alt="Beautiful landscaped garden background">
+      <h1>Moofar Pty Ltd</h1>
+      <article>
+        <img src="../assets/about-team.jpg" alt="Smiling Moofar team member">
+        <p>At Moofar Pty Ltd, we are passionate about transforming outdoor spaces across Botswana. With over 15 years of expertise, we deliver high-quality landscaping, bush clearing, fencing, and hardscaping services that blend creativity, craftsmanship, and care.</p>
+      </article>
+    </div>
+
+    <section>
+      <h2>History</h2>
+      <p>Founded in Gaborone, Moofar Pty Ltd began as a small, family-driven landscaping company. Our dedication to excellence and client satisfaction has grown us into one of Botswana’s most reputable landscaping businesses, serving residential, commercial, and industrial clients with professionalism and integrity.</p>
+    </section>
+
+    <section>
+      <h2>Transform Your Space</h2>
+      <p>Every outdoor space holds potential. Whether it’s a garden, business complex, or farm, our mission is to bring your vision to life with creativity and quality workmanship. We don’t just design landscapes — we cultivate experiences that grow and thrive.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Moofar Pty Ltd | Designed by Mbothata Mokwena</p>
+    <nav class="socialmedia">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <img src="../assets/facebook.svg" alt="Facebook Icon">
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <img src="../assets/linkedin.svg" alt="LinkedIn Icon">
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="../assets/instagram.svg" alt="Instagram Icon">
+      </a>
+    </nav>
+  </footer>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
 
