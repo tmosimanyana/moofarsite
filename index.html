@@ -1,173 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Moofar Pty Ltd — Professional Landscaping, Bush Clearing & Fencing Services in Botswana</title>
-  <meta name="description" content="Moofar Pty Ltd offers expert landscaping, bush clearing, fencing, and hardscaping services in Botswana with over 15 years of experience. Transform your outdoor space today!">
-  <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Moofar Pty Ltd — Professional Landscaping Services in Botswana</title>
+  <meta name="description" content="Transform your outdoor space with Moofar Pty Ltd. Expert landscaping, bush clearing, fencing, and hardscaping services in Botswana with over 15 years of experience.">
+  <meta name="keywords" content="Moofar, Landscaping Botswana, Bush Clearing, Fencing, Hardscaping, Garden Design, Gaborone">
+  <meta name="author" content="Mbothata Mokwena">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- Unified Stylesheet -->
+  <link rel="stylesheet" href="styles/moofar.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="brand">
-    <img src="assets/logo.svg" alt="Moofar logo">
-    <h1>Moofar Pty Ltd</h1>
-  </div>
-  <nav aria-label="Main navigation">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-image-wrapper">
-      <img src="assets/hero-landscape.jpg" alt="Beautiful landscaped garden in Botswana" class="hero-image">
-      <div class="hero-overlay">
-        <h2 class="hero-heading">Transform Your Outdoor Space</h2>
-        <p class="hero-subheading">Professional Landscaping Services in Botswana</p>
+  
+  <!-- HEADER - Consistent across all pages -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Moofar Pty Ltd logo">
+        <span class="brand-name">Moofar Pty Ltd</span>
       </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
     </div>
-  </section>
-
-  <div class="container">
-    <!-- Welcome Section with Grid Layout -->
-    <section class="welcome-section">
-      <div class="welcome-grid">
-        <div class="welcome-content">
-          <h2>Welcome to Moofar Pty Ltd</h2>
-          <p>For over 15 years, we have been Botswana's trusted partner in creating beautiful, functional outdoor environments. Our expert team specializes in comprehensive landscaping solutions that enhance both residential and commercial properties.</p>
-          <p>From bush clearing and professional fencing to stunning hardscaping and meticulous landscape design, we bring your outdoor vision to life with attention to detail, safety, and sustainability.</p>
-          <a href="services.html" class="cta-button">Explore Our Services</a>
+  </header>
+  
+  <!-- HERO SECTION - Full width with absolute positioned heading -->
+  <div class="hero">
+    <img src="assets/hero-landscape.jpg" alt="Beautiful landscaped garden in Botswana">
+    <h1>Transform Your Outdoor Space with Moofar</h1>
+  </div>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- CSS GRID LAYOUT - Two images with content about purpose and offerings -->
+    <section class="content-grid">
+      
+      <!-- Grid Item 1 - Our Purpose -->
+      <article class="grid-item">
+        <img src="assets/gallery1.png" alt="Professional landscape design showcase">
+        <div class="grid-item-content">
+          <h3>🌿 Our Purpose</h3>
+          <p>At Moofar Pty Ltd, we believe every outdoor space has potential. Our mission is to transform gardens, business complexes, and farms across Botswana into beautiful, functional environments that enhance your quality of life.</p>
+          <p>With over 15 years of expertise, we don't just design landscapes — we cultivate experiences that grow, thrive, and inspire for generations to come.</p>
         </div>
-        <div class="welcome-image">
-          <img src="assets/gallery1.png" alt="Completed landscaping project" width="600" height="400">
+      </article>
+      
+      <!-- Grid Item 2 - Landscaping Services -->
+      <article class="grid-item">
+        <img src="assets/landscaping.jpg" alt="Complete landscaping transformation">
+        <div class="grid-item-content">
+          <h3>🏡 Expert Landscaping</h3>
+          <p>From concept to completion, we design and maintain stunning landscapes that reflect your style. Our comprehensive services include garden design, plant selection, irrigation systems, and ongoing maintenance programs.</p>
+          <p>Whether residential or commercial, we create sustainable outdoor spaces that add value to your property and bring your vision to life.</p>
         </div>
-      </div>
+      </article>
+      
+      <!-- Grid Item 3 - Bush Clearing & Site Prep -->
+      <article class="grid-item">
+        <img src="assets/bush-clearing.jpg" alt="Professional bush clearing services">
+        <div class="grid-item-content">
+          <h3>🌲 Bush Clearing Excellence</h3>
+          <p>Prepare your property for development with our safe, efficient land clearing services. We utilize modern equipment and proven techniques to clear vegetation, remove stumps, and level land while minimizing environmental impact.</p>
+          <p>Perfect for new construction sites, property development, agricultural preparation, and fire prevention measures.</p>
+        </div>
+      </article>
+      
+      <!-- Grid Item 4 - Comprehensive Solutions -->
+      <article class="grid-item">
+        <img src="assets/hardscaping.jpg" alt="Hardscaping and outdoor living spaces">
+        <div class="grid-item-content">
+          <h3>🏗️ Complete Outdoor Solutions</h3>
+          <p>Beyond landscaping, we offer professional fencing solutions for security and privacy, plus expert hardscaping services including patios, walkways, retaining walls, and water features.</p>
+          <p>Our team combines functionality with aesthetic appeal to create lasting outdoor living spaces that extend your home's comfort into nature.</p>
+        </div>
+      </article>
+      
     </section>
-
-    <!-- Services Overview Grid -->
-    <section class="services-overview">
-      <h2 class="section-heading">What We Do Best</h2>
-      <div class="services-grid-home">
-        <article class="service-item">
-          <div class="service-image-container">
-            <img src="assets/landscaping.jpg" alt="Professional landscaping design" width="400" height="300">
-          </div>
-          <div class="service-content">
-            <h3>🌿 Landscaping Excellence</h3>
-            <p>From concept to completion, we design and maintain stunning landscapes that reflect your style and enhance your property's value. Our team handles everything from plant selection to irrigation systems.</p>
-          </div>
-        </article>
-
-        <article class="service-item">
-          <div class="service-image-container">
-            <img src="assets/bush-clearing.jpg" alt="Bush clearing services" width="400" height="300">
-          </div>
-          <div class="service-content">
-            <h3>🌲 Bush Clearing & Site Prep</h3>
-            <p>Safe, efficient land clearing for residential and commercial developments. We prepare your site properly, ensuring it's ready for your next project while maintaining environmental responsibility.</p>
-          </div>
-        </article>
-
-        <article class="service-item">
-          <div class="service-image-container">
-            <img src="assets/fencing.jpg" alt="Custom fencing installation" width="400" height="300">
-          </div>
-          <div class="service-content">
-            <h3>🏗️ Custom Fencing Solutions</h3>
-            <p>Quality fencing that combines security, privacy, and aesthetic appeal. We offer various materials and styles to match your property's unique requirements and architectural design.</p>
-          </div>
-        </article>
-
-        <article class="service-item">
-          <div class="service-image-container">
-            <img src="assets/hardscaping.jpg" alt="Hardscaping and patio work" width="400" height="300">
-          </div>
-          <div class="service-content">
-            <h3>🪨 Hardscaping & Patios</h3>
-            <p>Create lasting outdoor living spaces with our expert hardscaping services. We build beautiful patios, walkways, retaining walls, and decorative stone features that stand the test of time.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Call to Action Section -->
+    
+    <!-- CALL TO ACTION - Compelling link to services page -->
     <section class="cta-section">
-      <div class="cta-content">
-        <h2>Ready to Transform Your Outdoor Space?</h2>
-        <p>Get a free consultation and quote from Botswana's premier landscaping professionals. Let's discuss your project today!</p>
-        <a href="services.html" class="cta-button-large">View Our Services</a>
-      </div>
+      <h2>Ready to Transform Your Outdoor Space?</h2>
+      <p>Discover our comprehensive range of professional landscaping, bush clearing, fencing, and hardscaping services. Let us bring your vision to life with quality workmanship and exceptional customer service.</p>
+      <a href="services.html" class="cta-button">Explore Our Services →</a>
     </section>
-
-    <!-- Newsletter Signup -->
+    
+    <!-- NEWSLETTER SIGN UP FORM - Name and Email required -->
     <section class="newsletter-section">
-      <div class="newsletter-container">
-        <div class="newsletter-content">
-          <h2>Stay Updated with Moofar</h2>
-          <p>Subscribe to our newsletter for landscaping tips, seasonal advice, and exclusive offers.</p>
-        </div>
-        <form class="newsletter-form" action="#" method="post">
-          <div class="newsletter-inputs">
-            <div class="form-group-inline">
-              <label for="newsletter-name" class="visually-hidden">Your Name</label>
-              <input type="text" id="newsletter-name" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group-inline">
-              <label for="newsletter-email" class="visually-hidden">Your Email</label>
-              <input type="email" id="newsletter-email" name="email" placeholder="Your Email" required>
-            </div>
-            <button type="submit" class="newsletter-btn">Subscribe</button>
+      <h2>Stay Updated with Moofar</h2>
+      <p>Subscribe to our newsletter for landscaping tips, seasonal advice, project showcases, and exclusive offers delivered to your inbox.</p>
+      
+      <form class="newsletter-form" action="#" method="post" onsubmit="return handleNewsletterSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newsletter-name">Your Name *</label>
+            <input 
+              type="text" 
+              id="newsletter-name" 
+              name="name" 
+              placeholder="Enter your full name" 
+              required 
+              aria-required="true">
           </div>
-        </form>
-      </div>
+          
+          <div class="form-group">
+            <label for="newsletter-email">Your Email *</label>
+            <input 
+              type="email" 
+              id="newsletter-email" 
+              name="email" 
+              placeholder="Enter your email address" 
+              required 
+              aria-required="true">
+          </div>
+        </div>
+        
+        <button type="submit" class="newsletter-btn">Subscribe to Newsletter</button>
+      </form>
     </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose">
-      <h2 class="section-heading">Why Choose Moofar?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⭐</div>
-          <h3>15+ Years Experience</h3>
-          <p>Over 500 successful projects completed across Botswana</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3>Quality Guaranteed</h3>
-          <p>We stand behind our work with comprehensive warranties</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌱</div>
-          <h3>Sustainable Practices</h3>
-          <p>Environmentally responsible methods in all our projects</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💼</div>
-          <h3>Professional Team</h3>
-          <p>Skilled, certified professionals dedicated to excellence</p>
-        </div>
-      </div>
-    </section>
-  </div>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div><strong>Moofar Pty Ltd</strong></div>
-    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
-    <div style="text-align:right">
-      <div><b>Phone</b>: +267 777 723 232</div>
-      <div><b>Email</b>: info@moofar.co.bw</div>
+    
+  </main>
+  
+  <!-- FOOTER - Consistent across all pages -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Moofar Pty Ltd | Professional Landscaping Services in Botswana | Designed by Mbothata Mokwena</p>
+      
+      <nav class="socialmedia" aria-label="Social media links">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+          <img src="assets/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page">
+          <img src="assets/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
+          <img src="assets/instagram.svg" alt="Instagram">
+        </a>
+      </nav>
     </div>
-  </div>
-</footer>
-
-<script src="scripts/script.js"></script>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="scripts/moofar.js"></script>
+  
 </body>
 </html>

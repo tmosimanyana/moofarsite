@@ -1,234 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
   <title>Our Services — Professional Landscaping & Outdoor Solutions | Moofar Pty Ltd</title>
   <meta name="description" content="Explore Moofar's comprehensive landscaping services including bush clearing, fencing, hardscaping, and landscape design. Professional outdoor solutions in Botswana for over 15 years.">
-  <link rel="stylesheet" href="styles/style.css">
+  <meta name="keywords" content="Landscaping Services, Bush Clearing Botswana, Fencing Services, Hardscaping, Garden Design, Outdoor Solutions Gaborone">
+  <meta name="author" content="Mbothata Mokwena">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- Unified Stylesheet -->
+  <link rel="stylesheet" href="styles/moofar.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="brand">
-    <img src="assets/logo.svg" alt="Moofar logo">
-    <h1>Moofar Pty Ltd</h1>
-  </div>
-  <nav aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html" aria-current="page">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
-
-<main class="container fade-in">
-  <h1>Our Services</h1>
-  <p class="intro-text">Moofar Pty Ltd provides comprehensive outdoor solutions for residential and commercial properties across Botswana. With over 15 years of experience, we deliver quality workmanship and exceptional customer service on every project.</p>
-
-  <!-- Call to Action -->
-  <section class="cta-banner">
-    <div class="cta-banner-content">
-      <h2>Ready to Start Your Project?</h2>
-      <p>Contact us today for a free consultation and quote. Our team is ready to bring your outdoor vision to life!</p>
-      <a href="contact.html" class="cta-button-large">Contact Us Now</a>
+  
+  <!-- HEADER - Consistent across all pages -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Moofar Pty Ltd logo">
+        <span class="brand-name">Moofar Pty Ltd</span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
     </div>
-  </section>
-
-  <!-- Detailed Service Descriptions -->
-  <section class="detailed-services">
-    <h2 class="section-heading">Our Service Offerings</h2>
-
-    <article class="service-detail">
-      <div class="service-detail-image">
-        <img src="assets/landscaping.jpg" alt="Professional landscape design and installation" width="600" height="400">
-      </div>
-      <div class="service-detail-content">
-        <h3>🌿 Comprehensive Landscaping Services</h3>
-        <p><strong>Design, Installation & Maintenance</strong></p>
-        <p>Transform your property with our full-service landscaping solutions. We work closely with you from initial consultation through design development to final installation. Our services include:</p>
-        <ul>
-          <li><strong>Landscape Design:</strong> Custom plans tailored to your property, climate, and lifestyle</li>
-          <li><strong>Plant Selection & Installation:</strong> Native and adapted species for sustainable beauty</li>
-          <li><strong>Irrigation Systems:</strong> Efficient watering solutions to keep your landscape thriving</li>
-          <li><strong>Lawn Installation:</strong> Quality turf and ground cover establishment</li>
-          <li><strong>Garden Beds:</strong> Ornamental and functional garden spaces</li>
-          <li><strong>Maintenance Programs:</strong> Ongoing care to keep your landscape pristine</li>
-        </ul>
-        <p><strong>Ideal for:</strong> Residential estates, commercial properties, office parks, and hotels</p>
-        <p><strong>Timeline:</strong> 2-8 weeks depending on project scope</p>
-      </div>
-    </article>
-
-    <article class="service-detail reverse">
-      <div class="service-detail-image">
-        <img src="assets/bush-clearing.jpg" alt="Bush clearing and land preparation services" width="600" height="400">
-      </div>
-      <div class="service-detail-content">
-        <h3>🌲 Bush Clearing & Site Preparation</h3>
-        <p><strong>Safe, Efficient Land Clearing Solutions</strong></p>
-        <p>Prepare your property for development with our professional bush clearing services. We utilize modern equipment and proven techniques to clear land safely while minimizing environmental impact:</p>
-        <ul>
-          <li><strong>Vegetation Removal:</strong> Complete clearing of trees, shrubs, and undergrowth</li>
-          <li><strong>Stump Grinding:</strong> Thorough removal of tree stumps and root systems</li>
-          <li><strong>Land Leveling:</strong> Site grading and preparation for construction</li>
-          <li><strong>Debris Removal:</strong> Proper disposal and recycling of cleared materials</li>
-          <li><strong>Erosion Control:</strong> Measures to protect soil during and after clearing</li>
-          <li><strong>Fire Break Creation:</strong> Strategic clearing for fire prevention</li>
-        </ul>
-        <p><strong>Ideal for:</strong> New construction sites, property development, agricultural preparation, and fire prevention</p>
-        <p><strong>Timeline:</strong> 1-4 weeks depending on property size</p>
-      </div>
-    </article>
-
-    <article class="service-detail">
-      <div class="service-detail-image">
-        <img src="assets/fencing.jpg" alt="Custom fencing installation and repair" width="600" height="400">
-      </div>
-      <div class="service-detail-content">
-        <h3>🏗️ Professional Fencing Solutions</h3>
-        <p><strong>Security, Privacy & Aesthetic Appeal</strong></p>
-        <p>Protect and enhance your property with our custom fencing services. We offer a wide range of materials and styles to meet your specific needs and complement your property's architecture:</p>
-        <ul>
-          <li><strong>Security Fencing:</strong> Heavy-duty options including palisade and electric fencing</li>
-          <li><strong>Privacy Fencing:</strong> Wood, vinyl, and composite materials for complete privacy</li>
-          <li><strong>Decorative Fencing:</strong> Ornamental iron and custom designs</li>
-          <li><strong>Agricultural Fencing:</strong> Wire and pole fencing for livestock and farming</li>
-          <li><strong>Gate Installation:</strong> Manual and automated gate systems</li>
-          <li><strong>Fence Repair:</strong> Restoration and maintenance of existing fences</li>
-        </ul>
-        <p><strong>Ideal for:</strong> Residential properties, commercial facilities, farms, and industrial sites</p>
-        <p><strong>Timeline:</strong> 3-10 days depending on fence length and complexity</p>
-      </div>
-    </article>
-
-    <article class="service-detail reverse">
-      <div class="service-detail-image">
-        <img src="assets/hardscaping.jpg" alt="Hardscaping including patios and walkways" width="600" height="400">
-      </div>
-      <div class="service-detail-content">
-        <h3>🪨 Hardscaping & Outdoor Living Spaces</h3>
-        <p><strong>Durable, Beautiful Outdoor Features</strong></p>
-        <p>Create lasting outdoor living spaces with our expert hardscaping services. We combine functionality with aesthetic appeal to extend your living space outdoors:</p>
-        <ul>
-          <li><strong>Patios & Decks:</strong> Custom outdoor entertaining areas with various materials</li>
-          <li><strong>Walkways & Paths:</strong> Paver, stone, and concrete pathways</li>
-          <li><strong>Retaining Walls:</strong> Functional and decorative wall systems for slope management</li>
-          <li><strong>Driveways:</strong> Durable paving solutions for vehicle access</li>
-          <li><strong>Water Features:</strong> Fountains, ponds, and decorative water elements</li>
-          <li><strong>Outdoor Kitchens:</strong> Complete cooking and dining stations</li>
-          <li><strong>Fire Pits & Fireplaces:</strong> Gathering spaces for year-round enjoyment</li>
-        </ul>
-        <p><strong>Ideal for:</strong> Residential homes, entertainment venues, resorts, and corporate campuses</p>
-        <p><strong>Timeline:</strong> 1-6 weeks depending on project complexity</p>
-      </div>
-    </article>
-  </section>
-
-  <!-- Services Comparison Table -->
-  <section class="services-table-section">
-    <h2 class="section-heading">Service Packages & Pricing Guide</h2>
-    <p class="table-intro">Compare our service offerings to find the perfect solution for your property. All packages can be customized to meet your specific needs.</p>
+  </header>
+  
+  <!-- HERO SECTION - Full width with absolute positioned heading -->
+  <div class="hero">
+    <img src="assets/landscaping.jpg" alt="Professional landscaping services showcase">
+    <h1>Our Professional Services</h1>
+  </div>
+  
+  <!-- MAIN CONTENT -->
+  <main>
     
-    <div class="table-responsive">
-      <table class="services-table">
-        <thead>
-          <tr>
-            <th>Service Category</th>
-            <th>Package Options</th>
-            <th>Typical Duration</th>
-            <th>Starting Price</th>
-            <th>Best For</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Landscaping - Basic</strong></td>
-            <td>Design consultation, plant selection, basic installation</td>
-            <td>2-3 weeks</td>
-            <td>From P15,000</td>
-            <td>Small residential gardens</td>
-          </tr>
-          <tr>
-            <td><strong>Landscaping - Premium</strong></td>
-            <td>Full design, irrigation, advanced planting, lighting</td>
-            <td>4-8 weeks</td>
-            <td>From P50,000</td>
-            <td>Luxury homes, commercial properties</td>
-          </tr>
-          <tr>
-            <td><strong>Bush Clearing - Residential</strong></td>
-            <td>Clearing, stump removal, basic leveling</td>
-            <td>1-2 weeks</td>
-            <td>From P8,000</td>
-            <td>Residential plots up to 1,000 sqm</td>
-          </tr>
-          <tr>
-            <td><strong>Bush Clearing - Commercial</strong></td>
-            <td>Large-scale clearing, grading, erosion control</td>
-            <td>2-4 weeks</td>
-            <td>From P30,000</td>
-            <td>Development sites, commercial land</td>
-          </tr>
-          <tr>
-            <td><strong>Fencing - Standard</strong></td>
-            <td>Basic security or privacy fencing with gate</td>
-            <td>3-5 days</td>
-            <td>From P350/meter</td>
-            <td>Standard residential properties</td>
-          </tr>
-          <tr>
-            <td><strong>Fencing - Premium</strong></td>
-            <td>High-security or decorative with automated gates</td>
-            <td>5-10 days</td>
-            <td>From P750/meter</td>
-            <td>Estates, commercial facilities</td>
-          </tr>
-          <tr>
-            <td><strong>Hardscaping - Patio</strong></td>
-            <td>Custom patio design and installation</td>
-            <td>1-3 weeks</td>
-            <td>From P25,000</td>
-            <td>Outdoor entertaining spaces</td>
-          </tr>
-          <tr>
-            <td><strong>Hardscaping - Complete</strong></td>
-            <td>Patio, walkways, walls, water features</td>
-            <td>3-6 weeks</td>
-            <td>From P80,000</td>
-            <td>Comprehensive outdoor living</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Services Introduction -->
+    <div class="services-intro fade-in">
+      <p>Moofar Pty Ltd provides comprehensive outdoor solutions for residential and commercial properties across Botswana. With over 15 years of experience, we deliver quality workmanship and exceptional customer service on every project.</p>
     </div>
     
-    <p class="table-note"><strong>Note:</strong> Prices are estimates in Botswana Pula and vary based on materials, site conditions, and project scope. Contact us for a detailed quote tailored to your specific project.</p>
-  </section>
-
-  <!-- Additional CTA -->
-  <section class="final-cta">
-    <div class="final-cta-content">
-      <h2>Let's Discuss Your Project</h2>
-      <p>Every property is unique, and so are our solutions. Schedule a free consultation to discuss your needs and receive a customized proposal.</p>
-      <div class="cta-buttons-group">
-        <a href="contact.html" class="cta-button-large">Get Your Free Quote</a>
-        <a href="tel:+267777723232" class="cta-button-secondary">Call +267 777 723 232</a>
-      </div>
+    <!-- Services Grid -->
+    <section class="services-grid">
+      
+      <!-- Service 1: Landscaping -->
+      <article class="service-card fade-in">
+        <img src="assets/landscaping.jpg" alt="Professional landscape design and installation">
+        <div class="service-card-content">
+          <h3>🌿 Comprehensive Landscaping</h3>
+          <p><strong>Design, Installation & Maintenance</strong></p>
+          <p>Transform your property with our full-service landscaping solutions. We work closely with you from initial consultation through design development to final installation.</p>
+          <ul>
+            <li>Custom landscape design tailored to your property</li>
+            <li>Plant selection and professional installation</li>
+            <li>Irrigation system design and implementation</li>
+            <li>Quality lawn and turf installation</li>
+            <li>Garden beds and ornamental features</li>
+            <li>Ongoing maintenance programs</li>
+          </ul>
+          <p><strong>Timeline:</strong> 2-8 weeks | <strong>From:</strong> P15,000</p>
+        </div>
+      </article>
+      
+      <!-- Service 2: Bush Clearing -->
+      <article class="service-card fade-in">
+        <img src="assets/bush-clearing.jpg" alt="Bush clearing and land preparation services">
+        <div class="service-card-content">
+          <h3>🌲 Bush Clearing & Site Preparation</h3>
+          <p><strong>Safe, Efficient Land Clearing</strong></p>
+          <p>Prepare your property for development with our professional bush clearing services using modern equipment and proven techniques.</p>
+          <ul>
+            <li>Complete vegetation removal</li>
+            <li>Stump grinding and root removal</li>
+            <li>Land leveling and grading</li>
+            <li>Debris removal and disposal</li>
+            <li>Erosion control measures</li>
+            <li>Fire break creation</li>
+          </ul>
+          <p><strong>Timeline:</strong> 1-4 weeks | <strong>From:</strong> P8,000</p>
+        </div>
+      </article>
+      
+      <!-- Service 3: Fencing -->
+      <article class="service-card fade-in">
+        <img src="assets/fencing.jpg" alt="Custom fencing installation and repair">
+        <div class="service-card-content">
+          <h3>🏗️ Professional Fencing Solutions</h3>
+          <p><strong>Security, Privacy & Aesthetic Appeal</strong></p>
+          <p>Protect and enhance your property with our custom fencing services in various materials and styles.</p>
+          <ul>
+            <li>Security fencing (palisade, electric)</li>
+            <li>Privacy fencing (wood, vinyl, composite)</li>
+            <li>Decorative and ornamental fencing</li>
+            <li>Agricultural and farm fencing</li>
+            <li>Manual and automated gate systems</li>
+            <li>Fence repair and maintenance</li>
+          </ul>
+          <p><strong>Timeline:</strong> 3-10 days | <strong>From:</strong> P350/meter</p>
+        </div>
+      </article>
+      
+      <!-- Service 4: Hardscaping -->
+      <article class="service-card fade-in">
+        <img src="assets/hardscaping.jpg" alt="Hardscaping including patios and walkways">
+        <div class="service-card-content">
+          <h3>🪨 Hardscaping & Outdoor Living</h3>
+          <p><strong>Durable, Beautiful Outdoor Features</strong></p>
+          <p>Create lasting outdoor living spaces with our expert hardscaping services that combine functionality with aesthetic appeal.</p>
+          <ul>
+            <li>Custom patios and outdoor decks</li>
+            <li>Paver walkways and pathways</li>
+            <li>Retaining walls and borders</li>
+            <li>Driveway paving solutions</li>
+            <li>Water features and fountains</li>
+            <li>Fire pits and outdoor kitchens</li>
+          </ul>
+          <p><strong>Timeline:</strong> 1-6 weeks | <strong>From:</strong> P25,000</p>
+        </div>
+      </article>
+      
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us today for a free consultation and quote. Our team is ready to discuss your project and provide a customized solution that meets your needs and budget.</p>
+      <a href="contact.html" class="cta-button">Get Your Free Quote →</a>
+    </section>
+    
+  </main>
+  
+  <!-- FOOTER - Consistent across all pages -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Moofar Pty Ltd | Professional Landscaping Services in Botswana | Designed by Mbothata Mokwena</p>
+      
+      <nav class="socialmedia" aria-label="Social media links">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+          <img src="assets/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page">
+          <img src="assets/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
+          <img src="assets/instagram.svg" alt="Instagram">
+        </a>
+      </nav>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div><strong>Moofar Pty Ltd</strong></div>
-    <div class="center muted">© <span id="year"></span> Moofar Pty Ltd</div>
-    <div style="text-align:right">
-      <div><b>Phone</b>: +267 777 723 232</div>
-      <div><b>Email</b>: info@moofar.co.bw</div>
-    </div>
-  </div>
-</footer>
-
-<script src="scripts/script.js"></script>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="scripts/moofar.js"></script>
+  
 </body>
 </html>
