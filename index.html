@@ -38,16 +38,20 @@
   </header>
 
   <!-- HERO SECTION -->
-  <div class="hero">
-    <picture>
-      <source srcset="assets/hero-landscape.webp" type="image/webp">
-      <img src="assets/gallery6.webp" alt="Beautiful landscaped garden in Botswana" width="1200" height="600" loading="lazy">
-    </picture>
-    <h1>Transform Your Outdoor Space with Moofar</h1>
-  </div>
+  <section class="hero hero-video">
+    <video autoplay muted loop playsinline poster="assets/gallery6.webp">
+      <source src="assets/VID-20251028-WA0003.mp4" type="video/mp4">
+      <img src="assets/gallery6.webp" alt="Beautiful landscaped garden in Botswana">
+    </video>
+    <div class="hero-overlay"></div>
+    <h1 class="hero-title">Transform Your Outdoor Space with Moofar</h1>
+    <a href="#main-content" class="scroll-down" aria-label="Scroll to content">
+      <span></span>
+    </a>
+  </section>
 
   <!-- MAIN CONTENT -->
-  <main>
+  <main id="main-content">
 
     <!-- CONTENT GRID -->
     <section class="content-grid">
@@ -155,7 +159,18 @@
   <!-- JavaScript -->
   <script src="scripts/moofar.js"></script>
   <script>
+    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll arrow hide/show
+    window.addEventListener('scroll', () => {
+      const arrow = document.querySelector('.scroll-down');
+      if (window.scrollY > 80) {
+        arrow.classList.add('hide');
+      } else {
+        arrow.classList.remove('hide');
+      }
+    });
   </script>
 
 </body>
