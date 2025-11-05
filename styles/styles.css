@@ -1,27 +1,32 @@
 /* ===================================
    MOOFAR PTY LTD - ENHANCED STYLESHEET
-   moofar.css - Visually Enhanced Edition
+   moofar.css - Professional Landscaping Design
    =================================== */
 
 /* ===================================
-   CSS VARIABLES & RESET
+   CSS VARIABLES
    =================================== */
 
 :root {
-  --primary: #2d5016;
-  --primary-light: #3d6b20;
-  --secondary: #5a8c2e;
-  --accent: #8bc34a;
-  --accent-bright: #9ccc65;
-  --dark: #1a1a1a;
-  --light: #f8f9fa;
-  --white: #ffffff;
-  --border: #e0e0e0;
+  --primary-color: #2d5016; /* deep forest green */
+  --secondary-color: #5a8c2e; /* vibrant grass green */
+  --accent1-color: #1a1a1a; /* charcoal dark */
+  --accent2-color: #8bc34a; /* bright lime green */
+  --accent3-color: #9ccc65; /* light spring green */
+  --neutral-light: #f8f9fa; /* soft white */
+  --neutral-white: #ffffff; /* pure white */
+  --neutral-border: #e0e0e0; /* light gray border */
+  --heading-font: "Georgia", "Times New Roman", serif;
+  --body-font: Arial, Helvetica, sans-serif;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
 
 * {
   margin: 0;
@@ -30,10 +35,10 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--body-font);
+  color: var(--accent1-color);
   line-height: 1.6;
-  color: var(--dark);
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #e8f5e9 100%);
+  background: linear-gradient(180deg, var(--neutral-white) 0%, var(--neutral-light) 50%, #e8f5e9 100%);
   position: relative;
   overflow-x: hidden;
 }
@@ -60,6 +65,60 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* ===================================
+   LAYOUT STRUCTURE
+   =================================== */
+
+header, main, footer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+
+h1, h2 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* ===================================
+   SPACING
+   =================================== */
+
+nav, p, section, article {
+  margin: 16px;
+  padding: 8px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
 }
 
 /* ===================================
@@ -131,7 +190,7 @@ img {
 }
 
 /* ===================================
-   HEADER - ENHANCED WITH GLASSMORPHISM
+   HEADER - GLASSMORPHISM DESIGN
    =================================== */
 
 header {
@@ -142,8 +201,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid var(--accent);
+  box-shadow: var(--shadow-md);
+  border-bottom: 3px solid var(--accent2-color);
   transition: all 0.3s ease;
 }
 
@@ -155,9 +214,9 @@ header::after {
   width: 100%;
   height: 3px;
   background: linear-gradient(90deg, 
-    var(--accent) 0%, 
-    var(--accent-bright) 50%, 
-    var(--accent) 100%);
+    var(--accent2-color) 0%, 
+    var(--accent3-color) 50%, 
+    var(--accent2-color) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s linear infinite;
 }
@@ -176,6 +235,10 @@ header .container {
   position: relative;
   z-index: 1;
 }
+
+/* ===================================
+   LOGO
+   =================================== */
 
 .logo {
   display: flex;
@@ -218,20 +281,20 @@ header .container {
 }
 
 .brand-name {
+  font-family: var(--heading-font);
   font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent2-color) 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s ease infinite;
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ===================================
-   NAVIGATION - ENHANCED WITH MODERN EFFECTS
+   NAVIGATION
    =================================== */
 
 nav ul {
@@ -247,7 +310,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--dark);
+  color: var(--accent1-color);
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
@@ -265,7 +328,7 @@ nav ul li a::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent2-color) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -298,7 +361,7 @@ nav ul li a.active::before {
 
 nav ul li a:hover,
 nav ul li a.active {
-  color: white;
+  color: var(--neutral-white);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
 }
@@ -306,8 +369,8 @@ nav ul li a.active {
 /* Mobile Menu Button */
 .menu-btn {
   display: none;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--neutral-white);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
@@ -343,12 +406,12 @@ nav ul li a.active {
 }
 
 /* ===================================
-   FOOTER - ENHANCED WITH GRADIENT AND ANIMATION
+   FOOTER
    =================================== */
 
 footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent1-color) 0%, #2a2a2a 50%, var(--accent1-color) 100%);
+  color: var(--neutral-white);
   padding: 3rem 0;
   margin-top: 5rem;
   box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.2);
@@ -364,11 +427,11 @@ footer::before {
   right: 0;
   height: 5px;
   background: linear-gradient(90deg, 
-    var(--secondary) 0%, 
-    var(--accent) 25%, 
-    var(--accent-bright) 50%,
-    var(--accent) 75%,
-    var(--secondary) 100%);
+    var(--secondary-color) 0%, 
+    var(--accent2-color) 25%, 
+    var(--accent3-color) 50%,
+    var(--accent2-color) 75%,
+    var(--secondary-color) 100%);
   background-size: 200% 100%;
   animation: shimmer 4s linear infinite;
 }
@@ -400,10 +463,11 @@ footer p {
   margin-bottom: 1.5rem;
   font-size: 1.05rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--neutral-white);
 }
 
 footer p span {
-  color: var(--accent-bright);
+  color: var(--accent3-color);
   font-weight: 600;
   text-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
 }
@@ -417,6 +481,7 @@ footer p span {
 
 .socialmedia a {
   display: inline-block;
+  text-decoration: none;
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
 }
@@ -452,11 +517,11 @@ footer p span {
 }
 
 .socialmedia a:hover img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 15px var(--accent-bright));
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px var(--accent3-color));
 }
 
 /* ===================================
-   HERO SECTION - ENHANCED WITH PARALLAX EFFECT
+   HERO SECTION
    =================================== */
 
 .hero {
@@ -531,7 +596,7 @@ footer p span {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--neutral-white);
   font-size: clamp(2.5rem, 6vw, 4.8rem);
   font-weight: 900;
   text-shadow: 
@@ -566,7 +631,7 @@ main {
 }
 
 /* ===================================
-   CSS GRID LAYOUT - ENHANCED HOME PAGE
+   CONTENT GRID - HOME PAGE
    =================================== */
 
 .content-grid {
@@ -577,7 +642,7 @@ main {
 }
 
 .grid-item {
-  background: white;
+  background: var(--neutral-white);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -594,7 +659,7 @@ main {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--secondary), var(--accent), var(--accent-bright));
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent2-color), var(--accent3-color));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease;
@@ -643,7 +708,7 @@ main {
   height: 2px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    var(--accent) 50%, 
+    var(--accent2-color) 50%, 
     transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -654,7 +719,7 @@ main {
 }
 
 .grid-item-content h3 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: 1.9rem;
   margin-bottom: 1rem;
   font-weight: 800;
@@ -664,7 +729,7 @@ main {
 }
 
 .grid-item:hover .grid-item-content h3 {
-  color: var(--secondary);
+  color: var(--secondary-color);
   transform: translateX(5px);
 }
 
@@ -681,21 +746,21 @@ main {
 }
 
 /* ===================================
-   CALL TO ACTION - ENHANCED WITH ANIMATIONS
+   CALL TO ACTION SECTION
    =================================== */
 
 .cta-section {
   background: linear-gradient(135deg, 
-    var(--primary) 0%, 
-    var(--secondary) 50%,
-    var(--accent) 100%);
+    var(--primary-color) 0%, 
+    var(--secondary-color) 50%,
+    var(--accent2-color) 100%);
   background-size: 200% 200%;
   animation: shimmer 8s ease-in-out infinite;
   border-radius: 28px;
   padding: 5rem 3rem;
   margin: 4rem 0;
   text-align: center;
-  color: white;
+  color: var(--neutral-white);
   box-shadow: 
     0 20px 60px rgba(45, 80, 22, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -737,6 +802,7 @@ main {
   z-index: 1;
   letter-spacing: -1px;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: var(--neutral-white);
 }
 
 .cta-section p {
@@ -745,12 +811,13 @@ main {
   opacity: 0.95;
   position: relative;
   z-index: 1;
+  color: var(--neutral-white);
 }
 
 .cta-button {
   display: inline-block;
-  background: white;
-  color: var(--primary);
+  background: var(--neutral-white);
+  color: var(--primary-color);
   padding: 1.5rem 3.5rem;
   border-radius: 14px;
   text-decoration: none;
@@ -773,7 +840,7 @@ main {
   left: 0;
   width: 0;
   height: 100%;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+  background: linear-gradient(135deg, var(--accent2-color) 0%, var(--accent3-color) 100%);
   transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   z-index: -1;
 }
@@ -783,7 +850,7 @@ main {
 }
 
 .cta-button:hover {
-  color: white;
+  color: var(--neutral-white);
   transform: translateY(-6px) scale(1.08);
   box-shadow: 
     0 15px 45px rgba(0, 0, 0, 0.4),
@@ -791,7 +858,7 @@ main {
 }
 
 /* ===================================
-   NEWSLETTER - ENHANCED WITH GLASSMORPHISM
+   NEWSLETTER SECTION
    =================================== */
 
 .newsletter-section {
@@ -817,9 +884,9 @@ main {
   right: -2px;
   bottom: -2px;
   background: linear-gradient(45deg, 
-    var(--accent) 0%, 
-    var(--accent-bright) 50%, 
-    var(--accent) 100%);
+    var(--accent2-color) 0%, 
+    var(--accent3-color) 50%, 
+    var(--accent2-color) 100%);
   background-size: 200% 200%;
   animation: shimmer 4s linear infinite;
   z-index: -1;
@@ -828,7 +895,7 @@ main {
 }
 
 .newsletter-section h2 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin-bottom: 1rem;
   font-weight: 900;
@@ -862,7 +929,7 @@ main {
 
 .form-group label {
   margin-bottom: 0.5rem;
-  color: var(--primary);
+  color: var(--primary-color);
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.3px;
@@ -870,18 +937,18 @@ main {
 
 .form-group input {
   padding: 1.4rem 1.6rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--neutral-border);
   border-radius: 14px;
   font-size: 1.05rem;
-  font-family: inherit;
+  font-family: var(--body-font);
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  background: #f8f9fa;
+  background: var(--neutral-light);
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--secondary);
-  background: white;
+  border-color: var(--secondary-color);
+  background: var(--neutral-white);
   box-shadow: 
     0 6px 20px rgba(90, 140, 46, 0.2),
     0 0 0 4px rgba(139, 195, 74, 0.1);
@@ -890,8 +957,8 @@ main {
 
 .newsletter-btn {
   width: 100%;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--neutral-white);
   padding: 1.5rem;
   border: none;
   border-radius: 14px;
@@ -929,7 +996,7 @@ main {
 }
 
 /* ===================================
-   ABOUT PAGE - ENHANCED
+   ABOUT PAGE SPECIFIC
    =================================== */
 
 .about-content {
@@ -985,7 +1052,7 @@ main {
 }
 
 .about-content-text h2 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: 3rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
@@ -1001,7 +1068,7 @@ main {
   left: 0;
   width: 60%;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent2-color) 0%, transparent 100%);
   border-radius: 2px;
 }
 
@@ -1026,7 +1093,7 @@ main {
   box-shadow: 
     0 15px 50px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border-left: 6px solid var(--accent);
+  border-left: 6px solid var(--accent2-color);
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
@@ -1040,9 +1107,9 @@ main {
   width: 6px;
   height: 100%;
   background: linear-gradient(180deg, 
-    var(--accent) 0%, 
-    var(--accent-bright) 50%,
-    var(--accent) 100%);
+    var(--accent2-color) 0%, 
+    var(--accent3-color) 50%,
+    var(--accent2-color) 100%);
   background-size: 100% 200%;
   animation: shimmer 3s ease-in-out infinite;
 }
@@ -1055,7 +1122,7 @@ main {
 }
 
 .info-section h2 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: 2.5rem;
   margin-bottom: 2rem;
   font-weight: 900;
@@ -1076,7 +1143,7 @@ main {
 }
 
 .info-section p strong {
-  color: var(--primary);
+  color: var(--primary-color);
   font-weight: 800;
   font-size: 1.2rem;
   display: inline-block;
@@ -1084,7 +1151,7 @@ main {
 }
 
 /* ===================================
-   SERVICES PAGE - ENHANCED
+   SERVICES PAGE SPECIFIC
    =================================== */
 
 .services-intro {
@@ -1096,7 +1163,7 @@ main {
     rgba(139, 195, 74, 0.08) 0%, 
     rgba(139, 195, 74, 0.02) 100%);
   border-radius: 24px;
-  border-left: 6px solid var(--accent);
+  border-left: 6px solid var(--accent2-color);
   box-shadow: 
     0 10px 40px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -1132,7 +1199,7 @@ main {
 }
 
 .service-card {
-  background: white;
+  background: var(--neutral-white);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -1149,9 +1216,9 @@ main {
   right: 0;
   height: 5px;
   background: linear-gradient(90deg, 
-    var(--secondary) 0%, 
-    var(--accent) 50%,
-    var(--accent-bright) 100%);
+    var(--secondary-color) 0%, 
+    var(--accent2-color) 50%,
+    var(--accent3-color) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease;
@@ -1196,7 +1263,7 @@ main {
   height: 2px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    var(--accent) 50%, 
+    var(--accent2-color) 50%, 
     transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1207,7 +1274,7 @@ main {
 }
 
 .service-card-content h3 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: 2rem;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -1216,7 +1283,7 @@ main {
 }
 
 .service-card:hover .service-card-content h3 {
-  color: var(--secondary);
+  color: var(--secondary-color);
   transform: translateX(5px);
 }
 
@@ -1256,19 +1323,19 @@ main {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--accent2-color);
   font-weight: bold;
   font-size: 1.3rem;
   transition: all 0.3s ease;
 }
 
 .service-card:hover .service-card-content li::before {
-  color: var(--accent-bright);
+  color: var(--accent3-color);
   transform: scale(1.2);
 }
 
 /* ===================================
-   CONTACT PAGE - ENHANCED
+   CONTACT PAGE SPECIFIC
    =================================== */
 
 .contact-intro {
@@ -1282,7 +1349,7 @@ main {
 }
 
 .contact-intro h1 {
-  color: var(--primary);
+  color: var(--primary-color);
   font-size: 3.5rem;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -1323,9 +1390,9 @@ main {
   right: -2px;
   bottom: -2px;
   background: linear-gradient(45deg, 
-    var(--accent) 0%, 
-    var(--accent-bright) 50%, 
-    var(--accent) 100%);
+    var(--accent2-color) 0%, 
+    var(--accent3-color) 50%, 
+    var(--accent2-color) 100%);
   background-size: 200% 200%;
   animation: shimmer 4s linear infinite;
   z-index: -1;
@@ -1340,7 +1407,7 @@ main {
 .contact-form label {
   display: block;
   margin-bottom: 0.75rem;
-  color: var(--primary);
+  color: var(--primary-color);
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0.3px;
@@ -1350,19 +1417,19 @@ main {
 .contact-form textarea {
   width: 100%;
   padding: 1.4rem 1.6rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--neutral-border);
   border-radius: 14px;
   font-size: 1.1rem;
-  font-family: inherit;
+  font-family: var(--body-font);
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  background: #f8f9fa;
+  background: var(--neutral-light);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: var(--secondary);
-  background: white;
+  border-color: var(--secondary-color);
+  background: var(--neutral-white);
   box-shadow: 
     0 8px 25px rgba(90, 140, 46, 0.2),
     0 0 0 4px rgba(139, 195, 74, 0.1);
@@ -1376,8 +1443,8 @@ main {
 
 .submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--neutral-white);
   padding: 1.75rem;
   border: none;
   border-radius: 14px;
@@ -1531,49 +1598,61 @@ main {
   padding: 0 2rem;
 }
 
-/* Accessibility */
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--accent2-color);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Selection */
+/* ===================================
+   TEXT SELECTION
+   =================================== */
+
 ::selection {
-  background: var(--accent);
-  color: white;
+  background: var(--accent2-color);
+  color: var(--neutral-white);
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background: var(--accent);
-  color: white;
+  background: var(--accent2-color);
+  color: var(--neutral-white);
   text-shadow: none;
 }
 
-/* Scrollbar */
+/* ===================================
+   CUSTOM SCROLLBAR
+   =================================== */
+
 ::-webkit-scrollbar {
   width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--neutral-light);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   border-radius: 10px;
-  border: 2px solid #f1f1f1;
+  border: 2px solid var(--neutral-light);
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent2-color) 100%);
   box-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
 }
 
-/* Smooth Transitions for Page Load */
+/* ===================================
+   REDUCED MOTION FOR ACCESSIBILITY
+   =================================== */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
