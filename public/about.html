@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About Moofar Pty Ltd</title>
+<link rel="stylesheet" href="css/moofar.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
+      <span class="brand-name">Moofar Pty Ltd</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="landscape-scene" id="about-parallax">
+  <div class="container">
+    <h1 data-animate>About <span class="highlight">Moofar Pty Ltd</span></h1>
+    <p data-animate>We create sustainable outdoor spaces with expert landscaping.</p>
+  </div>
+
+  <div class="svg-wrapper" data-animate>
+    <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+      <circle class="sun" cx="950" cy="80" r="35" fill="#FF9800"/>
+      <path class="hill back" d="M0,250 C300,200 900,280 1200,220 L1200,400 L0,400Z" fill="#A5D6A7"/>
+      <path class="hill mid"  d="M0,270 C300,240 900,310 1200,250 L1200,400 L0,400Z" fill="#81C784"/>
+      <path class="hill front"d="M0,300 C300,270 900,340 1200,290 L1200,400 L0,400Z" fill="#66BB6A"/>
+      <ellipse class="cloud cloud1" cx="300" cy="80" rx="60" ry="20" fill="#fff" opacity="0.7"/>
+      <ellipse class="cloud cloud2" cx="700" cy="60" rx="80" ry="25" fill="#fff" opacity="0.6"/>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Moofar Pty Ltd</p>
+  </div>
+</footer>
+
+<script src="js/moofar.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

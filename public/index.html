@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
+<link rel="stylesheet" href="css/moofar.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
+      <span class="brand-name">Moofar Pty Ltd</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- Homepage hero with SVG parallax -->
+<section class="hero hero-home" id="hero">
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="500" fill="#87CEEB"/>
+      <circle class="sun" cx="950" cy="80" r="40" fill="#FF9800"/>
+      <path class="hill back" d="M0,300 C300,250 900,320 1200,270 L1200,500 L0,500Z" fill="#A5D6A7"/>
+      <path class="hill mid"  d="M0,320 C300,280 900,350 1200,300 L1200,500 L0,500Z" fill="#81C784"/>
+      <path class="hill front"d="M0,350 C300,320 900,380 1200,330 L1200,500 L0,500Z" fill="#66BB6A"/>
+      <ellipse class="cloud cloud1" cx="200" cy="70" rx="60" ry="20" fill="#fff" opacity="0.7"/>
+      <ellipse class="cloud cloud2" cx="700" cy="50" rx="80" ry="25" fill="#fff" opacity="0.6"/>
+      <ellipse class="cloud cloud3" cx="1100" cy="90" rx="50" ry="15" fill="#fff" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-content" data-animate>
+    <p class="hero-subtitle">DIVI LAWNCARE</p>
+    <h1>Landscape<br><span class="highlight">Maintenance</span></h1>
+    <a href="contact.html" class="cta-button" role="button">Get a Free Quote</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Moofar Pty Ltd</p>
+  </div>
+</footer>
+
+<script src="js/moofar.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
