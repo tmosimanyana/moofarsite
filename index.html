@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
-  <meta name="description" content="Moofar Pty Ltd - Botswana's trusted landscaping company. Professional landscaping, bush clearing, fencing, and hardscaping services.">
-  <link rel="stylesheet" href="styles/moofar.css">
+  <meta name="description" content="Moofar Pty Ltd - Botswana's trusted landscaping company. Professional landscaping, bush clearing, fencing, and hardscaping services." />
+  <link rel="stylesheet" href="styles/moofar.css" />
 </head>
 <body>
 <header>
   <div class="container">
     <div class="logo">
-      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
       <span class="brand-name">Moofar Pty Ltd</span>
     </div>
     <nav>
@@ -23,17 +23,21 @@
         <li><a href="blog.html">Blog</a></li>
       </ul>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main>
-  <!-- Hero Section with Background Image -->
-  <section class="hero hero-home">
-    <img src="assets/gallery1.webp" alt="Landscape maintenance">
-    <div class="hero-content">
+  <!-- Layered Parallax Hero -->
+  <section class="hero hero-home parallax" id="hero">
+    <div class="parallax-layer parallax-bg layer-back" data-speed="0.25" aria-hidden="true"></div>
+    <div class="parallax-layer parallax-mid layer-mid" data-speed="0.45" aria-hidden="true"></div>
+    <div class="parallax-layer parallax-clouds layer-clouds" data-speed="0.65" aria-hidden="true"></div>
+
+    <div class="hero-content" data-animate>
       <p class="hero-subtitle">DIVI LAWNCARE</p>
       <h1>Landscape<br><span class="highlight">Maintenance</span></h1>
+      <a href="contact.html" class="cta-button" role="button">Get a Free Quote</a>
     </div>
   </section>
 
@@ -46,32 +50,33 @@
             <p class="contact-label">CALL FOR A FREE QUOTE</p>
             <h2 class="contact-phone">(123)-456-7890</h2>
           </div>
-          <div class="message-form">
-            <p class="form-label">SEND A MESSAGE</p>
-            <input type="text" placeholder="EMAIL ADDRESS" class="email-input">
-            <button class="submit-btn-orange">SUBMIT</button>
-          </div>
+          <form class="message-form" id="home-contact" aria-label="Quick contact form">
+            <label class="sr-only" for="home-email">Email Address</label>
+            <input id="home-email" name="email" type="email" placeholder="EMAIL ADDRESS" class="email-input" required />
+            <button class="submit-btn-orange" type="submit">SUBMIT</button>
+          </form>
         </div>
         <div class="contact-card-right">
-          <div class="service-box residential">
-            <div class="service-icon">
+          <div class="service-box residential" data-animate>
+            <div class="service-icon" aria-hidden="true">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                 <path d="M20 5L5 15L20 25L35 15L20 5Z" stroke="white" stroke-width="2"/>
                 <path d="M5 25L20 35L35 25" stroke="white" stroke-width="2"/>
               </svg>
             </div>
             <h3>Residential</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed eiusmod</p>
+            <p>Reliable garden maintenance and upgrades.</p>
           </div>
-          <div class="service-box commercial">
-            <div class="service-icon">
+
+          <div class="service-box commercial" data-animate>
+            <div class="service-icon" aria-hidden="true">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                 <rect x="8" y="12" width="24" height="20" stroke="white" stroke-width="2"/>
                 <path d="M12 20L20 25L28 20" stroke="white" stroke-width="2"/>
               </svg>
             </div>
             <h3>Commercial</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed eiusmod</p>
+            <p>Large scale projects for businesses and estates.</p>
           </div>
         </div>
       </div>
@@ -83,32 +88,32 @@
     <div class="container">
       <h2 class="section-title">Our Services</h2>
       <div class="services-grid-home">
-        <div class="service-card-home">
-          <img src="assets/gallery1.webp" alt="Expert Landscaping">
+        <div class="service-card-home" data-animate>
+          <img src="assets/gallery1.webp" loading="lazy" alt="Expert Landscaping" />
           <div class="service-card-content">
             <h3>Expert Landscaping</h3>
-            <p>Creating beautiful, sustainable outdoor environments that enhance your property's value and appeal.</p>
+            <p>Creating beautiful, sustainable outdoor environments.</p>
           </div>
         </div>
-        <div class="service-card-home">
-          <img src="assets/gallery13.webp" alt="Bush Clearing">
+        <div class="service-card-home" data-animate>
+          <img src="assets/gallery13.webp" loading="lazy" alt="Bush Clearing" />
           <div class="service-card-content">
             <h3>Bush Clearing</h3>
-            <p>Safe and efficient land clearing services for residential, commercial, and agricultural properties.</p>
+            <p>Safe and efficient land clearing services.</p>
           </div>
         </div>
-        <div class="service-card-home">
-          <img src="assets/gallery12.webp" alt="Hardscaping">
+        <div class="service-card-home" data-animate>
+          <img src="assets/gallery12.webp" loading="lazy" alt="Hardscaping" />
           <div class="service-card-content">
             <h3>Hardscaping</h3>
-            <p>Quality patios, walkways, retaining walls, and water features designed to last.</p>
+            <p>Patios, walkways, retaining walls and water features.</p>
           </div>
         </div>
-        <div class="service-card-home">
-          <img src="assets/gallery4.webp" alt="Fencing Solutions">
+        <div class="service-card-home" data-animate>
+          <img src="assets/gallery4.webp" loading="lazy" alt="Fencing Solutions" />
           <div class="service-card-content">
             <h3>Fencing Solutions</h3>
-            <p>Secure, durable fencing options for privacy, security, and aesthetic enhancement.</p>
+            <p>Secure, durable fencing for privacy and security.</p>
           </div>
         </div>
       </div>
@@ -116,7 +121,7 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
+  <section class="cta-section" data-animate>
     <h2>Ready to Transform Your Space?</h2>
     <p>Contact us today for a free consultation and quote. Let's bring your outdoor vision to life.</p>
     <a href="contact.html" class="cta-button">Get Started</a>
@@ -126,17 +131,16 @@
 <footer>
   <div class="container">
     <p>© <span id="year"></span> Moofar Pty Ltd | Landscaping Services in Botswana</p>
-    <div class="socialmedia">
-      <a href="#" aria-label="Facebook"><img src="assets/facebook.svg" alt="Facebook"></a>
-      <a href="#" aria-label="Instagram"><img src="assets/instagram.svg" alt="Instagram"></a>
-      <a href="#" aria-label="Twitter"><img src="assets/twitter.svg" alt="Twitter"></a>
+    <div class="socialmedia" aria-hidden="true">
+      <a href="#" aria-label="Facebook"><img src="assets/facebook.svg" alt="" /></a>
+      <a href="#" aria-label="Instagram"><img src="assets/instagram.svg" alt="" /></a>
+      <a href="#" aria-label="Twitter"><img src="assets/twitter.svg" alt="" /></a>
     </div>
   </div>
 </footer>
 
-<script src="scripts/moofar.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="scripts/moofar.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+

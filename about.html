@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About Us | Moofar Pty Ltd</title>
-  <meta name="description" content="Learn more about Moofar Pty Ltd, Botswana's trusted landscaping company.">
-  <link rel="stylesheet" href="styles/moofar.css">
+  <meta name="description" content="Learn more about Moofar Pty Ltd, Botswana's trusted landscaping company." />
+  <link rel="stylesheet" href="styles/moofar.css" />
 </head>
 <body>
 <header>
   <div class="container">
     <div class="logo">
-      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
       <span class="brand-name">Moofar Pty Ltd</span>
     </div>
     <nav>
@@ -22,13 +22,13 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main>
-  <section class="about-content fade-in">
-    <img src="assets/gallery1.webp" alt="Moofar team">
+  <section class="about-content fade-in" data-animate>
+    <img src="assets/gallery1.webp" alt="Moofar team" loading="lazy" />
     <div class="about-content-text">
       <h2>Our Story</h2>
       <p>Moofar Pty Ltd transforms outdoor spaces across Botswana. With 12 months 15 of expertise, we deliver high-quality landscaping, bush clearing, fencing, and hardscaping services.</p>
@@ -36,20 +36,37 @@
     </div>
   </section>
 
-  <!-- 🌿 SVG Landscape Scene -->
-  <section class="landscape-scene fade-in">
+  <section class="landscape-scene fade-in" id="about-parallax">
     <h2>Inspired by Nature</h2>
     <div class="svg-wrapper">
-      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="800" height="400" fill="#e0f7fa"/>
-        <circle cx="100" cy="100" r="50" fill="#4CAF50"/>
-        <path d="M0 300 Q400 200 800 300 L800 400 L0 400 Z" fill="#8D6E63"/>
-        <!-- Add more SVG elements as needed -->
+      <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#cfeff6"/>
+            <stop offset="1" stop-color="#e0f7fa"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1200" height="500" fill="url(#sky)" />
+
+        <g id="hills" transform="translate(0,70)">
+          <path id="hill-back" d="M0 300 Q300 200 600 260 T1200 260 L1200 500 L0 500 Z" fill="#9E7D6A"/>
+          <path id="hill-mid" d="M0 320 Q300 240 600 300 T1200 300 L1200 500 L0 500 Z" fill="#7F5A49"/>
+          <path id="hill-front" d="M0 360 Q300 300 600 340 T1200 340 L1200 500 L0 500 Z" fill="#5E3E2F"/>
+        </g>
+
+        <circle id="sun" cx="980" cy="90" r="48" fill="#FFD54F"/>
+
+        <g id="clouds" fill="#ffffff" opacity="0.95">
+          <ellipse class="cloud" cx="200" cy="80" rx="60" ry="28"/>
+          <ellipse class="cloud" cx="260" cy="72" rx="48" ry="22"/>
+          <ellipse class="cloud" cx="360" cy="90" rx="70" ry="30"/>
+        </g>
       </svg>
     </div>
   </section>
 
-  <section class="info-section fade-in">
+  <section class="info-section fade-in" data-animate>
     <h2>Our Values</h2>
     <p><strong>Excellence:</strong> Highest standards in every project.</p>
     <p><strong>Integrity:</strong> Honest communication and transparent pricing.</p>
@@ -64,10 +81,9 @@
   </div>
 </footer>
 
-<script src="scripts/moofar.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="scripts/moofar.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
 

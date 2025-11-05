@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Services | Moofar Pty Ltd</title>
-  <meta name="description" content="Professional landscaping, bush clearing, fencing, and hardscaping services in Botswana.">
-  <link rel="stylesheet" href="styles/moofar.css">
+  <meta name="description" content="Professional landscaping, bush clearing, fencing, and hardscaping services in Botswana." />
+  <link rel="stylesheet" href="styles/moofar.css" />
 </head>
 <body>
 <header>
   <div class="container">
     <div class="logo">
-      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
       <span class="brand-name">Moofar Pty Ltd</span>
     </div>
     <nav>
@@ -22,39 +22,39 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main>
-  <section class="services-intro fade-in">
+  <section class="services-intro fade-in" data-animate>
     <p>Moofar offers professional landscaping, bush clearing, fencing, and hardscaping services. We bring your vision to life with quality workmanship.</p>
   </section>
 
   <section class="services-grid fade-in">
-    <div class="service-card">
-      <img src="assets/gallery1.webp" alt="Landscaping">
+    <div class="service-card" data-animate>
+      <img src="assets/gallery1.webp" loading="lazy" alt="Landscaping" />
       <div class="service-card-content">
         <h3>Landscaping</h3>
         <p>Garden design, irrigation, and maintenance.</p>
       </div>
     </div>
-    <div class="service-card">
-      <img src="assets/gallery13.webp" alt="Bush Clearing">
+    <div class="service-card" data-animate>
+      <img src="assets/gallery13.webp" loading="lazy" alt="Bush Clearing" />
       <div class="service-card-content">
         <h3>Bush Clearing</h3>
         <p>Safe, efficient land clearing for construction and agriculture.</p>
       </div>
     </div>
-    <div class="service-card">
-      <img src="assets/gallery12.webp" alt="Hardscaping">
+    <div class="service-card" data-animate>
+      <img src="assets/gallery12.webp" loading="lazy" alt="Hardscaping" />
       <div class="service-card-content">
         <h3>Hardscaping</h3>
         <p>Patios, walkways, retaining walls, and water features.</p>
       </div>
     </div>
-    <div class="service-card">
-      <img src="assets/gallery4.webp" alt="Fencing">
+    <div class="service-card" data-animate>
+      <img src="assets/gallery4.webp" loading="lazy" alt="Fencing" />
       <div class="service-card-content">
         <h3>Fencing</h3>
         <p>Security and privacy solutions for any property.</p>
@@ -69,10 +69,8 @@
   </div>
 </footer>
 
-<script src="scripts/moofar.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="scripts/moofar.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
 
