@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Moofar Pty Ltd</title>
-  <meta name="description" content="Contact Moofar Pty Ltd for professional landscaping services in Botswana.">
+  <title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
+  <meta name="description" content="Moofar Pty Ltd - Botswana's trusted landscaping company. Professional landscaping, bush clearing, fencing, and hardscaping services.">
   <link rel="stylesheet" href="styles/moofar.css">
 </head>
 <body>
@@ -16,10 +16,11 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html" class="active">Contact Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </nav>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -27,41 +28,109 @@
 </header>
 
 <main>
-  <section class="contact-intro fade-in">
-    <h1>Contact Us</h1>
-    <p>Reach out to Moofar Pty Ltd for professional landscaping services in Botswana.</p>
+  <!-- Hero Section with Background Image -->
+  <section class="hero hero-home">
+    <img src="assets/gallery1.webp" alt="Landscape maintenance">
+    <div class="hero-content">
+      <p class="hero-subtitle">DIVI LAWNCARE</p>
+      <h1>Landscape<br><span class="highlight">Maintenance</span></h1>
+    </div>
   </section>
 
-  <section class="contact-form-wrapper fade-in">
-    <form class="contact-form">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" placeholder="Enter your full name" required>
+  <!-- Contact Card Section -->
+  <section class="contact-card-section">
+    <div class="container">
+      <div class="contact-card-wrapper">
+        <div class="contact-card-left">
+          <div class="contact-info-box">
+            <p class="contact-label">CALL FOR A FREE QUOTE</p>
+            <h2 class="contact-phone">(123)-456-7890</h2>
+          </div>
+          <div class="message-form">
+            <p class="form-label">SEND A MESSAGE</p>
+            <input type="text" placeholder="EMAIL ADDRESS" class="email-input">
+            <button class="submit-btn-orange">SUBMIT</button>
+          </div>
+        </div>
+        <div class="contact-card-right">
+          <div class="service-box residential">
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M20 5L5 15L20 25L35 15L20 5Z" stroke="white" stroke-width="2"/>
+                <path d="M5 25L20 35L35 25" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Residential</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed eiusmod</p>
+          </div>
+          <div class="service-box commercial">
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="12" width="24" height="20" stroke="white" stroke-width="2"/>
+                <path d="M12 20L20 25L28 20" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Commercial</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed eiusmod</p>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" placeholder="Enter your email address" required>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid-home">
+        <div class="service-card-home">
+          <img src="assets/gallery1.webp" alt="Expert Landscaping">
+          <div class="service-card-content">
+            <h3>Expert Landscaping</h3>
+            <p>Creating beautiful, sustainable outdoor environments that enhance your property's value and appeal.</p>
+          </div>
+        </div>
+        <div class="service-card-home">
+          <img src="assets/gallery13.webp" alt="Bush Clearing">
+          <div class="service-card-content">
+            <h3>Bush Clearing</h3>
+            <p>Safe and efficient land clearing services for residential, commercial, and agricultural properties.</p>
+          </div>
+        </div>
+        <div class="service-card-home">
+          <img src="assets/gallery12.webp" alt="Hardscaping">
+          <div class="service-card-content">
+            <h3>Hardscaping</h3>
+            <p>Quality patios, walkways, retaining walls, and water features designed to last.</p>
+          </div>
+        </div>
+        <div class="service-card-home">
+          <img src="assets/gallery4.webp" alt="Fencing Solutions">
+          <div class="service-card-content">
+            <h3>Fencing Solutions</h3>
+            <p>Secure, durable fencing options for privacy, security, and aesthetic enhancement.</p>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number" required>
-      </div>
-      <div class="form-group">
-        <label for="service">Service Interested In</label>
-        <input type="text" id="service" placeholder="e.g., Landscaping, Fencing, Bush Clearing" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" placeholder="Tell us about your project..." required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Transform Your Space?</h2>
+    <p>Contact us today for a free consultation and quote. Let's bring your outdoor vision to life.</p>
+    <a href="contact.html" class="cta-button">Get Started</a>
   </section>
 </main>
 
 <footer>
   <div class="container">
     <p>© <span id="year"></span> Moofar Pty Ltd | Landscaping Services in Botswana</p>
+    <div class="socialmedia">
+      <a href="#" aria-label="Facebook"><img src="assets/facebook.svg" alt="Facebook"></a>
+      <a href="#" aria-label="Instagram"><img src="assets/instagram.svg" alt="Instagram"></a>
+      <a href="#" aria-label="Twitter"><img src="assets/twitter.svg" alt="Twitter"></a>
+    </div>
   </div>
 </footer>
 

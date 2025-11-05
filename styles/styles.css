@@ -1,32 +1,24 @@
 /* ===================================
-   MOOFAR PTY LTD - DIVI THEME INSPIRED
-   moofar.css - Professional WordPress Design
-   =================================== */
-
-/* ===================================
-   CSS VARIABLES - DIVI STYLE
+   MOOFAR PTY LTD - UPDATED DESIGN
+   moofar.css - Based on Wireframe
    =================================== */
 
 :root {
-  --primary-color: #2d5016; /* deep forest green */
-  --secondary-color: #5a8c2e; /* vibrant grass green */
-  --accent1-color: #2b2b2b; /* charcoal dark */
-  --accent2-color: #8bc34a; /* bright lime green */
-  --accent3-color: #9ccc65; /* light spring green */
-  --neutral-light: #f7f7f7; /* soft background */
-  --neutral-white: #ffffff; /* pure white */
-  --neutral-border: #e0e0e0; /* light gray border */
-  --neutral-text: #666666; /* body text color */
+  --primary-color: #2d5016;
+  --secondary-color: #5a8c2e;
+  --accent1-color: #2b2b2b;
+  --accent2-color: #8bc34a;
+  --accent3-color: #9ccc65;
+  --orange-color: #ff8c42;
+  --neutral-light: #f7f7f7;
+  --neutral-white: #ffffff;
+  --neutral-border: #e0e0e0;
+  --neutral-text: #666666;
   --heading-font: "Georgia", "Times New Roman", serif;
   --body-font: "Open Sans", Arial, Helvetica, sans-serif;
   --transition-speed: 0.3s;
-  --border-radius: 0; /* Divi uses minimal border radius */
   --section-padding: 80px;
 }
-
-/* ===================================
-   RESET & BASE STYLES
-   =================================== */
 
 * {
   margin: 0;
@@ -41,7 +33,6 @@ body {
   font-size: 14px;
   background: var(--neutral-white);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -54,19 +45,6 @@ img {
   display: block;
 }
 
-/* ===================================
-   LAYOUT STRUCTURE
-   =================================== */
-
-header, main, footer {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-/* ===================================
-   TYPOGRAPHY - DIVI STYLE
-   =================================== */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   color: var(--accent1-color);
@@ -76,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 64px;
   letter-spacing: -1px;
 }
 
@@ -86,7 +64,7 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 22px;
 }
 
 p {
@@ -97,110 +75,47 @@ p {
 }
 
 /* ===================================
-   SPACING
-   =================================== */
-
-nav, p, section, article {
-  margin: 16px;
-  padding: 8px;
-}
-
-/* ===================================
-   ANIMATIONS - DIVI SMOOTH
-   =================================== */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-/* ===================================
-   HEADER - DIVI CLEAN STYLE
+   HEADER
    =================================== */
 
 header {
   background: var(--neutral-white);
-  padding: 30px 0;
+  padding: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
-  transition: padding var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-
-header.scrolled {
-  padding: 20px 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
 }
 
-/* ===================================
-   LOGO - DIVI SIMPLE
-   =================================== */
-
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .logo img {
-  width: 50px;
-  height: 50px;
-  transition: transform var(--transition-speed) ease;
-}
-
-.logo:hover img {
-  transform: scale(1.05);
+  width: 40px;
+  height: 40px;
 }
 
 .brand-name {
-  font-family: var(--heading-font);
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--primary-color);
-  letter-spacing: -0.5px;
-  transition: color var(--transition-speed) ease;
+  font-family: var(--body-font);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent1-color);
+  letter-spacing: 0;
 }
-
-.logo:hover .brand-name {
-  color: var(--secondary-color);
-}
-
-/* ===================================
-   NAVIGATION - DIVI STYLE
-   =================================== */
 
 nav ul {
   display: flex;
@@ -215,28 +130,13 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--neutral-text);
+  color: var(--accent1-color);
   text-decoration: none;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  position: relative;
   display: block;
   transition: color var(--transition-speed) ease;
-}
-
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  right: 20px;
-  height: 3px;
-  background: var(--primary-color);
-  transform: scaleX(0);
-  transition: transform var(--transition-speed) ease;
 }
 
 nav ul li a:hover,
@@ -244,12 +144,6 @@ nav ul li a.active {
   color: var(--primary-color);
 }
 
-nav ul li a:hover::after,
-nav ul li a.active::after {
-  transform: scaleX(1);
-}
-
-/* Mobile Menu Button */
 .menu-btn {
   display: none;
   background: transparent;
@@ -258,27 +152,306 @@ nav ul li a.active::after {
   padding: 10px;
   font-size: 28px;
   cursor: pointer;
-  transition: color var(--transition-speed) ease;
-}
-
-.menu-btn:hover {
-  color: var(--primary-color);
 }
 
 /* ===================================
-   FOOTER - DIVI MINIMAL
+   HERO SECTION - HOME
+   =================================== */
+
+.hero-home {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.hero-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: var(--neutral-white);
+}
+
+.hero-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: var(--neutral-white);
+}
+
+.hero-content h1 {
+  font-size: 72px;
+  color: var(--neutral-white);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-content h1 .highlight {
+  color: var(--accent2-color);
+}
+
+/* ===================================
+   CONTACT CARD SECTION
+   =================================== */
+
+.contact-card-section {
+  background: var(--neutral-light);
+  padding: 0;
+  position: relative;
+  margin-top: -80px;
+  z-index: 10;
+}
+
+.contact-card-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--neutral-white);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card-left {
+  padding: 60px 50px;
+  background: var(--neutral-white);
+}
+
+.contact-info-box {
+  margin-bottom: 50px;
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--neutral-text);
+  margin-bottom: 10px;
+}
+
+.contact-phone {
+  font-size: 42px;
+  color: var(--accent1-color);
+  font-weight: 700;
+  font-family: var(--body-font);
+  margin: 0;
+}
+
+.message-form {
+  margin-top: 40px;
+}
+
+.form-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--neutral-text);
+  margin-bottom: 15px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--neutral-border);
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: var(--body-font);
+}
+
+.submit-btn-orange {
+  background: var(--orange-color);
+  color: var(--neutral-white);
+  border: none;
+  padding: 15px 40px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease;
+}
+
+.submit-btn-orange:hover {
+  background: #e67a30;
+}
+
+.contact-card-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.service-box {
+  padding: 50px 35px;
+  text-align: center;
+  color: var(--neutral-white);
+}
+
+.service-box.residential {
+  background: #1a3d2b;
+}
+
+.service-box.commercial {
+  background: var(--accent2-color);
+}
+
+.service-icon {
+  margin-bottom: 20px;
+}
+
+.service-box h3 {
+  color: var(--neutral-white);
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===================================
+   SERVICES SECTION
+   =================================== */
+
+.services-section {
+  padding: 100px 30px;
+  background: var(--neutral-white);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  color: var(--accent1-color);
+  margin-bottom: 60px;
+}
+
+.services-grid-home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card-home {
+  background: var(--neutral-white);
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.service-card-home:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-card-home img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.service-card-home .service-card-content {
+  padding: 30px 25px;
+}
+
+.service-card-home h3 {
+  font-size: 18px;
+  color: var(--accent1-color);
+  margin-bottom: 12px;
+}
+
+.service-card-home p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--neutral-text);
+  margin: 0;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.cta-section {
+  background: var(--primary-color);
+  padding: 100px 30px;
+  text-align: center;
+  color: var(--neutral-white);
+}
+
+.cta-section h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: var(--neutral-white);
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--accent2-color);
+  color: var(--neutral-white);
+  padding: 18px 40px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all var(--transition-speed) ease;
+  border: 2px solid var(--accent2-color);
+}
+
+.cta-button:hover {
+  background: transparent;
+  border-color: var(--neutral-white);
+}
+
+/* ===================================
+   FOOTER
    =================================== */
 
 footer {
   background: #222222;
   color: #999999;
   padding: 60px 0 30px;
-  margin-top: 0;
   text-align: center;
 }
 
 footer .container {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
 }
@@ -321,7 +494,7 @@ footer p span {
 }
 
 /* ===================================
-   HERO SECTION - DIVI FULLWIDTH
+   OTHER PAGES - KEEP EXISTING STYLES
    =================================== */
 
 .hero {
@@ -378,13 +551,7 @@ footer p span {
   z-index: 2;
   max-width: 90%;
   line-height: 1.3;
-  letter-spacing: -1px;
-  animation: fadeIn 1s ease-out;
 }
-
-/* ===================================
-   MAIN CONTAINER - DIVI SECTIONS
-   =================================== */
 
 main {
   max-width: 100%;
@@ -395,10 +562,6 @@ main {
 section {
   padding: var(--section-padding) 30px;
 }
-
-/* ===================================
-   CONTENT GRID - DIVI MODULES
-   =================================== */
 
 .content-grid {
   display: grid;
@@ -414,13 +577,7 @@ section {
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
-  animation: fadeIn 0.8s ease-out both;
 }
-
-.grid-item:nth-child(1) { animation-delay: 0.1s; }
-.grid-item:nth-child(2) { animation-delay: 0.2s; }
-.grid-item:nth-child(3) { animation-delay: 0.3s; }
-.grid-item:nth-child(4) { animation-delay: 0.4s; }
 
 .grid-item:hover {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
@@ -431,11 +588,6 @@ section {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  transition: opacity var(--transition-speed) ease;
-}
-
-.grid-item:hover img {
-  opacity: 0.9;
 }
 
 .grid-item-content {
@@ -455,59 +607,6 @@ section {
   font-size: 14px;
   margin-bottom: 0;
 }
-
-/* ===================================
-   CALL TO ACTION - DIVI FULLWIDTH
-   =================================== */
-
-.cta-section {
-  background: var(--primary-color);
-  padding: 100px 30px;
-  text-align: center;
-  color: var(--neutral-white);
-  margin: 0;
-}
-
-.cta-section h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  font-weight: 500;
-  color: var(--neutral-white);
-  letter-spacing: -1px;
-}
-
-.cta-section p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-button {
-  display: inline-block;
-  background: var(--accent2-color);
-  color: var(--neutral-white);
-  padding: 18px 40px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all var(--transition-speed) ease;
-  border: 2px solid var(--accent2-color);
-}
-
-.cta-button:hover {
-  background: transparent;
-  border-color: var(--neutral-white);
-  color: var(--neutral-white);
-}
-
-/* ===================================
-   NEWSLETTER SECTION - DIVI FORM
-   =================================== */
 
 .newsletter-section {
   background: var(--neutral-light);
@@ -592,10 +691,6 @@ section {
   color: var(--primary-color);
 }
 
-/* ===================================
-   ABOUT PAGE - DIVI SECTIONS
-   =================================== */
-
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -655,10 +750,6 @@ section {
   margin-bottom: 5px;
 }
 
-/* ===================================
-   SERVICES PAGE - DIVI BLURBS
-   =================================== */
-
 .services-intro {
   text-align: center;
   max-width: 800px;
@@ -698,11 +789,6 @@ section {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  transition: opacity var(--transition-speed) ease;
-}
-
-.service-card:hover img {
-  opacity: 0.9;
 }
 
 .service-card-content {
@@ -746,10 +832,6 @@ section {
   font-weight: bold;
   font-size: 16px;
 }
-
-/* ===================================
-   CONTACT PAGE - DIVI CONTACT
-   =================================== */
 
 .contact-intro {
   text-align: center;
@@ -835,9 +917,38 @@ section {
   color: var(--primary-color);
 }
 
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===================================
-   RESPONSIVE DESIGN - DIVI BREAKPOINTS
+   RESPONSIVE DESIGN
    =================================== */
+
+@media (max-width: 1024px) {
+  .services-grid-home {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-card-right {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media (max-width: 980px) {
   :root {
@@ -847,7 +958,6 @@ section {
   .content-grid,
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
   }
 
   .about-content {
@@ -863,8 +973,9 @@ section {
     font-size: 32px;
   }
 
-  .hero h1 {
-    font-size: 42px;
+  .hero h1,
+  .hero-content h1 {
+    font-size: 48px;
   }
 }
 
@@ -897,33 +1008,30 @@ section {
     padding: 15px 20px;
   }
 
-  nav ul li a::after {
-    display: none;
-  }
-
-  .hero {
+  .hero,
+  .hero-home {
     height: 400px;
     margin-top: 90px;
   }
 
-  .hero h1 {
-    font-size: 32px;
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .services-grid-home {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card-right {
+    grid-template-columns: 1fr;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  .cta-section h2 {
-    font-size: 36px;
+  .contact-card-section {
+    margin-top: -40px;
   }
 }
 
@@ -932,75 +1040,43 @@ section {
     --section-padding: 40px;
   }
 
-  header .container {
-    padding: 0 20px;
-  }
-
-  .hero {
+  .hero,
+  .hero-home {
     height: 350px;
   }
 
-  .hero h1 {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .contact-phone {
     font-size: 28px;
   }
 
-  .grid-item-content,
-  .service-card-content {
-    padding: 30px 20px;
+  .contact-card-left {
+    padding: 40px 30px;
   }
 
-  .about-content,
-  .info-section,
-  .contact-form-wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  h2 {
-    font-size: 24px;
+  .service-box {
+    padding: 40px 25px;
   }
 }
 
-/* ===================================
-   UTILITY CLASSES
-   =================================== */
-
 .container {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
 }
-
-/* ===================================
-   ACCESSIBILITY
-   =================================== */
 
 :focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
 
-/* ===================================
-   TEXT SELECTION
-   =================================== */
-
 ::selection {
   background: var(--primary-color);
   color: var(--neutral-white);
 }
-
-::-moz-selection {
-  background: var(--primary-color);
-  color: var(--neutral-white);
-}
-
-/* ===================================
-   CUSTOM SCROLLBAR
-   =================================== */
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -1012,16 +1088,11 @@ section {
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
-  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-color);
 }
-
-/* ===================================
-   REDUCED MOTION
-   =================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
