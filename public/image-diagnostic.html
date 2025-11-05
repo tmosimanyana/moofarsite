@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Test - Moofar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .test-section h2 {
+      color: #4CAF50;
+      margin-top: 0;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .image-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    .image-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+    .image-item p {
+      margin: 10px 0 0 0;
+      font-size: 12px;
+      color: #666;
+      word-break: break-all;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .status.success { background: #4CAF50; color: white; }
+    .status.error { background: #f44336; color: white; }
+    .info {
+      background: #E3F2FD;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Moofar Image Diagnostic Test</h1>
+  
+  <div class="info">
+    <strong>Instructions:</strong> This page tests all image paths. Check which images load and which show errors.
+    Open browser DevTools (F12) → Console tab to see detailed error messages.
+  </div>
+
+  <div class="test-section">
+    <h2>Logo Test</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="assets/logo.svg" alt="Logo" id="img-logo" />
+        <p>assets/logo.svg</p>
+        <span class="status" id="status-logo">Testing...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Gallery Images Test</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="assets/gallery1.webp" alt="Gallery 1" id="img-g1" />
+        <p>assets/gallery1.webp</p>
+        <span class="status" id="status-g1">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/gallery3.webp" alt="Gallery 3" id="img-g3" />
+        <p>assets/gallery3.webp</p>
+        <span class="status" id="status-g3">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/gallery4.webp" alt="Gallery 4" id="img-g4" />
+        <p>assets/gallery4.webp</p>
+        <span class="status" id="status-g4">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/gallery12.webp" alt="Gallery 12" id="img-g12" />
+        <p>assets/gallery12.webp</p>
+        <span class="status" id="status-g12">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/gallery13.webp" alt="Gallery 13" id="img-g13" />
+        <p>assets/gallery13.webp</p>
+        <span class="status" id="status-g13">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/gallery14.webp" alt="Gallery 14" id="img-g14" />
+        <p>assets/gallery14.webp</p>
+        <span class="status" id="status-g14">Testing...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Hero Background Images Test</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="assets/hero-back.webp" alt="Hero Back" id="img-hb" />
+        <p>assets/hero-back.webp</p>
+        <span class="status" id="status-hb">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/hero-mid.webp" alt="Hero Mid" id="img-hm" />
+        <p>assets/hero-mid.webp</p>
+        <span class="status" id="status-hm">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/hero-clouds.png" alt="Hero Clouds" id="img-hc" />
+        <p>assets/hero-clouds.png</p>
+        <span class="status" id="status-hc">Testing...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Social Media Icons Test</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="assets/facebook.svg" alt="Facebook" id="img-fb" style="height: 50px; object-fit: contain;" />
+        <p>assets/facebook.svg</p>
+        <span class="status" id="status-fb">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/instagram.svg" alt="Instagram" id="img-ig" style="height: 50px; object-fit: contain;" />
+        <p>assets/instagram.svg</p>
+        <span class="status" id="status-ig">Testing...</span>
+      </div>
+      <div class="image-item">
+        <img src="assets/twitter.svg" alt="Twitter" id="img-tw" style="height: 50px; object-fit: contain;" />
+        <p>assets/twitter.svg</p>
+        <span class="status" id="status-tw">Testing...</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Test each image
+    const images = [
+      'logo', 'g1', 'g3', 'g4', 'g12', 'g13', 'g14', 
+      'hb', 'hm', 'hc', 'fb', 'ig', 'tw'
+    ];
+
+    images.forEach(id => {
+      const img = document.getElementById('img-' + id);
+      const status = document.getElementById('status-' + id);
+      
+      img.onload = function() {
+        status.textContent = '✓ Loaded';
+        status.className = 'status success';
+        console.log('✓ Loaded:', img.src);
+      };
+      
+      img.onerror = function() {
+        status.textContent = '✗ Failed';
+        status.className = 'status error';
+        console.error('✗ Failed to load:', img.src);
+      };
+    });
+
+    // Log current location
+    console.log('Current page URL:', window.location.href);
+    console.log('Base URL:', window.location.origin);
+  </script>
+</body>
+</html>
