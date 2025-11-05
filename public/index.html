@@ -5,6 +5,139 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
   <link rel="stylesheet" href="css/moofar.css" />
+  <style>
+    /* Gallery Section Styles */
+    .gallery-section {
+      padding: 4rem 0;
+      background: #f8f9fa;
+    }
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .gallery-section .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-caption {
+      padding: 1.25rem;
+      background: white;
+    }
+    .gallery-caption h3 {
+      margin: 0 0 0.5rem 0;
+      color: #333;
+      font-size: 1.25rem;
+    }
+    .gallery-caption p {
+      margin: 0;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .view-more {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .view-more-btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .view-more-btn:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+
+    /* Services Preview Section */
+    .services-preview {
+      padding: 4rem 0;
+      background: white;
+    }
+    .services-preview h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .services-preview .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+    .services-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .service-preview-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-preview-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .service-preview-card h3 {
+      color: #333;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+    .service-preview-card p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -44,6 +177,98 @@
       <p class="hero-subtitle">Moofar Pty Ltd</p>
       <h1>Landscape<br><span class="highlight">Maintenance</span></h1>
       <a href="contact.html" class="cta-button" role="button">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- Our Work Gallery Section -->
+  <section class="gallery-section">
+    <h2>Our <span style="color: #4CAF50;">Work</span></h2>
+    <p class="subtitle">See real examples of our professional landscaping projects across Botswana</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery1.webp" alt="Beautiful garden landscaping with flowering plants" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Garden Design</h3>
+          <p>Custom landscape design with lush greenery and vibrant flowers</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery4.webp" alt="Professional fencing installation" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Professional Fencing</h3>
+          <p>Secure and durable fencing solutions for residential properties</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery3.webp" alt="Outdoor hardscaping project" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Hardscaping</h3>
+          <p>Custom hardscape features including decorative elements</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery12.webp" alt="Bush clearing services" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Bush Clearing</h3>
+          <p>Professional land clearing and preparation services</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery13.webp" alt="Decorative garden installations" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Decorative Elements</h3>
+          <p>Unique landscaping features that add character to your space</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-animate>
+        <img src="assets/gallery14.webp" alt="Landscape maintenance work" loading="lazy" />
+        <div class="gallery-caption">
+          <h3>Maintenance Services</h3>
+          <p>Ongoing care to keep your landscape looking its best</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-more">
+      <a href="services.html" class="view-more-btn">View All Services</a>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section class="services-preview">
+    <h2>What We <span style="color: #4CAF50;">Offer</span></h2>
+    <p class="subtitle">Professional landscaping solutions tailored to your needs</p>
+    
+    <div class="services-cards">
+      <div class="service-preview-card" data-animate>
+        <div class="service-icon">🌿</div>
+        <h3>Landscaping</h3>
+        <p>Complete garden design, planting, and ongoing maintenance services</p>
+      </div>
+
+      <div class="service-preview-card" data-animate>
+        <div class="service-icon">🌳</div>
+        <h3>Bush Clearing</h3>
+        <p>Safe and efficient land clearing for construction and agriculture</p>
+      </div>
+
+      <div class="service-preview-card" data-animate>
+        <div class="service-icon">🏗️</div>
+        <h3>Hardscaping</h3>
+        <p>Patios, walkways, retaining walls, and decorative features</p>
+      </div>
+
+      <div class="service-preview-card" data-animate>
+        <div class="service-icon">🔒</div>
+        <h3>Fencing</h3>
+        <p>Durable fencing solutions for security and privacy</p>
+      </div>
     </div>
   </section>
 </main>
