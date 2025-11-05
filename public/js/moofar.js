@@ -1,62 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
-<link rel="stylesheet" href="css/moofar.css" />
-</head>
-<body>
-<header>
-  <div class="container">
-    <div class="logo">
-      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
-      <span class="brand-name">Moofar Pty Ltd</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-    </nav>
-    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false">☰</button>
-  </div>
-</header>
+// moofar.js - Main JavaScript functionality
 
-<main>
-<!-- Homepage hero with SVG parallax -->
-<section class="hero hero-home" id="hero">
-  <div class="svg-wrapper">
-    <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
-      <rect width="1200" height="500" fill="#87CEEB"/>
-      <circle class="sun" cx="950" cy="80" r="40" fill="#FF9800"/>
-      <path class="hill back" d="M0,300 C300,250 900,320 1200,270 L1200,500 L0,500Z" fill="#A5D6A7"/>
-      <path class="hill mid"  d="M0,320 C300,280 900,350 1200,300 L1200,500 L0,500Z" fill="#81C784"/>
-      <path class="hill front"d="M0,350 C300,320 900,380 1200,330 L1200,500 L0,500Z" fill="#66BB6A"/>
-      <ellipse class="cloud cloud1" cx="200" cy="70" rx="60" ry="20" fill="#fff" opacity="0.7"/>
-      <ellipse class="cloud cloud2" cx="700" cy="50" rx="80" ry="25" fill="#fff" opacity="0.6"/>
-      <ellipse class="cloud cloud3" cx="1100" cy="90" rx="50" ry="15" fill="#fff" opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="hero-content" data-animate>
-    <p class="hero-subtitle">Moofar Pty Ltd</p>
-    <h1>Landscape<br><span class="highlight">Maintenance</span></h1>
-    <a href="contact.html" class="cta-button" role="button">Get a Free Quote</a>
-  </div>
-</section>
-</main>
+// Mobile menu toggle
+function toggleMenu() {
+  const nav = document.querySelector('nav');
+  const menuBtn = document.querySelector('.menu-btn');
+  
+  if (nav && menuBtn) {
+    nav.classList.toggle('active');
+    const isExpanded = nav.classList.contains('active');
+    menuBtn.setAttribute('aria-expanded', isExpanded);
+  }
+}
 
-<footer>
-  <div class="container">
-    <p>© <span id="year"></span> Moofar Pty Ltd</p>
-  </div>
-</footer>
+// Scroll animations for elements with data-animate
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('[data-animate]');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  animatedElements.forEach(el => observer.observe(el));
+}
 
-<script src="js/moofar.js" defer></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+// Parallax effect for hero sections
+function initParallax() {
+  const hero = document.getElementById('hero');
+  const aboutParallax = document.getElementById('about-parallax');
+  
+  const applyParallax = (section) => {
+    if (!section) return;
+    
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = section.querySelectorAll('.hill, .cloud, .sun');
+      
+      parallaxElements.forEach(el => {
+        const speed = el.classList.contains('back') ? 0.3 :
+                     el.classList.contains('mid') ? 0.5 :
+                     el.classList.contains('front') ? 0.7 :
+                     el.classList.contains('cloud') ? 0.2 : 0.4;
+        
+        const yPos = -(scrolled * speed);
+        el.style.transform = `translateY(${yPos}px)`;
+      });
+    });
+  };
+  
+  if (hero) applyParallax(hero);
+  if (aboutParallax) applyParallax(aboutParallax);
+}
+
+// Form submission handling (for Netlify forms)
+function initFormHandling() {
+  const form = document.getElementById('contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+      }
+    });
+  }
+}
+
+// Initialize all functionality when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollAnimations();
+  initParallax();
+  initFormHandling();
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  const nav = document.querySelector('nav');
+  const menuBtn = document.querySelector('.menu-btn');
+  
+  if (nav && menuBtn && nav.classList.contains('active')) {
+    if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+      nav.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+});
 
