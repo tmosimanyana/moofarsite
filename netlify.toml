@@ -1,4 +1,35 @@
+# netlify.toml
+# Configuration file for Moofar Pty Ltd website
 
 [build]
-  publish = "public"
-  functions = "netlify/functions"
+  publish = "."               # Serve files from the root folder
+  functions = "netlify/functions"  # (Optional) if you add custom serverless functions later
+
+# Redirects
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+# Force HTTPS (optional, but recommended)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Cache assets for faster loading
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
