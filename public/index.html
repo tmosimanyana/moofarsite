@@ -1,359 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moofar PTY LTD - Professional Landscaping Services</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            overflow-x: hidden;
-        }
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #4a7c59 100%);
-            z-index: 1;
-        }
-
-        .hero-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(139, 195, 74, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.05;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 2rem;
-            max-width: 1200px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .company-name {
-            font-size: 1rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            animation: fadeIn 1s ease-out 0.2s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .hero-subtitle {
-            font-size: 5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #81c784 0%, #66bb6a 50%, #4caf50 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 20px rgba(129, 199, 132, 0.3);
-            animation: fadeInUp 1s ease-out 0.6s both, glow 3s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { filter: drop-shadow(0 0 10px rgba(129, 199, 132, 0.4)); }
-            50% { filter: drop-shadow(0 0 20px rgba(129, 199, 132, 0.6)); }
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-
-        .services-list {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 1s both;
-        }
-
-        .service-item {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            background: rgba(129, 199, 132, 0.2);
-            border-color: rgba(129, 199, 132, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1a4d2e;
-            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(129, 199, 132, 0.3);
-            animation: fadeInUp 1s ease-out 1.2s both;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(129, 199, 132, 0.5);
-            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
-        }
-
-        .cta-button:active {
-            transform: translateY(-1px);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        .scroll-indicator svg {
-            width: 30px;
-            height: 30px;
-            fill: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Floating elements */
-        .floating-element {
-            position: absolute;
-            z-index: 2;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(2) {
-            animation-delay: 1s;
-            animation-duration: 7s;
-        }
-
-        .floating-element:nth-child(3) {
-            animation-delay: 2s;
-            animation-duration: 8s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        .leaf-1 {
-            top: 15%;
-            left: 10%;
-            font-size: 4rem;
-        }
-
-        .leaf-2 {
-            top: 60%;
-            right: 15%;
-            font-size: 3rem;
-        }
-
-        .leaf-3 {
-            bottom: 20%;
-            left: 15%;
-            font-size: 3.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 500px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 3rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-                padding: 0 1rem;
-            }
-
-            .services-list {
-                gap: 1rem;
-            }
-
-            .service-item {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-
-            .company-name {
-                font-size: 0.85rem;
-                letter-spacing: 2px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 2.5rem;
-            }
-
-            .services-list {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moofar Pty Ltd | Professional Landscaping Services in Botswana</title>
+  <meta name="description" content="Moofar Pty Ltd provides expert landscaping, gardening, and outdoor maintenance services in Botswana." />
+  <link rel="stylesheet" href="css/moofar.css" />
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-pattern"></div>
-        
-        <!-- Floating decorative elements -->
-        <div class="floating-element leaf-1">🌿</div>
-        <div class="floating-element leaf-2">🍃</div>
-        <div class="floating-element leaf-3">🌱</div>
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
+      <span class="brand-name">Moofar Pty Ltd</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+  </div>
+</header>
 
-        <div class="hero-content">
-            <div class="company-name">MOOFAR PTY LTD</div>
-            <h1 class="hero-title">Professional</h1>
-            <h2 class="hero-subtitle">Landscaping Services</h2>
-            <p class="hero-description">
-                Transform your outdoor space into a beautiful sanctuary with expert landscaping, bush clearing, gardening, and fencing solutions
-            </p>
-            
-            <div class="services-list">
-                <span class="service-item">Landscaping</span>
-                <span class="service-item">Bush Clearing</span>
-                <span class="service-item">Gardening</span>
-                <span class="service-item">Fencing</span>
-            </div>
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <h1 data-animate>Transform Your Outdoor Space</h1>
+      <p data-animate>Professional landscaping, gardening, and maintenance services designed to bring nature closer to you.</p>
+      <a href="services.html" class="cta-button" data-animate>Explore Our Services</a>
+    </div>
+  </section>
 
-            <a href="#contact" class="cta-button">Get a Free Quote</a>
-        </div>
+  <!-- SERVICE PREVIEW -->
+  <section class="home-services container">
+    <h2 class="section-title" data-animate>What We Do</h2>
+    <div class="services-grid">
+      <article class="service-card" data-animate>
+        <img src="assets/icons/landscaping.svg" alt="Landscaping icon" />
+        <h3>Landscaping</h3>
+        <p>Custom landscape designs that combine beauty, sustainability, and function.</p>
+      </article>
+      <article class="service-card" data-animate>
+        <img src="assets/icons/gardening.svg" alt="Gardening icon" />
+        <h3>Gardening</h3>
+        <p>From soil preparation to seasonal maintenance — we make gardens thrive.</p>
+      </article>
+      <article class="service-card" data-animate>
+        <img src="assets/icons/fencing.svg" alt="Fencing icon" />
+        <h3>Fencing</h3>
+        <p>Durable, aesthetic fencing solutions for privacy and security.</p>
+      </article>
+    </div>
+    <div class="center-btn">
+      <a href="services.html" class="cta-button">View All Services</a>
+    </div>
+  </section>
 
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24">
-                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-            </svg>
-        </div>
-    </section>
+  <!-- CALL TO ACTION -->
+  <section class="cta-banner" data-animate>
+    <div class="container">
+      <h2>Ready to Transform Your Space?</h2>
+      <p>Contact Moofar Pty Ltd for a free consultation and bring your landscaping vision to life.</p>
+      <a href="contact.html" class="cta-button light">Get a Free Quote</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> Moofar Pty Ltd | Landscaping Services in Botswana</p>
+  </div>
+</footer>
+
+<script src="js/moofar.js" defer></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
+
