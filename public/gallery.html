@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Moofar Pty Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --dark-gold: #A68B4D;
+            --light-gold: #E5D4A6;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --white: #ffffff;
+            --light-gray: #f8f8f8;
+            --text-gray: #666;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .page-header-content p {
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 3rem 5%;
+            background: var(--white);
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--text-gray);
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border-color: var(--gold);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-category {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .gallery-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--white);
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--white);
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: color 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            color: var(--gold);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 5%;
+            background: var(--dark-bg);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            color: rgba(255,255,255,0.7);
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--dark-bg);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav {
+                font-size: 2rem;
+                padding: 0.5rem;
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MOOFAR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Our Portfolio</h1>
+            <p>Showcasing Excellence</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+            <button class="filter-btn" data-filter="fencing">Fencing</button>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery">
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item" data-category="residential" data-index="0">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800" alt="Residential Garden">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Residential</span>
+                    <h3 class="gallery-title">Modern Garden Design</h3>
+                    <p class="gallery-description">Complete landscape transformation with native plants and water features</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="commercial" data-index="1">
+                <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800" alt="Commercial Landscaping">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Commercial</span>
+                    <h3 class="gallery-title">Corporate Headquarters</h3>
+                    <p class="gallery-description">Prestigious landscaping for major office complex in Gaborone</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="maintenance" data-index="2">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800" alt="Garden Maintenance">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Maintenance</span>
+                    <h3 class="gallery-title">Estate Grounds Care</h3>
+                    <p class="gallery-description">Ongoing maintenance contract for luxury residential estate</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="residential" data-index="3">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800" alt="Backyard Paradise">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Residential</span>
+                    <h3 class="gallery-title">Backyard Oasis</h3>
+                    <p class="gallery-description">Custom outdoor living space with entertainment area</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="fencing" data-index="4">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800" alt="Wooden Fence">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Fencing</span>
+                    <h3 class="gallery-title">Privacy Fencing</h3>
+                    <p class="gallery-description">Premium wooden fence installation for residential property</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="commercial" data-index="5">
+                <img src="https://images.unsplash.com/photo-1599629954294-1ad4803f6c4e?w=800" alt="Hotel Grounds">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Commercial</span>
+                    <h3 class="gallery-title">Hotel Landscaping</h3>
+                    <p class="gallery-description">Full landscape design and installation for boutique hotel</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="residential" data-index="6">
+                <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Front Yard Design">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Residential</span>
+                    <h3 class="gallery-title">Curb Appeal Enhancement</h3>
+                    <p class="gallery-description">Front yard redesign with flowering shrubs and walkway</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="maintenance" data-index="7">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Lawn Care">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Maintenance</span>
+                    <h3 class="gallery-title">Lawn Renovation</h3>
+                    <p class="gallery-description">Complete lawn restoration with irrigation system upgrade</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="commercial" data-index="8">
+                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=800" alt="Land Clearing">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Commercial</span>
+                    <h3 class="gallery-title">Commercial Site Prep</h3>
+                    <p class="gallery-description">Bush clearing and site preparation for new development</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="fencing" data-index="9">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Security Fencing">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Fencing</span>
+                    <h3 class="gallery-title">Perimeter Security</h3>
+                    <p class="gallery-description">Commercial security fencing with automated access gates</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="residential" data-index="10">
+                <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800" alt="Garden Path">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Residential</span>
+                    <h3 class="gallery-title">Garden Pathways</h3>
+                    <p class="gallery-description">Natural stone walkways through landscaped garden</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="commercial" data-index="11">
+                <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=800" alt="Shopping Center">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Commercial</span>
+                    <h3 class="gallery-title">Retail Complex</h3>
+                    <p class="gallery-description">Landscape design for shopping center common areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Want Your Project Featured Here?</h2>
+        <p>Let us transform your outdoor space into a masterpiece</p>
+        <a href="contact.html" class="btn">Start Your Project</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MOOFAR PTY LTD</h3>
+                <p>Botswana's premier landscaping and horticultural services provider.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html#maintenance">Landscape Maintenance</a>
+                <a href="services.html#nursery">Horticultural Nursery</a>
+                <a href="services.html#clearing">Bush Clearing</a>
+                <a href="services.html#fencing">Fencing Services</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Gaborone, Botswana</p>
+                <p>contact@moofar.com</p>
+                <p>+267 XXX XXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Moofar Pty Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        const images = Array.from(document.querySelectorAll('.gallery-item img'));
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = parseInt(item.getAttribute('data-index'));
+                openLightbox(images[currentImageIndex].src);
+            });
+        });
+
+        function openLightbox(src) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightboxImg').src = src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+            if (currentImageIndex >= images.length) currentImageIndex = 0;
+            document.getElementById('lightboxImg').src = images[currentImageIndex].src;
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+        });
+    </script>
+</body>
+</html>

@@ -1,57 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About Moofar Pty Ltd</title>
-  <link rel="stylesheet" href="css/moofar.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Moofar Pty Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --dark-gold: #A68B4D;
+            --light-gold: #E5D4A6;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --white: #ffffff;
+            --light-gray: #f8f8f8;
+            --text-gray: #666;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1599629954294-1ad4803f6c4e?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .page-header-content p {
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 8rem 5%;
+            background: var(--white);
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-subtitle {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .story h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--dark-bg);
+            font-weight: 300;
+        }
+
+        .story p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 8rem 5%;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 8rem 5%;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-bg);
+            font-weight: 300;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+        }
+
+        .value-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 8rem 5%;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+        }
+
+        .team-role {
+            color: var(--gold);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 8rem 5%;
+            background: linear-gradient(rgba(26,26,26,0.9), rgba(26,26,26,0.9)), 
+                        url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mission h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .mission p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 5%;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-bg);
+            font-weight: 300;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            color: rgba(255,255,255,0.7);
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--dark-bg);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title, .story h2, .mission h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="logo">
-      <img src="assets/logo.svg" alt="Moofar Pty Ltd logo" />
-      <span class="brand-name">Moofar Pty Ltd</span>
-    </div>
+    <!-- Navigation -->
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MOOFAR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
-  </div>
-</header>
 
-<main>
-  <section class="landscape-scene" id="about-parallax">
-    <div class="container">
-      <h1 data-animate>About <span class="highlight">Moofar Pty Ltd</span></h1>
-      <p data-animate>We create sustainable outdoor spaces with expert landscaping.</p>
-    </div>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>About Moofar</h1>
+            <p>Our Story & Values</p>
+        </div>
+    </section>
 
-    <div class="svg-wrapper" data-animate>
-      <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
-        <circle class="sun" cx="950" cy="80" r="35" fill="#FF9800"/>
-        <path class="hill back" d="M0,250 C300,200 900,280 1200,220 L1200,400 L0,400Z" fill="#A5D6A7"/>
-        <path class="hill mid" d="M0,270 C300,240 900,310 1200,250 L1200,400 L0,400Z" fill="#81C784"/>
-        <path class="hill front" d="M0,300 C300,270 900,340 1200,290 L1200,400 L0,400Z" fill="#66BB6A"/>
-        <ellipse class="cloud cloud1" cx="300" cy="80" rx="60" ry="20" fill="#fff" opacity="0.7"/>
-        <ellipse class="cloud cloud2" cx="700" cy="60" rx="80" ry="25" fill="#fff" opacity="0.6"/>
-      </svg>
-    </div>
-  </section>
-</main>
+    <!-- Story Section -->
+    <section class="story">
+        <div class="story-container">
+            <div class="section-subtitle">Our Journey</div>
+            <h2>Cultivating Excellence Since 2010</h2>
+            <p>Moofar Pty Ltd was founded with a simple vision: to transform Botswana's landscapes with expertise, creativity, and unwavering commitment to quality. What began as a small family operation has grown into one of the country's most respected landscaping and horticultural service providers.</p>
+            <p>Over the years, we've completed hundreds of projects across residential, commercial, and agricultural sectors. From intimate garden designs to large-scale land clearing operations, our dedication to excellence remains constant. We've built our reputation on the quality of our work, the expertise of our team, and the trust of our clients.</p>
+            <p>Today, Moofar stands as a testament to what passion, hard work, and attention to detail can achieve. We continue to evolve, adopting sustainable practices and modern techniques while staying true to the values that built our foundation.</p>
+        </div>
+    </section>
 
-<footer>
-  <div class="container">
-    <p>&copy; <span id="year"></span> Moofar Pty Ltd</p>
-  </div>
-</footer>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">250+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+        </div>
+    </section>
 
-<script src="js/moofar.js" defer></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <!-- Values Section -->
+    <section class="values">
+        <div class="section-header">
+            <div class="section-subtitle">Core Values</div>
+            <h2 class="section-title">What Drives Us</h2>
+            <p class="section-description">Our values guide every decision we make and every project we undertake.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">⭐</div>
+                <h3>Excellence</h3>
+                <p>We pursue excellence in every aspect of our work, from the smallest detail to the grandest vision. Quality is never compromised.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3>Sustainability</h3>
+                <p>We're committed to environmentally responsible practices that preserve and enhance Botswana's natural beauty for future generations.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Integrity</h3>
+                <p>Honesty, transparency, and ethical business practices form the foundation of every client relationship and project we undertake.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Innovation</h3>
+                <p>We embrace new techniques, technologies, and ideas while respecting traditional horticultural wisdom and proven methods.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3>Passion</h3>
+                <p>Our love for nature and landscaping drives us to create outdoor spaces that inspire, refresh, and endure.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">👥</div>
+                <h3>Community</h3>
+                <p>We're proud to serve our local community, support local suppliers, and contribute to Botswana's economic growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="section-header">
+            <div class="section-subtitle">Meet The Team</div>
+            <h2 class="section-title">Expert Professionals</h2>
+            <p class="section-description">Our experienced team brings together decades of combined expertise in landscaping, horticulture, and land management.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Team Member" class="team-photo">
+                <h3>Thabo Mokoena</h3>
+                <p class="team-role">Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="Team Member" class="team-photo">
+                <h3>Lesego Dintwe</h3>
+                <p class="team-role">Head Horticulturist</p>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Team Member" class="team-photo">
+                <h3>Kabelo Serame</h3>
+                <p class="team-role">Operations Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Team Member" class="team-photo">
+                <h3>Boipelo Kgosi</h3>
+                <p class="team-role">Landscape Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="mission-content">
+            <div class="section-subtitle">Our Mission</div>
+            <h2>Creating Lasting Natural Beauty</h2>
+            <p>To be Botswana's leading provider of landscaping and horticultural services by delivering exceptional quality, fostering sustainable practices, and creating outdoor spaces that enhance lives and communities.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Work With Us</h2>
+        <p>Join the growing list of satisfied clients who trust Moofar for their landscaping needs</p>
+        <a href="contact.html" class="btn">Get In Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MOOFAR PTY LTD</h3>
+                <p>Botswana's premier landscaping and horticultural services provider.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html#maintenance">Landscape Maintenance</a>
+                <a href="services.html#nursery">Horticultural Nursery</a>
+                <a href="services.html#clearing">Bush Clearing</a>
+                <a href="services.html#fencing">Fencing Services</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Gaborone, Botswana</p>
+                <p>contact@moofar.com</p>
+                <p>+267 XXX XXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Moofar Pty Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
