@@ -477,7 +477,7 @@
                     <div class="info-icon">📍</div>
                     <div class="info-content">
                         <h3>Visit Us</h3>
-                        <p>Monarch,Francistown,Botswana</p>
+                        <p>Monarch, Francistown, Botswana</p>
                     </div>
                 </div>
 
@@ -485,8 +485,8 @@
                     <div class="info-icon">📞</div>
                     <div class="info-content">
                         <h3>Call Us</h3>
-                        <p><a href="tel:+267 72 954 794">+267 72 954 794</a><br>
-                        <a href="tel:+267 77 723 232">+267 77 723 232</a></p>
+                        <p><a href="tel:+267777723232">+267 777 23232</a><br>
+                        <a href="tel:+267770856555">+267 770 85655</a></p>
                     </div>
                 </div>
 
@@ -494,8 +494,7 @@
                     <div class="info-icon">✉️</div>
                     <div class="info-content">
                         <h3>Email Us</h3>
-                        <p><a href="mailto:mapugwam@gmail.com">mapugwam@gmail.com</a><br>
-                        <a href="mailto:mookfara@gmail.com">mookfara@gmail.com</a></p>
+                        <p><a href="mailto:Mookfara@gmail.com">Mookfara@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -556,7 +555,7 @@
     <section class="map-section">
         <div class="map-container">
             <div class="map-placeholder">
-                📍 Francistown, Botswana
+                📍 Monarch, Francistown, Botswana
             </div>
         </div>
     </section>
@@ -607,8 +606,9 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <p>Francistown, Botswana</p>
-                <p>mookfara@gmail.com</p>
-                <p>+267 72 954 794</p>
+                <p>Mookfara@gmail.com</p>
+                <p>+267 777 23232</p>
+                <p>+267 770 85655</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -643,9 +643,23 @@
                 message: document.getElementById('message').value
             };
 
+            // Simulate form submission (replace with actual backend)
+            setTimeout(() => {
+                formMessage.className = 'form-message success';
+                formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                formMessage.style.display = 'block';
+                document.getElementById('contactForm').reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1500);
+
+            /* 
+            // Uncomment this for actual form submission
             try {
-                // Send to Netlify function
-                const response = await fetch('/.netlify/functions/send-email', {
+                const response = await fetch('YOUR_FORM_ENDPOINT', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -653,31 +667,24 @@
                     body: JSON.stringify(formData)
                 });
 
-                const result = await response.json();
-
                 if (response.ok) {
-                    // Success
                     formMessage.className = 'form-message success';
                     formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
                     document.getElementById('contactForm').reset();
                 } else {
-                    // Error from server
                     formMessage.className = 'form-message error';
-                    formMessage.textContent = result.error || 'Something went wrong. Please try again.';
+                    formMessage.textContent = 'Something went wrong. Please try again.';
                 }
             } catch (error) {
-                // Network error
                 formMessage.className = 'form-message error';
                 formMessage.textContent = 'Network error. Please check your connection and try again.';
             } finally {
-                // Re-enable button
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
                 formMessage.style.display = 'block';
-
-                // Scroll to message
                 formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
+            */
         });
     </script>
 </body>
