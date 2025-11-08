@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Moofarsite</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Gallery Page Styles --- */
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* Lightbox overlay */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      animation: zoomIn 0.4s ease;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #f5a623;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gallery</h1>
+    <p>Explore moments captured by Moofarsite</p>
+  </header>
+
+  <main class="gallery-container">
+    <div class="gallery-grid">
+      <!-- Update image filenames as needed -->
+      <a href="#img1" class="gallery-item"><img src="assets/gallery1.webp" alt="Gallery Image 1"></a>
+      <a href="#img2" class="gallery-item"><img src="assets/gallery2.webp" alt="Gallery Image 2"></a>
+      <a href="#img3" class="gallery-item"><img src="assets/gallery3.webp" alt="Gallery Image 3"></a>
+      <a href="#img4" class="gallery-item"><img src="assets/gallery4.webp" alt="Gallery Image 4"></a>
+      <a href="#img5" class="gallery-item"><img src="assets/gallery5.webp" alt="Gallery Image 5"></a>
+    </div>
+  </main>
+
+  <!-- Lightboxes -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="assets/gallery1.webp" alt="Gallery Image 1">
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="assets/gallery2.webp" alt="Gallery Image 2">
+  </div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="assets/gallery3.webp" alt="Gallery Image 3">
+  </div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="assets/gallery4.webp" alt="Gallery Image 4">
+  </div>
+  <div id="img5" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="assets/gallery5.webp" alt="Gallery Image 5">
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Moofarsite. All rights reserved.</p>
+  </footer>
+</body>
+</html>
 
