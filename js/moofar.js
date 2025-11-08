@@ -43,4 +43,72 @@ document.addEventListener('DOMContentLoaded', () => {
   animateOnScroll();
   initParallax();
 });
+// build-images.js
+// Node.js script using sharp to generate AVIF, WebP and JPEG variants
+// Install: npm install sharp
+// Run: node build-images.js
+
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
+
+const srcDir = path.join(__dirname, 'assets', 'source'); // place your high-res masters here
+const outDir = path.join(__dirname, 'assets');
+const images = [
+  'gallery1','gallery10','gallery12','gallery13','gallery17','gallery18',
+  'gallery20','gallery23','gallery4','gallery22','gallery0'
+];
+const sizes = [400, 800, 1200];
+
+async function ensureOut() {
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+}
+
+async function buildImage(name) {
+  const masterJpg = path.join(srcDir, `${name}.jpg`);
+  const masterPng = path.join(srcDir, `${name}.png`);
+  const input = fs.existsSync(masterJpg) ? masterJpg : (fs.existsSync(masterPng) ? masterPng : null);
+  if (!input) {
+    console.warn(`Skipping ${name}: master not found in ${srcDir}`);
+    return;
+  }
+
+  await Promise.all(sizes.map(async (w) => {
+    const outBase = path.join(outDir, `${name}-${w}`);
+    // AVIF
+    await sharp(input)
+      .resize({ width: w })
+      .avif({ quality: 60 })
+      .toFile(`${outBase}.avif`);
+    // WebP
+    await sharp(input)
+      .resize({ width: w })
+      .webp({ quality: 70 })
+      .toFile(`${outBase}.webp`);
+    // JPEG fallback
+    await sharp(input)
+      .resize({ width: w })
+      .jpeg({ quality: 80 })
+      .toFile(`${outBase}.jpg`);
+  }));
+
+  console.log(`Built variants for ${name}`);
+}
+
+async function buildAll() {
+  await ensureOut();
+  for (const name of images) {
+    try {
+      await buildImage(name);
+    } catch (err) {
+      console.error(`Error building ${name}:`, err);
+    }
+  }
+  console.log('All done');
+}
+
+buildAll().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
 

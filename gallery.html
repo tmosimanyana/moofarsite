@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gallery | Moofarsite</title>
-  <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* --- Gallery Page Styles --- */
+    :root {
+      --gap: 1.5rem; /* 24px */
+      --radius: 12px;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background-color: #fafafa;
-      color: #333;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fafafa;
+      color: #111;
       margin: 0;
       padding: 0;
     }
@@ -22,7 +25,7 @@
     }
 
     .gallery-container {
-      max-width: 1200px;
+      max-width: 800px; /* container width used to compute sizes */
       margin: 0 auto;
       padding: 2rem 1rem;
     }
@@ -30,81 +33,78 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      gap: var(--gap);
       justify-items: center;
     }
 
     .gallery-item {
-      position: relative;
+      width: 100%;
+      display: block;
+      border-radius: var(--radius);
       overflow: hidden;
-      border-radius: 12px;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform .28s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
-      border-radius: 12px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      border-radius: var(--radius);
+      transition: transform .28s ease, opacity .28s ease;
+      vertical-align: middle;
     }
 
-    .gallery-item:hover img {
+    .gallery-item:hover img,
+    .gallery-item:focus img {
       transform: scale(1.05);
-      opacity: 0.9;
+      opacity: .95;
     }
 
-    /* Lightbox overlay */
+    /* Lightbox overlay using :target */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
+      inset: 0;
+      background: rgba(0,0,0,.92);
       align-items: center;
-      z-index: 999;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-      animation: zoomIn 0.4s ease;
+      justify-content: center;
+      z-index: 9999;
+      padding: 2rem;
     }
 
     .lightbox:target {
       display: flex;
     }
 
+    .lightbox img {
+      max-width: 92%;
+      max-height: 84%;
+      border-radius: 10px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+    }
+
     .close-btn {
       position: absolute;
       top: 20px;
-      right: 40px;
+      right: 36px;
       font-size: 2rem;
-      color: white;
+      color: #fff;
       text-decoration: none;
-      cursor: pointer;
-      transition: color 0.3s ease;
+      line-height: 1;
     }
 
     .close-btn:hover {
       color: #f5a623;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    /* Visible focus outline for keyboard users */
+    .gallery-item:focus {
+      outline: 3px solid #2563eb;
+      outline-offset: 4px;
     }
   </style>
 </head>
@@ -115,43 +115,300 @@
   </header>
 
   <main class="gallery-container">
-    <div class="gallery-grid">
-      <!-- Update image filenames as needed -->
-      <a href="#img1" class="gallery-item"><img src="assets/gallery1.webp" alt="Gallery Image 1"></a>
-      <a href="#img2" class="gallery-item"><img src="assets/gallery10.webp" alt="Gallery Image 2"></a>
-      <a href="#img3" class="gallery-item"><img src="assets/gallery12.webp" alt="Gallery Image 3"></a>
-      <a href="#img4" class="gallery-item"><img src="assets/gallery13.webp" alt="Gallery Image 4"></a>
-      <a href="#img5" class="gallery-item"><img src="assets/gallery17.webp" alt="Gallery Image 5"></a>
-       <a href="#img1" class="gallery-item"><img src="assets/gallery18.webp" alt="Gallery Image 1"></a>
-      <a href="#img2" class="gallery-item"><img src="assets/gallery20.webp" alt="Gallery Image 2"></a>
-      <a href="#img3" class="gallery-item"><img src="assets/gallery23.webp" alt="Gallery Image 3"></a>
-      <a href="#img4" class="gallery-item"><img src="assets/gallery4.webp" alt="Gallery Image 4"></a>
-      <a href="#img5" class="gallery-item"><img src="assets/gallery22.webp" alt="Gallery Image 5"></a>
-   <a href="#img5" class="gallery-item"><img src="assets/gallery0.webp" alt="Gallery Image 5"></a>
-    </div>
+    <div class="gallery-grid" role="list">
+      <!-- sizes uses computed slot cap 251px for an 800px container -->
+      <!-- Copy this block for each thumbnail and update filenames and alt text -->
+
+      <a href="#img1" class="gallery-item" role="listitem" aria-label="Open image 1">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery1-400.avif 400w, assets/gallery1-800.avif 800w, assets/gallery1-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery1-400.webp 400w, assets/gallery1-800.webp 800w, assets/gallery1-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery1-800.jpg"
+               srcset="assets/gallery1-400.jpg 400w, assets/gallery1-800.jpg 800w, assets/gallery1-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 1"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img2" class="gallery-item" role="listitem" aria-label="Open image 2">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery10-400.avif 400w, assets/gallery10-800.avif 800w, assets/gallery10-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery10-400.webp 400w, assets/gallery10-800.webp 800w, assets/gallery10-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery10-800.jpg"
+               srcset="assets/gallery10-400.jpg 400w, assets/gallery10-800.jpg 800w, assets/gallery10-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 2"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img3" class="gallery-item" role="listitem" aria-label="Open image 3">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery12-400.avif 400w, assets/gallery12-800.avif 800w, assets/gallery12-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery12-400.webp 400w, assets/gallery12-800.webp 800w, assets/gallery12-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery12-800.jpg"
+               srcset="assets/gallery12-400.jpg 400w, assets/gallery12-800.jpg 800w, assets/gallery12-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 3"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img4" class="gallery-item" role="listitem" aria-label="Open image 4">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery13-400.avif 400w, assets/gallery13-800.avif 800w, assets/gallery13-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery13-400.webp 400w, assets/gallery13-800.webp 800w, assets/gallery13-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery13-800.jpg"
+               srcset="assets/gallery13-400.jpg 400w, assets/gallery13-800.jpg 800w, assets/gallery13-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 4"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img5" class="gallery-item" role="listitem" aria-label="Open image 5">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery17-400.avif 400w, assets/gallery17-800.avif 800w, assets/gallery17-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery17-400.webp 400w, assets/gallery17-800.webp 800w, assets/gallery17-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery17-800.jpg"
+               srcset="assets/gallery17-400.jpg 400w, assets/gallery17-800.jpg 800w, assets/gallery17-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 5"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img6" class="gallery-item" role="listitem" aria-label="Open image 6">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery18-400.avif 400w, assets/gallery18-800.avif 800w, assets/gallery18-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery18-400.webp 400w, assets/gallery18-800.webp 800w, assets/gallery18-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery18-800.jpg"
+               srcset="assets/gallery18-400.jpg 400w, assets/gallery18-800.jpg 800w, assets/gallery18-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 6"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img7" class="gallery-item" role="listitem" aria-label="Open image 7">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery20-400.avif 400w, assets/gallery20-800.avif 800w, assets/gallery20-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery20-400.webp 400w, assets/gallery20-800.webp 800w, assets/gallery20-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery20-800.jpg"
+               srcset="assets/gallery20-400.jpg 400w, assets/gallery20-800.jpg 800w, assets/gallery20-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 7"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img8" class="gallery-item" role="listitem" aria-label="Open image 8">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery23-400.avif 400w, assets/gallery23-800.avif 800w, assets/gallery23-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery23-400.webp 400w, assets/gallery23-800.webp 800w, assets/gallery23-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery23-800.jpg"
+               srcset="assets/gallery23-400.jpg 400w, assets/gallery23-800.jpg 800w, assets/gallery23-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 8"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img9" class="gallery-item" role="listitem" aria-label="Open image 9">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery4-400.avif 400w, assets/gallery4-800.avif 800w, assets/gallery4-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery4-400.webp 400w, assets/gallery4-800.webp 800w, assets/gallery4-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery4-800.jpg"
+               srcset="assets/gallery4-400.jpg 400w, assets/gallery4-800.jpg 800w, assets/gallery4-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 9"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img10" class="gallery-item" role="listitem" aria-label="Open image 10">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery22-400.avif 400w, assets/gallery22-800.avif 800w, assets/gallery22-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery22-400.webp 400w, assets/gallery22-800.webp 800w, assets/gallery22-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery22-800.jpg"
+               srcset="assets/gallery22-400.jpg 400w, assets/gallery22-800.jpg 800w, assets/gallery22-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 10"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img11" class="gallery-item" role="listitem" aria-label="Open image 11">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery0-400.avif 400w, assets/gallery0-800.avif 800w, assets/gallery0-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery0-400.webp 400w, assets/gallery0-800.webp 800w, assets/gallery0-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery0-800.jpg"
+               srcset="assets/gallery0-400.jpg 400w, assets/gallery0-800.jpg 800w, assets/gallery0-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 11"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
+      <a href="#img12" class="gallery-item" role="listitem" aria-label="Open image 12">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/gallery22-400.avif 400w, assets/gallery22-800.avif 800w, assets/gallery22-1200.avif 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <source type="image/webp"
+                  srcset="assets/gallery22-400.webp 400w, assets/gallery22-800.webp 800w, assets/gallery22-1200.webp 1200w"
+                  sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)">
+          <img src="assets/gallery22-800.jpg"
+               srcset="assets/gallery22-400.jpg 400w, assets/gallery22-800.jpg 800w, assets/gallery22-1200.jpg 1200w"
+               sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, min(251px, 33vw)"
+               alt="Descriptive alt text for image 12"
+               loading="lazy"
+               decoding="async"
+               width="800"
+               height="600">
+        </picture>
+      </a>
+
     </div>
   </main>
 
   <!-- Lightboxes -->
-  <div id="img1" class="lightbox">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="assets/gallery1.webp" alt="Gallery Image 1">
+  <div id="img1" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 1">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery1-1200.jpg" alt="Large view image 1">
   </div>
-  <div id="img2" class="lightbox">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="assets/gallery2.webp" alt="Gallery Image 2">
+
+  <div id="img2" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 2">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery10-1200.jpg" alt="Large view image 2">
   </div>
-  <div id="img3" class="lightbox">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="assets/gallery3.webp" alt="Gallery Image 3">
+
+  <div id="img3" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 3">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery12-1200.jpg" alt="Large view image 3">
   </div>
-  <div id="img4" class="lightbox">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="assets/gallery4.webp" alt="Gallery Image 4">
+
+  <div id="img4" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 4">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery13-1200.jpg" alt="Large view image 4">
   </div>
-  <div id="img5" class="lightbox">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="assets/gallery5.webp" alt="Gallery Image 5">
+
+  <div id="img5" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 5">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery17-1200.jpg" alt="Large view image 5">
+  </div>
+
+  <div id="img6" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 6">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery18-1200.jpg" alt="Large view image 6">
+  </div>
+
+  <div id="img7" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 7">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery20-1200.jpg" alt="Large view image 7">
+  </div>
+
+  <div id="img8" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 8">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery23-1200.jpg" alt="Large view image 8">
+  </div>
+
+  <div id="img9" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 9">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery4-1200.jpg" alt="Large view image 9">
+  </div>
+
+  <div id="img10" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 10">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery22-1200.jpg" alt="Large view image 10">
+  </div>
+
+  <div id="img11" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 11">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery0-1200.jpg" alt="Large view image 11">
+  </div>
+
+  <div id="img12" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image 12">
+    <a href="#" class="close-btn" aria-label="Close">×</a>
+    <img src="assets/gallery22-1200.jpg" alt="Large view image 12">
   </div>
 
   <footer>
