@@ -272,10 +272,12 @@
 
         .team-photo {
             width: 100%;
-            height: 350px;
+            height: 400px;
             object-fit: cover;
+            object-position: center 30%;
             margin-bottom: 1.5rem;
-            position: relative;
+            border-radius: 8px;
+            display: block;
         }
 
         .team-member h3 {
@@ -437,6 +439,10 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            .team-photo {
+                height: 350px;
+            }
         }
     </style>
 </head>
@@ -551,12 +557,12 @@
         </div>
         <div class="team-grid">
             <div class="team-member">
-                <img src="https://github.com/tmosimanyana/moofarsite/blob/main/assets/gallery16.webp?raw=true" alt="Team Member" class="team-photo">
+                <img src="https://github.com/tmosimanyana/moofarsite/blob/main/assets/gallery16.webp?raw=true" alt="Mooketsi Mapugwa - Director" class="team-photo">
                 <h3>Mooketsi Mapugwa</h3>
                 <p class="team-role">Director</p>
             </div>
             <div class="team-member">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="Team Member" class="team-photo">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=800&fit=crop&crop=faces,top" alt="Farai Madorobo - Manager" class="team-photo">
                 <h3>Farai Madorobo</h3>
                 <p class="team-role">Manager</p>
             </div>
