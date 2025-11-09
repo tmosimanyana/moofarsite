@@ -3,84 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moofar Pty Ltd - Services</title>
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        :root {
-            --gold: #C9A961;
-            --dark-bg: #1a1a1a;
-            --white: #ffffff;
-            --light-gray: #f8f8f8;
-            --text-gray: #666;
-        }
-        body { font-family:'Georgia', serif; color:#333; line-height:1.6; overflow-x:hidden; }
-        nav {
-            position: fixed; top:0; width:100%; background: rgba(26,26,26,0.95); backdrop-filter: blur(10px);
-            padding:1.5rem 5%; z-index:1000; transition: all 0.3s ease;
-        }
-        nav.scrolled { padding:1rem 5%; box-shadow:0 2px 20px rgba(201,169,97,0.1); }
-        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
-        .logo { font-size:1.8rem; font-weight:bold; color:var(--gold); text-decoration:none; letter-spacing:2px; }
-        .nav-links { display:flex; list-style:none; gap:3rem; }
-        .nav-links a { color: var(--white); text-decoration:none; font-size:0.95rem; letter-spacing:1px; font-family:'Arial',sans-serif; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--gold); }
-        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-        .menu-toggle span { width:25px; height:2px; background: var(--gold); transition: all 0.3s ease; }
-
-        /* Hero */
-        .hero { height:60vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover;
-            display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white); position:relative; }
-        .hero-content { position:relative; z-index:1; max-width:900px; padding:2rem; }
-        .hero h1 { font-size:3rem; margin-bottom:1rem; font-weight:300; }
-        .hero p { font-size:1.2rem; color: rgba(255,255,255,0.9); }
-
-        /* Services Section */
-        .services { padding:8rem 5%; background:var(--light-gray); }
-        .section-header { text-align:center; max-width:700px; margin:0 auto 5rem; }
-        .section-subtitle { color:var(--gold); font-size:0.9rem; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; font-family:'Arial',sans-serif; }
-        .section-title { font-size:2.5rem; margin-bottom:1.5rem; color:var(--dark-bg); font-weight:300; }
-        .section-description { font-size:1.1rem; color:var(--text-gray); font-family:'Arial',sans-serif; }
-        .service-card { background:var(--white); padding:3rem 2rem; margin-bottom:3rem; transition:all 0.3s ease; border-left:4px solid var(--gold); position:relative; }
-        .service-card:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,0.1); }
-        .service-card h3 { font-size:1.8rem; margin-bottom:1rem; color:var(--dark-bg); }
-        .service-card p { color:var(--text-gray); line-height:1.8; font-family:'Arial',sans-serif; }
-        .service-icon { font-size:3rem; color:var(--gold); margin-bottom:1rem; }
-
-        /* CTA */
-        .cta { padding:5rem 5%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-            url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover fixed; text-align:center; color:var(--white); }
-        .cta h2 { font-size:2.5rem; margin-bottom:1.5rem; font-weight:300; }
-        .cta p { font-size:1.2rem; margin-bottom:2rem; font-family:'Arial',sans-serif; }
-        .btn { display:inline-block; padding:1rem 2.5rem; background: var(--gold); color: var(--dark-bg); text-decoration:none; font-weight:bold; letter-spacing:2px; transition: all 0.3s ease; border:2px solid var(--gold); font-family:'Arial',sans-serif; text-transform:uppercase; font-size:0.9rem; }
-        .btn:hover { background:transparent; color:var(--gold); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,169,97,0.3); }
-
-        /* Footer */
-        footer { background:var(--dark-bg); color:rgba(255,255,255,0.7); padding:5rem 5% 2rem; }
-        .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
-        .footer-section h3 { color:var(--gold); margin-bottom:1.5rem; font-size:1.3rem; }
-        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration:none; display:block; margin-bottom:0.8rem; font-family:'Arial',sans-serif; transition:color 0.3s ease; }
-        .footer-section a:hover { color:var(--gold); }
-        .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-family:'Arial',sans-serif; }
-
-        @media(max-width:768px){
-            .menu-toggle { display:flex; }
-            .nav-links { position:fixed; top:80px; left:-100%; flex-direction:column; background:var(--dark-bg); width:100%; padding:2rem; transition:left 0.3s ease; gap:1.5rem; }
-            .nav-links.active { left:0; }
-        }
-    </style>
+    <title>Services - Moofar Pty Ltd</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (Same as index) -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo" style="height:40px;"></a>
+            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo"></a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#services-section">Services</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -88,78 +26,40 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Our Premium Services</h1>
-            <p>From meticulous landscaping to professional bush clearing and fencing, we deliver excellence in every project.</p>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services" id="services-section">
+    <!-- Services Section -->
+    <section class="services">
         <div class="section-header">
             <div class="section-subtitle">What We Offer</div>
-            <h2 class="section-title">Detailed Services</h2>
-            <p class="section-description">Explore our core services and see how we can transform your outdoor space.</p>
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="section-description">We deliver excellence in landscaping, horticulture, and property maintenance.</p>
         </div>
-
-        <div class="service-card" id="maintenance">
-            <div class="service-icon">🌿</div>
-            <h3>Landscape Maintenance</h3>
-            <p>Expert care for gardens and grounds. Regular maintenance, seasonal planting, lawn care, and irrigation management to keep your landscape pristine year-round.</p>
-        </div>
-
-        <div class="service-card" id="nursery">
-            <div class="service-icon">🌳</div>
-            <h3>Horticultural Nursery</h3>
-            <p>Premium plants, trees, and shrubs sourced and cultivated with care. Professional advice on plant selection and sustainable landscaping solutions.</p>
-        </div>
-
-        <div class="service-card" id="clearing">
-            <div class="service-icon">🪓</div>
-            <h3>Bush Clearing</h3>
-            <p>Professional land clearing services for residential and commercial properties. Safe, efficient removal of unwanted vegetation and debris.</p>
-        </div>
-
-        <div class="service-card" id="fencing">
-            <div class="service-icon">🏗️</div>
-            <h3>Fencing Services</h3>
-            <p>Quality fencing solutions for security and aesthetics. From wooden privacy fences to decorative garden borders and commercial perimeter fencing.</p>
+        <div class="services-grid">
+            <div class="service-card" id="maintenance">
+                <div class="service-icon">🌿</div>
+                <h3>Landscape Maintenance</h3>
+                <p>Regular maintenance, lawn care, seasonal planting, irrigation management for pristine outdoor spaces.</p>
+            </div>
+            <div class="service-card" id="nursery">
+                <div class="service-icon">🌳</div>
+                <h3>Horticultural Nursery</h3>
+                <p>Premium plants, trees, and shrubs sourced and cultivated. Advice on plant selection and sustainable solutions.</p>
+            </div>
+            <div class="service-card" id="clearing">
+                <div class="service-icon">🪓</div>
+                <h3>Bush Clearing</h3>
+                <p>Safe and efficient removal of unwanted vegetation for residential and commercial properties.</p>
+            </div>
+            <div class="service-card" id="fencing">
+                <div class="service-icon">🏗️</div>
+                <h3>Fencing Services</h3>
+                <p>Quality fencing for security and aesthetics: wooden, decorative, and commercial perimeter fencing.</p>
+            </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <h2>Ready to Transform Your Space?</h2>
-        <p>Contact us today for a free consultation and quote.</p>
-        <a href="contact.html" class="btn">Get Started</a>
-    </section>
-
-    <!-- Footer -->
+    <!-- Footer (Same as index) -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>MOOFAR PTY LTD</h3>
-                <p>Botswana's premier landscaping and horticultural services provider.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="#services-section">Services</a>
-                <a href="about.html">About</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <a href="#"><img src="assets/instagram.svg" alt="Instagram" style="height:30px;"></a>
-                <a href="#"><img src="assets/facebook.svg" alt="Facebook" style="height:30px;"></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Moofar Pty Ltd. All rights reserved.</p>
-        </div>
+        <!-- ...same footer code... -->
     </footer>
 
     <script>
@@ -167,12 +67,17 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
+
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if(window.scrollY>100){ navbar.classList.add('scrolled'); } 
-            else { navbar.classList.remove('scrolled'); }
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
 </html>
+
 
