@@ -3,65 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Moofar Pty Ltd</title>
+    <meta name="description" content="Contact Moofar Pty Ltd for professional landscaping services in Francistown, Botswana. Get a free quote today.">
+    <title>Contact Us - Moofar Pty Ltd</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo"></a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation (injected by components.js) -->
+    <div id="nav-placeholder"></div>
 
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="section-header">
-            <div class="section-subtitle">Our Work</div>
-            <h2 class="section-title">Recent Projects</h2>
-            <p class="section-description">Explore our portfolio of completed projects.</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/project1.jpg" alt="Project 1"><div class="gallery-overlay"><h3>Residential Garden</h3></div></div>
-            <div class="gallery-item"><img src="images/project2.jpg" alt="Project 2"><div class="gallery-overlay"><h3>Commercial Landscaping</h3></div></div>
-            <div class="gallery-item"><img src="images/project3.jpg" alt="Project 3"><div class="gallery-overlay"><h3>Land Clearing</h3></div></div>
-            <div class="gallery-item"><img src="images/project4.jpg" alt="Project 4"><div class="gallery-overlay"><h3>Garden Renovation</h3></div></div>
-            <div class="gallery-item"><img src="images/project5.jpg" alt="Project 5"><div class="gallery-overlay"><h3>Fencing & Landscaping</h3></div></div>
+    <!-- Contact Hero -->
+    <section class="hero" style="height: 50vh; min-height: 400px;">
+        <div class="hero-content">
+            <div class="hero-subtitle">Get In Touch</div>
+            <h1>Contact Moofar</h1>
+            <p>Let's discuss your landscaping project. We're here to help bring your vision to life.</p>
         </div>
     </section>
 
-    <!-- Footer (Same as index) -->
-    <footer>
-        <!-- ...same footer code... -->
-    </footer>
+    <!-- Contact Information & Form -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="section-subtitle">Reach Out</div>
+                <h2>Let's Connect</h2>
+                <p>Whether you need a consultation, have questions about our services, or want to request a quote, we're ready to assist you.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Francistown, Botswana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:mookfara@gmail.com">mookfara@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+26777723232">+267 77 723 232</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-text">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                            <p>Saturday: 8:00 AM - 1:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <form id="contactForm" class="contact-form" method="POST" netlify netlify-honeypot="bot-field" name="contact">
+                    <!-- Netlify form detection -->
+                    <input type="hidden" name="form-name" value="contact">
+                    
+                    <!-- Honeypot field for spam protection -->
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                placeholder="John Doe"
+                                aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                placeholder="john@example.com"
+                                aria-required="true">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+267 77 123 456">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="landscape-maintenance">Landscape Maintenance</option>
+                                <option value="nursery">Horticultural Nursery</option>
+                                <option value="bush-clearing">Bush Clearing</option>
+                                <option value="fencing">Fencing Services</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            required 
+                            placeholder="Tell us about your project..."
+                            aria-required="true"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
+    <!-- Footer (injected by components.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
