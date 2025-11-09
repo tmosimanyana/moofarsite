@@ -5,339 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Moofar Pty Ltd</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --gold: #C9A961;
-            --dark-gold: #A68B4D;
-            --light-gold: #E5D4A6;
-            --dark-bg: #1a1a1a;
-            --darker-bg: #0f0f0f;
-            --white: #ffffff;
-            --light-gray: #f8f8f8;
-            --text-gray: #666;
+            --gold: #C9A961; --dark-gold: #A68B4D; --light-gold: #E5D4A6;
+            --dark-bg: #1a1a1a; --darker-bg: #0f0f0f; --white: #ffffff;
+            --light-gray: #f8f8f8; --text-gray: #666;
         }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--gold);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        /* Page Header */
+        body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(26,26,26,0.95);
+            -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+            padding: 1.5rem 5%; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--gold);
+            text-decoration: none; letter-spacing: 2px; }
+        .nav-links { display: flex; list-style: none; gap: 3rem; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 0.95rem;
+            letter-spacing: 1px; transition: color 0.3s ease; font-family: 'Arial', sans-serif; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 2px; background: var(--gold); }
         .page-header {
             height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); margin-top: 80px;
         }
-
-        .page-header-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .page-header-content p {
-            font-size: 1.3rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 8rem 5%;
-            background: var(--white);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 5rem;
-        }
-
-        .section-subtitle {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            color: var(--dark-bg);
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .gallery {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            background: var(--white);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-            border: 2px solid var(--gold);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease, filter 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-            filter: brightness(0.9);
-        }
-
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .page-header-content h1 { font-size: 4rem; margin-bottom: 1rem; font-weight: 300; }
+        .page-header-content p { font-size: 1.3rem; color: var(--gold); letter-spacing: 2px;
+            text-transform: uppercase; font-family: 'Arial', sans-serif; }
+        .gallery-section { padding: 8rem 5%; background: var(--white); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 5rem; }
+        .section-subtitle { color: var(--gold); font-size: 0.9rem; letter-spacing: 3px;
+            margin-bottom: 1rem; text-transform: uppercase; font-family: 'Arial', sans-serif; }
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; font-weight: 300; color: var(--dark-bg); }
+        .section-description { font-size: 1.1rem; color: var(--text-gray); font-family: 'Arial', sans-serif; }
+        .gallery { max-width: 1400px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+        .gallery-item { position: relative; overflow: hidden; cursor: pointer;
+            background: var(--white); transition: transform 0.4s ease; }
+        .gallery-item::after { content: ''; position: absolute; top: 10px; left: 10px;
+            width: calc(100% - 20px); height: calc(100% - 20px); border: 2px solid var(--gold);
+            opacity: 0; transition: opacity 0.3s ease; z-index: 2; pointer-events: none; }
+        .gallery-item:hover::after { opacity: 1; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 350px; object-fit: cover; display: block;
+            transition: transform 0.4s ease, filter 0.3s ease; }
+        .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.9); }
+        .image-overlay { position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 2rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .image-overlay {
-            transform: translateY(0);
-        }
-
-        .image-overlay h3 {
-            color: var(--gold);
-            font-size: 1rem;
-            letter-spacing: 1px;
-            font-family: 'Arial', sans-serif;
-            margin-bottom: 0.5rem;
-        }
-
-        .image-overlay p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.85rem;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        .lightbox-info {
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--white);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            color: var(--gold);
-            font-size: 2.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 10px;
-            transition: transform 0.2s ease;
-            font-weight: 300;
-        }
-
-        .close-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(201, 169, 97, 0.2);
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            font-size: 2rem;
-            padding: 1rem 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 300;
-        }
-
-        .nav-btn:hover {
-            background: var(--gold);
-            color: var(--dark-bg);
-        }
-
-        .prev-btn {
-            left: 20px;
-        }
-
-        .next-btn {
-            right: 20px;
-        }
-
-        /* Footer styles unchanged... */
-
+            padding: 2rem 1.5rem; transform: translateY(100%); transition: transform 0.3s ease; }
+        .gallery-item:hover .image-overlay { transform: translateY(0); }
+        .image-overlay h3 { color: var(--gold); font-size: 1rem; letter-spacing: 1px;
+            font-family: 'Arial', sans-serif; margin-bottom: 0.5rem; }
+        .image-overlay p { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-family: 'Arial', sans-serif; }
+        .lightbox { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center;
+            align-items: center; padding: 20px; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .lightbox.active { display: flex; }
+        .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; }
+        .lightbox-content img { max-width: 100%; max-height: 85vh; object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lightbox-info { text-align: center; margin-top: 1rem; color: var(--white);
+            font-family: 'Arial', sans-serif; }
+        .close-btn { position: absolute; top: -50px; right: 0; color: var(--gold); font-size: 2.5rem;
+            cursor: pointer; background: none; border: none; padding: 10px;
+            transition: transform 0.2s ease; font-weight: 300; }
+        .close-btn:hover { transform: scale(1.1); }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(201,169,97,0.2); color: var(--gold); border: 2px solid var(--gold);
+            font-size: 2rem; padding: 1rem 1.2rem; cursor: pointer; transition: all 0.3s ease;
+            font-weight: 300; }
+        .nav-btn:hover { background: var(--gold); color: var(--dark-bg); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+        footer { background: var(--darker-bg); color: rgba(255,255,255,0.7); padding: 5rem 5% 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-section h3 { color: var(--gold); margin-bottom: 1.5rem; font-size: 1.3rem; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration: none;
+            display: block; margin-bottom: 0.8rem; transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif; }
+        .footer-section a:hover { color: var(--gold); }
+        .footer-bottom { text-align: center; padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1); font-family: 'Arial', sans-serif; }
     </style>
 </head>
+
 <body>
 
-<!-- Navigation, Header, Gallery HTML unchanged... -->
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">MOOFAR</a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-<!-- 🔥 REPLACED SCRIPT SECTION BELOW — THIS IS WHAT FIXES EVERYTHING ✅ -->
+<section class="page-header">
+    <div class="page-header-content">
+        <h1>Our Gallery</h1>
+        <p>Showcasing Excellence</p>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="section-header">
+        <div class="section-subtitle">Our Work</div>
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-description">
+            Explore our completed projects and see the quality and craftsmanship that defines Moofar Pty Ltd.
+        </p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="close-btn" onclick="closeLightbox()">×</button>
+        <button class="nav-btn prev-btn" onclick="navigateImage(-1)">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="nav-btn next-btn" onclick="navigateImage(1)">›</button>
+        <div class="lightbox-info" id="lightbox-info"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>MOOFAR PTY LTD</h3>
+            <p>Botswana's premier landscaping and horticultural services provider.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h3>Services</h3>
+            <a href="services.html#maintenance">Landscape Maintenance</a>
+            <a href="services.html#nursery">Horticultural Nursery</a>
+            <a href="services.html#clearing">Bush Clearing</a>
+            <a href="services.html#fencing">Fencing Services</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Francistown, Botswana</p>
+            <p>Mookfara@gmail.com</p>
+            <p>+267 777 23232</p>
+            <p>+267 770 85655</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Moofar Pty Ltd. All rights reserved.</p>
+    </div>
+</footer>
+
 <script>
-const basePath = 'assets/';         // ✅ Correct web path
-const MAX_INDEX = 30;               // ✅ Increase if more images later
+const basePath = 'assets/';
+const MAX_INDEX = 30;
 let images = [];
 let currentImageIndex = 0;
 
 function probeImagesAndInit() {
-    const candidates = [];
-
+    let candidates = [];
     for (let i = 0; i <= MAX_INDEX; i++) {
         candidates.push({
             file: `${basePath}gallery${i}.webp`,
@@ -368,7 +211,7 @@ function createGallery() {
     gallery.innerHTML = "";
 
     if (images.length === 0) {
-        gallery.innerHTML = "<p style='text-align:center;color:#666;'>No images found in /assets/.</p>";
+        gallery.innerHTML = "<p style='text-align:center;color:#666;'>No images found in /assets/ folder.</p>";
         return;
     }
 
@@ -384,17 +227,14 @@ function createGallery() {
                 <p>${img.category}</p>
             </div>
         `;
-
         gallery.appendChild(item);
     });
 }
 
 function openLightbox(index) {
     currentImageIndex = index;
-
     document.getElementById('lightbox-img').src = images[index].file;
     document.getElementById('lightbox-info').textContent = images[index].title;
-
     document.getElementById('lightbox').classList.add('active');
 }
 
@@ -404,10 +244,8 @@ function closeLightbox() {
 
 function navigateImage(direction) {
     currentImageIndex += direction;
-
     if (currentImageIndex < 0) currentImageIndex = images.length - 1;
     if (currentImageIndex >= images.length) currentImageIndex = 0;
-
     openLightbox(currentImageIndex);
 }
 
@@ -420,4 +258,3 @@ probeImagesAndInit();
 
 </body>
 </html>
-
