@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Moofar Pty Ltd</title>
+<style>
+/* (CSS unchanged for brevity) */
+</style>
+</head>
+<body>
+<!-- (Body content unchanged up to script section) -->
+<script>
+const basePath = 'assets/';
+const MAX_INDEX = 30;
+let images = [];
+let currentImageIndex = 0;
+
+function probeImagesAndInit() {
+    let candidates = [];
+    for (let i = 0; i <= MAX_INDEX; i++) {
+        let fileName = `${basePath}gallery${i}.webp`;
+        if (i === 3) {
+            fileName = 'https://github.com/tmosimanyana/moofarsite/blob/main/assets/gallery.webp?raw=true';
+        }
+        if (i === 26) {
+            fileName = 'https://github.com/tmosimanyana/moofarsite/blob/main/assets/gallery45.webp?raw=true';
+        }
+        candidates.push({
+            file: fileName,
+            title: `Gallery ${i}`,
+            category: ''
+        });
+    }
+
+    let checked = 0;
+
+    candidates.forEach((item) => {
+        const test = new Image();
+        test.onload = () => {
+            images.push(item);
+            checked++;
+            if (checked === candidates.length) createGallery();
+        };
+        test.onerror = () => {
+            checked++;
+            if (checked === candidates.length) createGallery();
+        };
+        test.src = item.file;
+    });
+}
+
+function createGallery() {
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = "";
+
+    if (images.length === 0) {
+        gallery.innerHTML = "<p style='text-align:center;color:#666;'>No images found in /assets/ folder.</p>";
+        return;
+    }
+
+    images.forEach((img, index) => {
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+        item.onclick = () => openLightbox(index);
+
+        item.innerHTML = `
+            <img src="${img.file}" alt="${img.title}" loading="lazy">
+            <div class="image-overlay">
+                <h3>${img.title}</h3>
+                <p>${img.category}</p>
+            </div>
+        `;
+        gallery.appendChild(item);
+    });
+}
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    document.getElementById('lightbox-img').src = images[index].file;
+    document.getElementById('lightbox-info').textContent = images[index].title;
+    document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+}
+
+function navigateImage(direction) {
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+    if (currentImageIndex >= images.length) currentImageIndex = 0;
+    openLightbox(currentImageIndex);
+}
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') closeLightbox();
+});
+
+probeImagesAndInit();
+</script>
+</body>
+</html>
