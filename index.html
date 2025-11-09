@@ -5,54 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moofar Pty Ltd - Premium Landscaping & Horticultural Services</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; }
         :root {
             --gold: #C9A961;
-            --dark-gold: #A68B4D;
-            --light-gold: #E5D4A6;
             --dark-bg: #1a1a1a;
-            --darker-bg: #0f0f0f;
             --white: #ffffff;
             --light-gray: #f8f8f8;
             --text-gray: #666;
         }
-        body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; overflow-x: hidden; }
-
-        /* Navigation */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(26,26,26,0.95); backdrop-filter: blur(10px); padding: 1.5rem 5%; z-index:1000; transition: all 0.3s ease; }
-        nav.scrolled { padding: 1rem 5%; box-shadow: 0 2px 20px rgba(201,169,97,0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 50px; }
-        .nav-links { display: flex; list-style: none; gap: 3rem; }
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; transition: color 0.3s ease; font-family: 'Arial', sans-serif; }
+        body { font-family: 'Georgia', serif; color:#333; line-height:1.6; overflow-x:hidden; }
+        nav {
+            position: fixed; top:0; width:100%; background: rgba(26,26,26,0.95); backdrop-filter: blur(10px);
+            padding:1.5rem 5%; z-index:1000; transition: all 0.3s ease;
+        }
+        nav.scrolled { padding:1rem 5%; box-shadow:0 2px 20px rgba(201,169,97,0.1); }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:1.8rem; font-weight:bold; color:var(--gold); text-decoration:none; letter-spacing:2px; }
+        .nav-links { display:flex; list-style:none; gap:3rem; }
+        .nav-links a { color: var(--white); text-decoration:none; font-size:0.95rem; letter-spacing:1px; font-family:'Arial',sans-serif; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--gold); }
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-        .menu-toggle span { width: 25px; height: 2px; background: var(--gold); transition: all 0.3s ease; }
+        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .menu-toggle span { width:25px; height:2px; background: var(--gold); transition: all 0.3s ease; }
 
         /* Hero */
-        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white); position:relative; overflow:hidden; }
-        .hero-content { position:relative; z-index:1; max-width:900px; padding:2rem; animation: fadeInUp 1s ease; }
-        .hero-subtitle { color: var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; font-family:'Arial',sans-serif; }
+        .hero {
+            height:100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover;
+            display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white); position:relative; overflow:hidden;
+        }
+        .hero-content { position:relative; z-index:1; max-width:900px; padding:2rem; animation:fadeInUp 1s ease; }
+        .hero-subtitle { color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; font-family:'Arial',sans-serif; }
         .hero h1 { font-size:4rem; margin-bottom:1.5rem; line-height:1.2; font-weight:300; }
         .hero p { font-size:1.3rem; margin-bottom:2.5rem; color: rgba(255,255,255,0.9); font-family:'Arial',sans-serif; }
-        .btn { display:inline-block; padding:1rem 2.5rem; background:var(--gold); color:var(--dark-bg); text-decoration:none; font-weight:bold; letter-spacing:2px; transition:all 0.3s ease; border:2px solid var(--gold); font-family:'Arial',sans-serif; text-transform:uppercase; font-size:0.9rem; }
-        .btn:hover { background:transparent; color:var(--gold); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,169,97,0.3);}
+        .btn { display:inline-block; padding:1rem 2.5rem; background: var(--gold); color: var(--dark-bg); text-decoration:none; font-weight:bold; letter-spacing:2px; transition: all 0.3s ease; border:2px solid var(--gold); font-family:'Arial',sans-serif; text-transform:uppercase; font-size:0.9rem; }
+        .btn:hover { background:transparent; color:var(--gold); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,169,97,0.3); }
         .btn-outline { background:transparent; color:var(--white); border:2px solid var(--white); margin-left:1rem; }
         .btn-outline:hover { background:var(--white); color:var(--dark-bg); }
 
         /* Services */
-        .services { padding:8rem 5%; background:var(--light-gray);}
+        .services { padding:8rem 5%; background:var(--light-gray); }
         .section-header { text-align:center; max-width:700px; margin:0 auto 5rem; }
         .section-subtitle { color:var(--gold); font-size:0.9rem; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; font-family:'Arial',sans-serif; }
         .section-title { font-size:3rem; margin-bottom:1.5rem; color:var(--dark-bg); font-weight:300; }
         .section-description { font-size:1.1rem; color:var(--text-gray); font-family:'Arial',sans-serif; }
-        .services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; max-width:1400px; margin:0 auto; }
-        .service-card { background:var(--white); padding:3rem 2rem; text-align:center; transition:all 0.3s ease; border-top:3px solid transparent; position:relative; overflow:hidden;}
+        .services-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2rem; max-width:1400px; margin:0 auto; }
+        .service-card { background:var(--white); padding:3rem 2rem; text-align:center; transition:all 0.3s ease; border-top:3px solid transparent; position:relative; overflow:hidden; }
         .service-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--gold); transform:scaleX(0); transition: transform 0.3s ease; }
-        .service-card:hover::before { transform:scaleX(1);}
-        .service-card:hover { transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,0.1);}
+        .service-card:hover::before { transform:scaleX(1); }
+        .service-card:hover { transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,0.1); }
         .service-icon { font-size:3rem; color:var(--gold); margin-bottom:1.5rem; }
-        .service-card h3 { font-size:1.5rem; margin-bottom:1rem; color:var(--dark-bg);}
+        .service-card h3 { font-size:1.5rem; margin-bottom:1rem; color:var(--dark-bg); }
         .service-card p { color:var(--text-gray); line-height:1.8; font-family:'Arial',sans-serif; }
 
         /* About */
@@ -63,10 +65,20 @@
         .about-image::after { content:''; position:absolute; top:20px; right:20px; width:100%; height:100%; border:2px solid var(--gold); z-index:-1; }
         .about-content h2 { font-size:3rem; margin-bottom:2rem; font-weight:300; }
         .about-content p { font-size:1.1rem; margin-bottom:1.5rem; line-height:1.8; color:rgba(255,255,255,0.8); font-family:'Arial',sans-serif; }
-        .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+        .stats { display:grid; grid-template-columns: repeat(3,1fr); gap:2rem; margin-top:3rem; }
         .stat { text-align:center; }
         .stat-number { font-size:3rem; color:var(--gold); font-weight:bold; margin-bottom:0.5rem; }
-        .stat-label { font-size:0.9rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; font-family:'Arial',sans-serif; }
+        .stat-label { font-size:0.9rem; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; font-family:'Arial',sans-serif; }
+
+        /* Gallery */
+        .gallery { padding:8rem 5%; background:var(--white); margin-bottom:5rem; }
+        .gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(350px,1fr)); gap:1rem; max-width:1400px; margin:3rem auto 0; }
+        .gallery-item { position:relative; overflow:hidden; height:400px; cursor:pointer; }
+        .gallery-item img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform:scale(1.1); }
+        .gallery-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(to top, rgba(26,26,26,0.9), transparent); display:flex; align-items:flex-end; padding:2rem; opacity:0; transition:opacity 0.3s ease; }
+        .gallery-item:hover .gallery-overlay { opacity:1; }
+        .gallery-overlay h3 { color:var(--gold); font-size:1.5rem; }
 
         /* CTA */
         .cta { padding:8rem 5%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover fixed; text-align:center; color:var(--white); }
@@ -74,18 +86,15 @@
         .cta p { font-size:1.3rem; margin-bottom:2.5rem; font-family:'Arial',sans-serif; }
 
         /* Footer */
-        footer { background:var(--darker-bg); color:rgba(255,255,255,0.7); padding:5rem 5% 2rem; }
-        .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
+        footer { background:var(--dark-bg); color:rgba(255,255,255,0.7); padding:5rem 5% 2rem; }
+        .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
         .footer-section h3 { color:var(--gold); margin-bottom:1.5rem; font-size:1.3rem; }
-        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration:none; display:block; margin-bottom:0.8rem; transition:color 0.3s ease; font-family:'Arial',sans-serif; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration:none; display:block; margin-bottom:0.8rem; font-family:'Arial',sans-serif; transition:color 0.3s ease; }
         .footer-section a:hover { color:var(--gold); }
-        .social-icons { display:flex; gap:1rem; margin-top:1rem; }
-        .social-icons img { width:30px; height:30px; cursor:pointer; }
         .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-family:'Arial',sans-serif; }
 
         @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 
-        /* Responsive */
         @media(max-width:768px){
             .menu-toggle { display:flex; }
             .nav-links { position:fixed; top:80px; left:-100%; flex-direction:column; background:var(--dark-bg); width:100%; padding:2rem; transition:left 0.3s ease; gap:1.5rem; }
@@ -99,19 +108,16 @@
     </style>
 </head>
 <body>
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo"></a>
+            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo" style="height:40px;"></a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="services.html#services-section">Services</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -119,41 +125,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-subtitle">Premium Landscaping Excellence</div>
             <h1>Crafting Natural Masterpieces</h1>
             <p>Transform your outdoor space with Botswana's premier landscaping, horticultural, and land maintenance specialists</p>
-            <a href="services.html" class="btn">Explore Services</a>
+            <a href="services.html#services-section" class="btn">Explore Services</a>
             <a href="contact.html" class="btn btn-outline">Get A Quote</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
+    <!-- Services -->
+    <section class="services" id="services-section">
         <div class="section-header">
             <div class="section-subtitle">What We Offer</div>
             <h2 class="section-title">Our Premium Services</h2>
             <p class="section-description">From meticulous landscape maintenance to professional bush clearing and fencing, we deliver excellence in every project.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" id="maintenance">
                 <div class="service-icon">🌿</div>
                 <h3>Landscape Maintenance</h3>
                 <p>Expert care for your gardens and grounds. Regular maintenance, seasonal planting, lawn care, and irrigation management to keep your landscape pristine year-round.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="nursery">
                 <div class="service-icon">🌳</div>
                 <h3>Horticultural Nursery</h3>
                 <p>Premium plants, trees, and shrubs sourced and cultivated with care. Professional advice on plant selection and sustainable landscaping solutions.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="clearing">
                 <div class="service-icon">🪓</div>
                 <h3>Bush Clearing</h3>
                 <p>Professional land clearing services for residential and commercial properties. Safe, efficient removal of unwanted vegetation and debris.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="fencing">
                 <div class="service-icon">🏗️</div>
                 <h3>Fencing Services</h3>
                 <p>Quality fencing solutions for security and aesthetics. From wooden privacy fences to decorative garden borders and commercial perimeter fencing.</p>
@@ -161,7 +167,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section class="about">
         <div class="about-container">
             <div class="about-image">
@@ -170,8 +176,8 @@
             <div class="about-content">
                 <div class="section-subtitle">About Moofar</div>
                 <h2>Excellence in Every Detail</h2>
-                <p>Moofar Pty Ltd started in September last year and was officially registered in September this year. As a new company, we bring fresh ideas and dedication to landscaping, horticulture, and land maintenance.</p>
-                <p>Our mission is to create beautiful outdoor spaces while maintaining sustainable practices.</p>
+                <p>Moofar Pty Ltd started operations in September last year and was officially registered in September 2025 (UIN BW00009410484). We are committed to quality, sustainability, and customer satisfaction.</p>
+                <p>With a team of experienced horticulturists, landscapers, and craftsmen, we bring your vision to life while respecting the natural beauty of our environment.</p>
                 <div class="stats">
                     <div class="stat">
                         <div class="stat-number">5</div>
@@ -179,19 +185,42 @@
                     </div>
                     <div class="stat">
                         <div class="stat-number">1</div>
-                        <div class="stat-label">Year in Operation</div>
+                        <div class="stat-label">Year Experience</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">100%</div>
                         <div class="stat-label">Client Satisfaction</div>
                     </div>
                 </div>
-                <a href="about.html" class="btn" style="margin-top: 2rem;">Learn More</a>
+                <a href="about.html" class="btn" style="margin-top:2rem;">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="section-header">
+            <div class="section-subtitle">Our Work</div>
+            <h2 class="section-title">Recent Projects</h2>
+            <p class="section-description">Explore our portfolio of stunning landscapes and completed projects.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800" alt="Garden Design">
+                <div class="gallery-overlay"><h3>Residential Garden</h3></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800" alt="Commercial Landscaping">
+                <div class="gallery-overlay"><h3>Commercial Landscaping</h3></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=800" alt="Bush Clearing">
+                <div class="gallery-overlay"><h3>Land Clearing</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="cta">
         <h2>Ready to Transform Your Space?</h2>
         <p>Contact us today for a free consultation and quote</p>
@@ -204,17 +233,25 @@
             <div class="footer-section">
                 <h3>MOOFAR PTY LTD</h3>
                 <p>Botswana's premier landscaping and horticultural services provider.</p>
-                <div class="social-icons">
-                    <a href="#"><img src="assets/instagram.svg" alt="Instagram"></a>
-                    <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
-                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="services.html">Services</a>
+                <a href="services.html#services-section">Services</a>
                 <a href="about.html">About Us</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html#maintenance">Landscape Maintenance</a>
+                <a href="services.html#nursery">Horticultural Nursery</a>
+                <a href="services.html#clearing">Bush Clearing</a>
+                <a href="services.html#fencing">Fencing Services</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="assets/instagram.svg" alt="Instagram" style="height:30px;"></a>
+                <a href="#"><img src="assets/facebook.svg" alt="Facebook" style="height:30px;"></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -223,10 +260,13 @@
     </footer>
 
     <script>
-        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if(window.scrollY > 100){ navbar.classList.add('scrolled'); } 
+            if(window.scrollY>100){ navbar.classList.add('scrolled'); } 
             else { navbar.classList.remove('scrolled'); }
         });
     </script>
