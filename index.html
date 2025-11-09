@@ -356,6 +356,7 @@
         .gallery {
             padding: 8rem 5%;
             background: var(--white);
+            margin-bottom: 5rem;
         }
 
         .gallery-grid {
@@ -407,42 +408,56 @@
             font-size: 1.5rem;
         }
 
-        /* Testimonials */
-        .testimonials {
-            padding: 8rem 5%;
+        /* Social Proof Section */
+        .social-proof {
+            padding: 5rem 5%;
+            text-align: center;
             background: var(--light-gray);
         }
 
-        .testimonial-slider {
-            max-width: 900px;
-            margin: 3rem auto 0;
-            text-align: center;
-        }
-
-        .testimonial {
-            padding: 3rem;
-        }
-
-        .testimonial-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: var(--dark-bg);
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-size: 1.1rem;
+        .social-proof .section-subtitle {
             color: var(--gold);
-            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
             font-family: 'Arial', sans-serif;
         }
 
-        .testimonial-role {
-            font-size: 0.9rem;
+        .social-proof .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+            font-weight: 300;
+        }
+
+        .social-proof .section-description {
+            font-size: 1rem;
             color: var(--text-gray);
-            margin-top: 0.5rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
             font-family: 'Arial', sans-serif;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .client-logos img {
+            max-width: 150px;
+            max-height: 80px;
+            object-fit: contain;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(50%);
+            cursor: pointer;
+        }
+
+        .client-logos img:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
         }
 
         /* CTA Section */
@@ -562,6 +577,18 @@
                 margin-left: 0;
                 margin-top: 1rem;
             }
+
+            .social-proof .section-title {
+                font-size: 2rem;
+            }
+
+            .social-proof .section-description {
+                font-size: 0.95rem;
+            }
+
+            .client-logos {
+                gap: 2rem;
+            }
         }
     </style>
 </head>
@@ -636,7 +663,7 @@
             <div class="about-content">
                 <div class="section-subtitle">About Moofar</div>
                 <h2>Excellence in Every Detail</h2>
-                <p>Moofar Pty Ltd has been Botswana's trusted partner in creating and maintaining exceptional outdoor spaces. Our commitment to quality, sustainability, and customer satisfaction sets us apart in the industry.</p>
+                <p>Moofar Pty Ltd has been Botswana's trusted partner in creating and maintaining exceptional outdoor spaces. Our commitment to quality, sustainability, and client satisfaction sets us apart in the industry.</p>
                 <p>With a team of experienced horticulturists, landscapers, and craftsmen, we bring your vision to life while respecting the natural beauty of our environment.</p>
                 <div class="stats">
                     <div class="stat">
@@ -686,7 +713,19 @@
         </div>
     </section>
 
-
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="section-header">
+            <div class="section-subtitle">Trusted By</div>
+            <h2 class="section-title">Our Happy Clients</h2>
+            <p class="section-description">We’ve worked with a range of residential and commercial clients across Botswana.</p>
+        </div>
+        <div class="client-logos">
+            <img src="https://via.placeholder.com/150x80?text=Client+1" alt="Client 1">
+            <img src="https://via.placeholder.com/150x80?text=Client+2" alt="Client 2">
+            <img src="https://via.placeholder.com/150x80?text=Client+3" alt="Client 3">
+            <img src="https://via.placeholder.com/150x80?text=Client+4" alt="Client 4">
+        </div>
     </section>
 
     <!-- CTA Section -->
@@ -746,3 +785,4 @@
     </script>
 </body>
 </html>
+
