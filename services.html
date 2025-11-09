@@ -3,420 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Moofar Pty Ltd</title>
+    <title>Moofar Pty Ltd - Services</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         :root {
             --gold: #C9A961;
-            --dark-gold: #A68B4D;
-            --light-gold: #E5D4A6;
             --dark-bg: #1a1a1a;
-            --darker-bg: #0f0f0f;
             --white: #ffffff;
             --light-gray: #f8f8f8;
             --text-gray: #666;
         }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
+        body { font-family:'Georgia', serif; color:#333; line-height:1.6; overflow-x:hidden; }
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
-            z-index: 1000;
+            position: fixed; top:0; width:100%; background: rgba(26,26,26,0.95); backdrop-filter: blur(10px);
+            padding:1.5rem 5%; z-index:1000; transition: all 0.3s ease;
         }
+        nav.scrolled { padding:1rem 5%; box-shadow:0 2px 20px rgba(201,169,97,0.1); }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:1.8rem; font-weight:bold; color:var(--gold); text-decoration:none; letter-spacing:2px; }
+        .nav-links { display:flex; list-style:none; gap:3rem; }
+        .nav-links a { color: var(--white); text-decoration:none; font-size:0.95rem; letter-spacing:1px; font-family:'Arial',sans-serif; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--gold); }
+        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .menu-toggle span { width:25px; height:2px; background: var(--gold); transition: all 0.3s ease; }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* Hero */
+        .hero { height:60vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600') center/cover;
+            display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white); position:relative; }
+        .hero-content { position:relative; z-index:1; max-width:900px; padding:2rem; }
+        .hero h1 { font-size:3rem; margin-bottom:1rem; font-weight:300; }
+        .hero p { font-size:1.2rem; color: rgba(255,255,255,0.9); }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
+        /* Services Section */
+        .services { padding:8rem 5%; background:var(--light-gray); }
+        .section-header { text-align:center; max-width:700px; margin:0 auto 5rem; }
+        .section-subtitle { color:var(--gold); font-size:0.9rem; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; font-family:'Arial',sans-serif; }
+        .section-title { font-size:2.5rem; margin-bottom:1.5rem; color:var(--dark-bg); font-weight:300; }
+        .section-description { font-size:1.1rem; color:var(--text-gray); font-family:'Arial',sans-serif; }
+        .service-card { background:var(--white); padding:3rem 2rem; margin-bottom:3rem; transition:all 0.3s ease; border-left:4px solid var(--gold); position:relative; }
+        .service-card:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,0.1); }
+        .service-card h3 { font-size:1.8rem; margin-bottom:1rem; color:var(--dark-bg); }
+        .service-card p { color:var(--text-gray); line-height:1.8; font-family:'Arial',sans-serif; }
+        .service-icon { font-size:3rem; color:var(--gold); margin-bottom:1rem; }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--gold);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        /* Page Header */
-        .page-header {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            margin-top: 80px;
-        }
-
-        .page-header-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .page-header-content p {
-            font-size: 1.3rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Services Detail Section */
-        .services-detail {
-            padding: 8rem 5%;
-            background: var(--white);
-        }
-
-        .service-section {
-            max-width: 1400px;
-            margin: 0 auto 8rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .service-section:nth-child(even) {
-            direction: rtl;
-        }
-
-        .service-section:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .service-image {
-            position: relative;
-            height: 500px;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-image::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--gold);
-            z-index: -1;
-        }
-
-        .service-content {
-            padding: 2rem 0;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark-bg);
-            font-weight: 300;
-        }
-
-        .service-content p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            font-family: 'Arial', sans-serif;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            color: var(--gold);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gold);
-            color: var(--dark-bg);
-            text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--gold);
-            font-family: 'Arial', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        /* Process Section */
-        .process {
-            padding: 8rem 5%;
-            background: var(--dark-bg);
-            color: var(--white);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 5rem;
-        }
-
-        .section-subtitle {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.8);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--gold);
-            color: var(--dark-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0 auto 2rem;
-        }
-
-        .process-step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .process-step p {
-            color: rgba(255,255,255,0.8);
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 8rem 5%;
-            background: var(--light-gray);
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark-bg);
-            font-weight: 300;
-        }
-
-        .cta p {
-            font-size: 1.3rem;
-            color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            font-family: 'Arial', sans-serif;
-        }
+        /* CTA */
+        .cta { padding:5rem 5%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600') center/cover fixed; text-align:center; color:var(--white); }
+        .cta h2 { font-size:2.5rem; margin-bottom:1.5rem; font-weight:300; }
+        .cta p { font-size:1.2rem; margin-bottom:2rem; font-family:'Arial',sans-serif; }
+        .btn { display:inline-block; padding:1rem 2.5rem; background: var(--gold); color: var(--dark-bg); text-decoration:none; font-weight:bold; letter-spacing:2px; transition: all 0.3s ease; border:2px solid var(--gold); font-family:'Arial',sans-serif; text-transform:uppercase; font-size:0.9rem; }
+        .btn:hover { background:transparent; color:var(--gold); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,169,97,0.3); }
 
         /* Footer */
-        footer {
-            background: var(--darker-bg);
-            color: rgba(255,255,255,0.7);
-            padding: 5rem 5% 2rem;
-        }
+        footer { background:var(--dark-bg); color:rgba(255,255,255,0.7); padding:5rem 5% 2rem; }
+        .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
+        .footer-section h3 { color:var(--gold); margin-bottom:1.5rem; font-size:1.3rem; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration:none; display:block; margin-bottom:0.8rem; font-family:'Arial',sans-serif; transition:color 0.3s ease; }
+        .footer-section a:hover { color:var(--gold); }
+        .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-family:'Arial',sans-serif; }
 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-section p, .footer-section a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s ease;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .footer-section a:hover {
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                flex-direction: column;
-                background: var(--dark-bg);
-                width: 100%;
-                padding: 2rem;
-                transition: left 0.3s ease;
-                gap: 1.5rem;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .page-header-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .service-section {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .service-section:nth-child(even) {
-                direction: ltr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+        @media(max-width:768px){
+            .menu-toggle { display:flex; }
+            .nav-links { position:fixed; top:80px; left:-100%; flex-direction:column; background:var(--dark-bg); width:100%; padding:2rem; transition:left 0.3s ease; gap:1.5rem; }
+            .nav-links.active { left:0; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">MOOFAR</a>
+            <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Moofar Logo" style="height:40px;"></a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="#services-section">Services</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -424,145 +88,52 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="page-header-content">
-            <h1>Our Services</h1>
-            <p>Excellence in Every Detail</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Premium Services</h1>
+            <p>From meticulous landscaping to professional bush clearing and fencing, we deliver excellence in every project.</p>
         </div>
     </section>
 
-    <!-- Services Detail -->
-    <section class="services-detail">
-        <!-- Landscape Maintenance -->
-        <div class="service-section" id="maintenance">
-            <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800" alt="Landscape Maintenance">
-            </div>
-            <div class="service-content">
-                <div class="service-icon">🌿</div>
-                <h2>Landscape Maintenance</h2>
-                <p>Keep your outdoor spaces looking pristine year-round with our comprehensive landscape maintenance services. Our experienced team ensures every detail is attended to with precision and care.</p>
-                <ul class="service-features">
-                    <li>Regular lawn mowing and edging</li>
-                    <li>Seasonal planting and pruning</li>
-                    <li>Irrigation system management and repair</li>
-                    <li>Fertilization and soil treatment</li>
-                    <li>Weed control and pest management</li>
-                    <li>Mulching and bed maintenance</li>
-                    <li>Tree and shrub care</li>
-                    <li>Debris removal and cleanup</li>
-                </ul>
-                <a href="contact.html" class="btn">Request Quote</a>
-            </div>
-        </div>
-
-        <!-- Horticultural Nursery -->
-        <div class="service-section" id="nursery">
-            <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Horticultural Nursery">
-            </div>
-            <div class="service-content">
-                <div class="service-icon">🌳</div>
-                <h2>Horticultural Nursery</h2>
-                <p>Access Botswana's finest selection of plants, trees, and shrubs. Our nursery offers healthy, locally-adapted species perfect for your landscaping projects, backed by expert horticultural advice.</p>
-                <ul class="service-features">
-                    <li>Indigenous and exotic plant varieties</li>
-                    <li>Mature trees and instant landscaping solutions</li>
-                    <li>Seasonal flowers and ornamental plants</li>
-                    <li>Drought-resistant and water-wise plants</li>
-                    <li>Custom plant sourcing</li>
-                    <li>Expert planting guidance and care instructions</li>
-                    <li>Soil, mulch, and fertilizer supplies</li>
-                    <li>Delivery and installation services</li>
-                </ul>
-                <a href="contact.html" class="btn">Visit Nursery</a>
-            </div>
-        </div>
-
-        <!-- Bush Clearing -->
-        <div class="service-section" id="clearing">
-            <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1696357337795-d3a4c99b438e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374" alt="Bush Clearing">
-            </div>
-            <div class="service-content">
-                <div class="service-icon">🪓</div>
-                <h2>Bush Clearing Services</h2>
-                <p>Professional land clearing for residential, commercial, and agricultural properties. We safely and efficiently remove unwanted vegetation, preparing your land for development or maintenance.</p>
-                <ul class="service-features">
-                    <li>Complete bush and brush removal</li>
-                    <li>Tree felling and stump grinding</li>
-                    <li>Debris hauling and disposal</li>
-                    <li>Land leveling and grading</li>
-                    <li>Fire break creation and maintenance</li>
-                    <li>Erosion control solutions</li>
-                    <li>Environmental compliance and safety</li>
-                    <li>Large-scale commercial projects</li>
-                </ul>
-                <a href="contact.html" class="btn">Get Started</a>
-            </div>
-        </div>
-
-        <!-- Fencing Services -->
-        <div class="service-section" id="fencing">
-            <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1601406224610-e422544f7f36?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Fencing Services">
-            </div>
-            <div class="service-content">
-                <div class="service-icon">🗝️</div>
-                <h2>Fencing Services</h2>
-                <p>Enhance security and aesthetics with our professional fencing solutions. From residential privacy fences to commercial perimeter security, we deliver quality craftsmanship that lasts.</p>
-                <ul class="service-features">
-                    <li>Wooden privacy and decorative fencing</li>
-                    <li>Chain-link and wire mesh fencing</li>
-                    <li>Palisade and security fencing</li>
-                    <li>Electric fencing installation</li>
-                    <li>Garden borders and picket fences</li>
-                    <li>Gate installation and automation</li>
-                    <li>Fence repair and maintenance</li>
-                    <li>Custom design and fabrication</li>
-                </ul>
-                <a href="contact.html" class="btn">Plan Your Fence</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process">
+    <!-- Services -->
+    <section class="services" id="services-section">
         <div class="section-header">
-            <div class="section-subtitle">How We Work</div>
-            <h2 class="section-title">Our Process</h2>
-            <p class="section-description">From initial consultation to project completion, we ensure a seamless experience.</p>
+            <div class="section-subtitle">What We Offer</div>
+            <h2 class="section-title">Detailed Services</h2>
+            <p class="section-description">Explore our core services and see how we can transform your outdoor space.</p>
         </div>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>Consultation</h3>
-                <p>We meet with you to understand your vision, assess the site, and discuss your specific needs and budget.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Planning</h3>
-                <p>Our team develops a detailed project plan, including timelines, materials, and a comprehensive quote.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Execution</h3>
-                <p>We bring your project to life with skilled craftsmanship, quality materials, and attention to every detail.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Maintenance</h3>
-                <p>We provide ongoing support and maintenance services to keep your landscape beautiful for years to come.</p>
-            </div>
+
+        <div class="service-card" id="maintenance">
+            <div class="service-icon">🌿</div>
+            <h3>Landscape Maintenance</h3>
+            <p>Expert care for gardens and grounds. Regular maintenance, seasonal planting, lawn care, and irrigation management to keep your landscape pristine year-round.</p>
+        </div>
+
+        <div class="service-card" id="nursery">
+            <div class="service-icon">🌳</div>
+            <h3>Horticultural Nursery</h3>
+            <p>Premium plants, trees, and shrubs sourced and cultivated with care. Professional advice on plant selection and sustainable landscaping solutions.</p>
+        </div>
+
+        <div class="service-card" id="clearing">
+            <div class="service-icon">🪓</div>
+            <h3>Bush Clearing</h3>
+            <p>Professional land clearing services for residential and commercial properties. Safe, efficient removal of unwanted vegetation and debris.</p>
+        </div>
+
+        <div class="service-card" id="fencing">
+            <div class="service-icon">🏗️</div>
+            <h3>Fencing Services</h3>
+            <p>Quality fencing solutions for security and aesthetics. From wooden privacy fences to decorative garden borders and commercial perimeter fencing.</p>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta">
-        <h2>Ready to Get Started?</h2>
-        <p>Contact us today for a free consultation and personalized quote</p>
-        <a href="contact.html" class="btn">Contact Us</a>
+        <h2>Ready to Transform Your Space?</h2>
+        <p>Contact us today for a free consultation and quote.</p>
+        <a href="contact.html" class="btn">Get Started</a>
     </section>
 
     <!-- Footer -->
@@ -574,24 +145,16 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="services.html">Services</a>
-                <a href="about.html">About Us</a>
+                <a href="index.html">Home</a>
+                <a href="#services-section">Services</a>
+                <a href="about.html">About</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="footer-section">
-                <h3>Services</h3>
-                <a href="#maintenance">Landscape Maintenance</a>
-                <a href="#nursery">Horticultural Nursery</a>
-                <a href="#clearing">Bush Clearing</a>
-                <a href="#fencing">Fencing Services</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Francistown, Botswana</p>
-                <p>Mookfara@gmail.com</p>
-                <p>+267 777 23232</p>
-                <p>+267 770 85655</p>
+                <h3>Follow Us</h3>
+                <a href="#"><img src="assets/instagram.svg" alt="Instagram" style="height:30px;"></a>
+                <a href="#"><img src="assets/facebook.svg" alt="Facebook" style="height:30px;"></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -604,6 +167,12 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if(window.scrollY>100){ navbar.classList.add('scrolled'); } 
+            else { navbar.classList.remove('scrolled'); }
+        });
     </script>
 </body>
 </html>
+
